@@ -1,14 +1,10 @@
 import type { NextConfig } from "next";
 
-module.exports = {
-  output:"standalone",
-  turbo: {
-    root: "/home/roach/Projects/sites/jaco-botha"
-  },
-}
-
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "standalone",
+  turbopack: {
+    root: "/home/roach/Projects/sites/ce206"
+  },
   reactCompiler: true,
 };
 
