@@ -5,12 +5,14 @@ import Services from "./services/page";
 import AboutP from "./about/page";
 import Contact from "./contact/page";
 
+
+
 export default function Home() {
+
+
   return (
     <div className="bg-(--bg-primary)">
-      <div>
- 
-      </div>
+
       <main className="">
         <Hero
           title="206_CE"

@@ -1,3 +1,6 @@
+auth0 recovery code: TVPLEB6VGF92QGVZG7EZ8PNU
+
+
 > This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js v4 SDK (Beta).
 
 # Add Login to Your Next.js Application

@@ -1,10 +1,14 @@
+
 /* CSS */
 
 import "./globals.css";
 /* auth0 */
 
-import { Auth0Provider } from "@auth0/nextjs-auth0/client";
-import LoginOut from "@/components/LoginOut";
+
+import { Auth0Provider } from "@auth0/nextjs-auth0";
+
+
+import {LoginOut} from "@/components/LoginOut";
 
 /* SEO */
 import type { Metadata } from "next";
@@ -53,11 +57,17 @@ import Image from "next/image";
 
 import logo from "../../public/Logos.webp";
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
+
   return (
     <html lang="en">
       <body className={`bg-(--bg-primary) ${AudioW.className} antialiased`}>
@@ -88,8 +98,8 @@ export default function RootLayout({
                 ]}
               />
             </div>
-            <div className="mr-1">
-              <LoginOut itemClassName="text-nowrap btn cursor-pointer" />
+            <div className="mr-1 text-(--primary)">
+              <LoginOut />
             </div>
           </div>
           {children}

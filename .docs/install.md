@@ -13,11 +13,7 @@ node -v # Should print "v24.13.1".
 # Verify npm version:
 npm -v # Should print "11.8.0".
 
-
-
-
 sudo snap install code --classic
-
 
 VS Code Extensions:
 
