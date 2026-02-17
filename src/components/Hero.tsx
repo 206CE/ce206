@@ -56,12 +56,12 @@ const Hero: React.FC<HeroProps> = ({
         />
         </div>
       )}</div>
-        <h1 className="text-5xl md:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent">
+        <h1 className="flex justify-center text-5xl md:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent">
           {title}
         </h1>
 
         {tagline && (
-          <h4 className="mt-4 text-xl text-(--text-secondary) max-w-xl mx-auto">
+          <h4 className="flex justify-center mt-4 md:text-md text-xl text-(--text-secondary) max-w-xl mx-auto">
             {tagline}
           </h4>
         )}

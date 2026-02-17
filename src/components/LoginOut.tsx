@@ -12,6 +12,15 @@ export function LoginOut() {
   // 2. Handle potential errors
   if (error) return <div>{error.message}</div>;
 
+if(!user) return (
+  <a
+    href="/auth/login"
+    className="button login"
+  >
+    Log In
+  </a>
+);
+
   return (
     <main>
       <h1>Home Page (Client Rendered)</h1>

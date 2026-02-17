@@ -71,7 +71,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-(--bg-primary) ${AudioW.className} antialiased`}>
-        <Auth0Provider>
+        <Auth0Provider
+        >
           <div className="flex items-center space-x-2 gap-4 bg-(--bg-secondary)">
             <div
               className="flex gap-1 p-3 items-center "
@@ -94,7 +95,6 @@ export default function RootLayout({
                   { label: "SERVICES", href: "/services" },
                   { label: "ABOUT", href: "/about" },
                   { label: "CONTACT", href: "/contact" },
-                  { label: "BLOG", href: "/blog" },
                 ]}
               />
             </div>
