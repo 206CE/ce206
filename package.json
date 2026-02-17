@@ -13,7 +13,6 @@
     "npm": "11"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.37.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "0.563.0",

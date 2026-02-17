@@ -3,8 +3,6 @@
 
 import "./globals.css";
 /* auth0 */
-import { ClerkProvider, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-
 
 /* SEO */
 import type { Metadata } from "next";
@@ -65,7 +63,7 @@ export default function RootLayout({
 
 
   return (
-    <ClerkProvider>
+
       <html lang="en">
         <body className={`bg-(--bg-primary) ${AudioW.className} antialiased`}>
           <div className="flex items-center space-x-2 gap-4 bg-(--bg-secondary)">
@@ -81,7 +79,7 @@ export default function RootLayout({
               />
               <h3 className="text-(--primary) text-2xl">CE_206</h3>
             </div>
-
+</div>
             <div className="ml-6">
               <Navigation
                 itemClassName="btn"
@@ -94,19 +92,7 @@ export default function RootLayout({
               />
             </div>
             <div className="mr-1 text-(--primary)  ">
-              {/* Show the sign-in and sign-up buttons when the user is signed out */}
-              <SignedOut>
-                <span className="btn cursor-pointer">
-                  <SignInButton />
-                </span>
-              </SignedOut>
-              {/* Show the user button when the user is signed in */}
-              <SignedIn>
-                <span className="flex items-center ml-2 border rounded-4xl p-2">
-                  <UserButton />
-                </span>
-              </SignedIn>
-            </div>
+              
           </div>
           {children}
           <footer className="bg-(--bg-primary) pt-4">
@@ -129,6 +115,6 @@ export default function RootLayout({
           </footer>
         </body>
       </html>
-    </ClerkProvider>
+
   );
 }
