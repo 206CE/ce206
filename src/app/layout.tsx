@@ -5,10 +5,6 @@ import "./globals.css";
 /* auth0 */
 
 
-import { Auth0Provider } from "@auth0/nextjs-auth0";
-
-
-import {LoginOut} from "@/components/LoginOut";
 
 /* SEO */
 import type { Metadata } from "next";
@@ -71,8 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-(--bg-primary) ${AudioW.className} antialiased`}>
-        <Auth0Provider
-        >
+
           <div className="flex items-center space-x-2 gap-4 bg-(--bg-secondary)">
             <div
               className="flex gap-1 p-3 items-center "
@@ -99,7 +94,7 @@ export default function RootLayout({
               />
             </div>
             <div className="mr-1 text-(--primary)">
-              <LoginOut />
+
             </div>
           </div>
           {children}
@@ -121,7 +116,7 @@ export default function RootLayout({
             />
             <CopyRight />
           </footer>
-        </Auth0Provider>
+
       </body>
     </html>
   );
