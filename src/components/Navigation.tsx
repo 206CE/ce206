@@ -1,12 +1,7 @@
-/* 1.0.1
+/* 1.0.2
 
-
-  Explanation:
-
-  [{ label: "Contact", href: "/engagement" },
-  { label: "Services", dropdown: [
-   { label: "service1", href: "/sarvice1" }
-    ]},];
+1. Lucide 
+2. Simplify
 
 */
 
@@ -20,6 +15,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from './ui/dropdown-menu';
+import { Button } from './ui/button';
 
 interface NavItem {
   label: string;
@@ -29,12 +25,12 @@ interface NavItem {
 
 interface NavigationProps {
   items: NavItem[];
-  itemClassName?: string;
+  compStyling?: string;
 }
 
-export default function Navigation({
+export function Navigation({
   items,
-  itemClassName = '',
+  compStyling = '',
 }: NavigationProps) {
   const [open, setOpen] = useState(false);
 
@@ -42,16 +38,16 @@ export default function Navigation({
     document.body.style.overflow = open ? 'hidden' : '';
   }, [open]);
 
-  const commonLinkClass = `flex  ${itemClassName}`;
+  const commonLinkClass = `flex  ${compStyling}`;
 
   const renderItem = (item: NavItem, closeOnClick = false) =>
     item.dropdown ? (
       <DropdownMenu key={item.label}>
         <DropdownMenuTrigger asChild>
-          <button className={`cursor-pointer ${commonLinkClass}`} type='button'>
+          <Button className={`cursor-pointer ${commonLinkClass}`} type='button'>
             {item.label}
             <FaChevronDown className='mt-2 ml-2 h-4 w-4' aria-hidden='true' />
-          </button>
+          </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className='absolute z-10 w-max cursor-pointer'>
           {item.dropdown.map((drop) => (

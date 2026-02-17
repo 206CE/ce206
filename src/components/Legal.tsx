@@ -1,3 +1,11 @@
+/**
+ 
+1. Testing
+2. shadcn
+3. add content
+
+ */
+
 import Link from 'next/link';
 
 export default function Legal() {

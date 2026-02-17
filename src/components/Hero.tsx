@@ -24,7 +24,7 @@ interface HeroProps {
   imageSrc?: string;
   imageAlt?: string;
   imageSize?: number;
-  animation?: React.ReactNode; // For custom GSAP, Lottie, or SVG animation
+
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({
   imageSrc,
   imageAlt = 'Alternate text',
   imageSize,
-  animation,
+
   itemFormat,
 }) => {
   return (
@@ -78,12 +78,9 @@ const Hero: React.FC<HeroProps> = ({
           ))}
         </ul>
       </div>
-      {/* Optional animation node (SVG, Lottie, etc.) */}
-      {animation && (
-        <div className='absolute inset-0 -z-10 pointer-events-none'>
-          {animation}
-        </div>
-      )}
+
+
+
     </section>
   );
 };

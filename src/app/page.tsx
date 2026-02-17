@@ -8,12 +8,12 @@ export default function Home() {
     <div className='bg-(--bg-primary)'>
       <main className=''>
         <Hero
-          title='206_CE'
+          title='CE_206'
           tagline='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
           itemFormat='btn'
           listformat=''
-          imageSrc='/Logos.webp'
+          imageSrc='/Logo_2048.webp'
           imageAlt='Company Logo'
           imageSize={200}
         />

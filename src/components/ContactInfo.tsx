@@ -1,38 +1,33 @@
-/* 1.0.1
+/**
 
-1. Testing
-2. Lucide
-3. Add Address
+1. Responsiveness
 
-*/
+ */
+
+'use client'; // Must be lowercase
+
 import React, { useState } from 'react';
-import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
+import { Mail, Phone, MapPin } from 'lucide-react'; // Swapped to Lucide
+import { Button } from './ui/button';
 
 interface ContactInfoProps {
   cellphone?: string;
   email?: string;
-  address?: string; // Added address prop
+  address?: string;
 }
 
-const ContactInfo: React.FC<ContactInfoProps> = ({
-  cellphone,
-  email,
-  address,
-}) => {
-  // State to handle privacy toggle
+// Fixed the typing: Props are typed inside the parentheses
+export function ContactInfo({ cellphone, email, address }: ContactInfoProps) {
   const [isPrivate, setIsPrivate] = useState(true);
 
   const togglePrivacy = () => setIsPrivate(!isPrivate);
-
-  // Helper to mask data
   const maskData = (data: string) => (isPrivate ? '••••••••••••' : data);
 
   return (
-    /* Semantic <address> tag is best practice for contact info */
     <address className='not-italic flex flex-wrap justify-between text-(--text-secondary) font-semibold m-5 gap-4'>
       {cellphone && (
         <div className='flex flex-row items-center space-x-2'>
-          <MdPhone className='text-md text-blue-500' />
+          <Phone size={18} className='text-blue-500' />
           <span onClick={togglePrivacy} className='cursor-pointer'>
             {maskData(cellphone)}
           </span>
@@ -41,7 +36,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
 
       {email && (
         <div className='flex flex-row items-center space-x-2'>
-          <MdEmail className='text-md text-green-500' />
+          <Mail size={18} className='text-green-500' />
           <span onClick={togglePrivacy} className='cursor-pointer'>
             {maskData(email)}
           </span>
@@ -50,7 +45,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
 
       {address && (
         <div className='flex flex-row items-center space-x-2'>
-          <MdLocationOn className='text-md text-red-500' />
+          <MapPin size={18} className='text-red-500' />
           <span onClick={togglePrivacy} className='cursor-pointer'>
             {maskData(address)}
           </span>
@@ -58,15 +53,14 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
       )}
 
       {isPrivate && (
-        <button
+        <Button
+          type='button'
           onClick={togglePrivacy}
           className='text-xs text-blue-400 underline hover:text-blue-600 transition'
         >
           Show Info
-        </button>
+        </Button>
       )}
     </address>
   );
-};
-
-export default ContactInfo;
+}

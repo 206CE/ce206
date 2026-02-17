@@ -1,11 +1,7 @@
 {
-  /* 1.0.4
+  /* 1.1.4
   
- 
-  CSS:
-    text-(--text-primary)
 
-  
   */
 }
 
@@ -13,31 +9,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface LogoProps {
+  compStyling:string;
   text: string;
-  imagePath?: string;
+  imgPath?: string;
   size: number;
   href?: string;
 }
 
-export default function Logo({
+export function Logo({
   text,
-  imagePath = '/Logo.png',
+  imgPath = '/Logo.png',
   size,
   href = '/',
+  compStyling = "",
 }: LogoProps) {
   return (
-    <div className=' gap-2 text-2xl font-extrabold cursor-pointer'>
+    <div className={`gap-2 text-2xl font-extrabold cursor-pointer ${compStyling}`}>
       <Link href={href || ''}>
         <div className='flex flex-row items-center  gap-2 mr-4'>
           <Image
-            src={imagePath}
+            src={imgPath}
             alt={text}
             width={size}
             height={size}
             style={{ width: size, height: size }}
             priority
           />
-          <span className='text-(--text-primary) shrink-0'>{text}</span>
+          <span className=''>{text}</span>
         </div>
       </Link>
     </div>

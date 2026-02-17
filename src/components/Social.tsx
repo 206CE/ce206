@@ -1,10 +1,12 @@
-'use client';
+/**
 
-{
-  /* 1.0.3
-  
-  */
-}
+1. Lucide
+2. Remove CSS Dependencies
+
+
+ */
+
+'use client';
 
 import {
   FaFacebook,
@@ -45,13 +47,7 @@ function getIcon(url: string) {
   if (url.includes('discord.com')) return iconMap.discord;
   return iconMap.web;
 }
-{
-  /* CSS Properties
-  --text-primary
-  --primary-hover
-  
-  */
-}
+
 
 export default function Social({ urls, linkStyle }: SocialProps) {
   return (

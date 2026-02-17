@@ -40,15 +40,14 @@ const AudioW = Audiowide({
   subsets: ['latin'],
 });
 
-import Navigation from '@/components/Navigation';
+import {Logo, Navigation, ContactInfo} from '@/components';
+
 
 import BackButton from '@/components/BackNav';
 import Social from '@/components/Social';
-import ContactInfo from '@/components/ContactInfo';
-import CopyRight from '@/components/CopyRight';
-import Image from 'next/image';
 
-import logo from '../../public/Logos.webp';
+import CopyRight from '@/components/CopyRight';
+
 
 export default function RootLayout({
   children,
@@ -58,24 +57,26 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`bg-(--bg-primary) ${AudioW.className} antialiased`}>
-        <div className='flex items-center space-x-2 gap-4 bg-(--bg-secondary)'>
-          <div className='flex gap-1 p-3 items-center ' id='Logo'>
-            <Image src={logo} width={50} height={20} alt='Logo' />
-            <h3 className='text-(--primary) text-2xl'>CE_206</h3>
-          </div>
-        </div>
-        <div className='ml-6'>
-          <Navigation
-            itemClassName='btn'
-            items={[
-              { label: 'HOME', href: '/' },
-              { label: 'SERVICES', href: '/services' },
-              { label: 'ABOUT', href: '/about' },
-              { label: 'CONTACT', href: '/contact' },
-            ]}
+        <div className='flex items-center'>
+          <Logo
+            compStyling='text-(--primary) block'
+            text='CE_206'
+            imgPath='/Logo_160.webp'
+            size={50}
           />
+          <div className='ml-6'>
+            <Navigation
+              compStyling='btn'
+              items={[
+                { label: 'HOME', href: '/' },
+                { label: 'SERVICES', href: '/services' },
+                { label: 'ABOUT', href: '/about' },
+                { label: 'CONTACT', href: '/contact' },
+              ]}
+            />
+          </div>
+
         </div>
-        <div className='mr-1 text-(--primary)  '></div>
         {children}
         <footer className='bg-(--bg-primary) pt-4'>
           <BackButton />
@@ -92,6 +93,7 @@ export default function RootLayout({
           <ContactInfo
             cellphone='+27 079 497 2646'
             email='jacobotha206@gmail.com'
+            address='19 Carpie Diem, BailliePark, Potchefstroom, 2531'
           />
           <CopyRight />
         </footer>
