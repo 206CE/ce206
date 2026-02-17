@@ -9,8 +9,8 @@
     "lint": "eslint"
   },
   "engines": {
-    "node": "24.13.1",
-    "npm": "11.8.0"
+    "node": "24",
+    "npm": "11"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.15.0",

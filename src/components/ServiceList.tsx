@@ -18,7 +18,7 @@ export type ServiceItem = {
   icon?: ReactNode;
   imgUrl?: string;
   imgSize?: number;
-  link: string ;
+  link?: string ;
 };
 
 type ServiceListProps = {
@@ -65,14 +65,14 @@ export default function ServiceList({
           >
             {service.link && (
               <Link
-                className=""
+
                 href={service.link}
               >
                 {service.icon && (
                   <div className="mb-4 text-(--text-primary) text-3xl">
                     {service.icon}
                   </div>
-                )}{" "}
+                )}
                 {/* End Icon */}
                 {service.imgUrl && (
                   <Image
@@ -82,10 +82,10 @@ export default function ServiceList({
                     height={service.imgSize || 50}
                     width={service.imgSize || 50}
                   />
-                )}{" "}
+                )}
                 {/* End Image */}
                 {service.title && (
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3 className="text-xl font-semibold ">
                     {service.title}
                   </h3>
                 )}
@@ -97,7 +97,7 @@ export default function ServiceList({
               </Link>
             )}
           </div>
-        ))}{" "}
+        ))}
         {/*End Map */}
       </div>
     </section>
