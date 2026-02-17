@@ -93,15 +93,18 @@ export default function RootLayout({
                 ]}
               />
             </div>
-            <div className="mr-1 text-(--primary)">
+            <div className="mr-1 text-(--primary)  ">
               {/* Show the sign-in and sign-up buttons when the user is signed out */}
               <SignedOut>
-                <SignInButton />
-                
+                <span className="btn cursor-pointer">
+                  <SignInButton />
+                </span>
               </SignedOut>
               {/* Show the user button when the user is signed in */}
               <SignedIn>
-                <UserButton />
+                <span className="flex items-center ml-2 border rounded-4xl p-2">
+                  <UserButton />
+                </span>
               </SignedIn>
             </div>
           </div>
