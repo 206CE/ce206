@@ -1,7 +1,7 @@
 
 /* CSS */
-
 import "./globals.css";
+
 /* auth0 */
 
 /* SEO */
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "206_CE Services",
     description: "Everything Simplified",
-    url: "https://206CE.github.io/",
+    url: "https://ce206.vercel.app/",
     siteName: "206_CE Services",
     images: [
       {
