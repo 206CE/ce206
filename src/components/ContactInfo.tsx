@@ -1,6 +1,6 @@
-/**
+/** GOOD - 1.0.0
 
-1. Responsiveness
+
 
  */
 
@@ -24,7 +24,7 @@ export function ContactInfo({ cellphone, email, address }: ContactInfoProps) {
   const maskData = (data: string) => (isPrivate ? '••••••••••••' : data);
 
   return (
-    <address className='not-italic flex flex-wrap justify-between text-(--text-secondary) font-semibold m-5 gap-4'>
+    <address className='not-italic flex flex-wrap justify-center text-(--text-secondary) font-semibold m-5 gap-4'>
       {cellphone && (
         <div className='flex flex-row items-center space-x-2'>
           <Phone size={18} className='text-blue-500' />

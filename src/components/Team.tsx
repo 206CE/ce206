@@ -1,6 +1,13 @@
+/** GOOD - 1.0.0
+ * 
+
+1. Expand person properties to solve multiple problems
+2. CSS Dependencies
+
+ */
+
 import React from 'react';
 import Image from 'next/image';
-
 
 interface TeamMember {
   id: string | number;

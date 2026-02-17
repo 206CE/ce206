@@ -1,10 +1,10 @@
-'use client';
-
-/*  1.0.3
+/*  GOOD - 1.0.0
 
 1. shadcn Accordian 
 
 */
+
+'use client';
 
 import React, { useState } from 'react';
 

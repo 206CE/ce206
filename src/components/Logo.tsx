@@ -1,15 +1,15 @@
-{
-  /* 1.1.4
-  
+/** GOOD - 1.0.0
 
-  */
-}
+1. Add flexibility to aspect ratio.
+
+
+ */
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 interface LogoProps {
-  compStyling:string;
+  compStyling: string;
   text: string;
   imgPath?: string;
   size: number;
@@ -21,10 +21,12 @@ export function Logo({
   imgPath = '/Logo.png',
   size,
   href = '/',
-  compStyling = "",
+  compStyling = '',
 }: LogoProps) {
   return (
-    <div className={`gap-2 text-2xl font-extrabold cursor-pointer ${compStyling}`}>
+    <div
+      className={`gap-2 text-2xl font-extrabold cursor-pointer ${compStyling}`}
+    >
       <Link href={href || ''}>
         <div className='flex flex-row items-center  gap-2 mr-4'>
           <Image

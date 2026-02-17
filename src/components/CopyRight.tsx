@@ -1,7 +1,7 @@
-/**
+/** GOOD - 1.0.0
 
 1.  Add hover state change
-2.  Testing  
+ 
 
 
 

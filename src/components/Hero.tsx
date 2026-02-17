@@ -1,4 +1,4 @@
-/* 1.0.3
+/* GOOD - 1.0.0
 
 1. Remove CTA's
 2. Testing
@@ -24,7 +24,6 @@ interface HeroProps {
   imageSrc?: string;
   imageAlt?: string;
   imageSize?: number;
-
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -78,9 +77,6 @@ const Hero: React.FC<HeroProps> = ({
           ))}
         </ul>
       </div>
-
-
-
     </section>
   );
 };

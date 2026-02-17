@@ -1,7 +1,6 @@
-/**
+/** GOOD - 1.0.0
 
-1. Lucide
-2. Remove CSS Dependencies
+1. Remove CSS Dependencies
 
 
  */
@@ -47,7 +46,6 @@ function getIcon(url: string) {
   if (url.includes('discord.com')) return iconMap.discord;
   return iconMap.web;
 }
-
 
 export default function Social({ urls, linkStyle }: SocialProps) {
   return (

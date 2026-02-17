@@ -1,6 +1,6 @@
-/* 1.0.0
+/* GOOD - 1.0.0
 
-1.  Testing
+1.  CSS dependencies
 
 */
 

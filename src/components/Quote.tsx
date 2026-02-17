@@ -1,3 +1,10 @@
+/** GOOD - 1.0.0
+
+1. CSS Dependency
+
+
+ */
+
 import React from 'react';
 
 interface QuoteProps {
@@ -7,7 +14,12 @@ interface QuoteProps {
   variant?: 'minimal' | 'bordered' | 'fancy';
 }
 
-const Quote = ({ text, author, title, variant = 'bordered' }: QuoteProps) => {
+export function Quote({
+  text,
+  author,
+  title,
+  variant = 'bordered',
+}: QuoteProps) {
   // Styles based on the chosen variant
   const variants = {
     minimal: '',
@@ -45,6 +57,4 @@ const Quote = ({ text, author, title, variant = 'bordered' }: QuoteProps) => {
       )}
     </blockquote>
   );
-};
-
-export default Quote;
+}

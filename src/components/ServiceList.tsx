@@ -1,12 +1,10 @@
-/* 1.0.0 
+/** BAD - 1.0.0
 
---text-primary
--- text-secondary
---border
---bg-secondary
+1. CSS Dependency
+2. Icons
+3. Responsive Grid
 
-
-*/
+ */
 
 import Image from 'next/image';
 import Link from 'next/link';

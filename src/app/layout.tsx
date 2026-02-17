@@ -40,14 +40,12 @@ const AudioW = Audiowide({
   subsets: ['latin'],
 });
 
-import {Logo, Navigation, ContactInfo} from '@/components';
-
+import { Logo, Navigation, ContactInfo } from '@/components';
 
 import BackButton from '@/components/BackNav';
 import Social from '@/components/Social';
 
 import CopyRight from '@/components/CopyRight';
-
 
 export default function RootLayout({
   children,
@@ -75,7 +73,6 @@ export default function RootLayout({
               ]}
             />
           </div>
-
         </div>
         {children}
         <footer className='bg-(--bg-primary) pt-4'>

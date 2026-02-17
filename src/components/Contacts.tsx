@@ -1,33 +1,15 @@
-/**
+/** BAD - 0.0.0
 
 1.  Access key to .env
 2.  Shadcn Components
 3.  Next 16 useAction
+4.  CSS Dependency
 
 
 
  */
 
 'use client';
-
-/*  2.0.2
-
-
-  Improvements:
-  -props for labels
-  -props for inputs
-  -props for button
-
-
-CSS:
-  --primary
-  --text-primary
-  --text-secondary
-  --surface
-  
-
-
-*/
 
 export default function Contacts() {
   async function handleSubmit(e: React.FormEvent) {

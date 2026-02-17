@@ -1,4 +1,4 @@
-/* 1.0.2
+/* BAD - 1.0.0
 
 1. Lucide 
 2. Simplify
@@ -28,10 +28,7 @@ interface NavigationProps {
   compStyling?: string;
 }
 
-export function Navigation({
-  items,
-  compStyling = '',
-}: NavigationProps) {
+export function Navigation({ items, compStyling = '' }: NavigationProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
