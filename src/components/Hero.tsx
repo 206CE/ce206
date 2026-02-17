@@ -1,20 +1,18 @@
 /* 1.0.3
 
-  CSS:
-  --text-primary
-  --text-tertiary
-  --text-secondary
+1. Remove CTA's
+2. Testing
+
 
 */
 
 'use client';
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 export interface Cta {
   label: string;
   href: string;
-  
 }
 
 interface HeroProps {
@@ -22,62 +20,67 @@ interface HeroProps {
   tagline?: string;
   ctas?: Cta[];
   itemFormat?: string;
-  listformat?:string;
+  listformat?: string;
   imageSrc?: string;
   imageAlt?: string;
-  imageSize?:number;
+  imageSize?: number;
   animation?: React.ReactNode; // For custom GSAP, Lottie, or SVG animation
 }
 
 const Hero: React.FC<HeroProps> = ({
-  title = "Compute Everything",
-  tagline = "From Origin to Convergence. One Entity. Many Minds.",
+  title = 'Compute Everything',
+  tagline = 'From Origin to Convergence. One Entity. Many Minds.',
   ctas,
   imageSrc,
-  imageAlt = "Alternate text",
+  imageAlt = 'Alternate text',
   imageSize,
   animation,
-  itemFormat
+  itemFormat,
 }) => {
   return (
-    <section className="p-5 bg-(--bg-secondary) m-10 border-(--border) border-2">
-      <div className="">
+    <section className='p-5 bg-(--bg-secondary) m-10 border-(--border) border-2'>
+      <div className=''>
         {/* Optional image display */}
-        <div className=" flex justify-center">
-      {imageSrc && (
-        <div className="p-10">
-        <Image
-          src={imageSrc}
-          alt={imageAlt ?? "Alternate Text"}
-          className=""
-          width={imageSize || 20}
-          height={imageSize || 20}
-          priority
-        />
+        <div className=' flex justify-center'>
+          {imageSrc && (
+            <div className='p-10'>
+              <Image
+                src={imageSrc}
+                alt={imageAlt ?? 'Alternate Text'}
+                className=''
+                width={imageSize || 20}
+                height={imageSize || 20}
+                priority
+              />
+            </div>
+          )}
         </div>
-      )}</div>
-        <h1 className="flex justify-center text-5xl md:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent">
+        <h1 className='flex justify-center text-5xl md:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent'>
           {title}
         </h1>
 
         {tagline && (
-          <h4 className="flex justify-center mt-4 md:text-md text-xl text-(--text-secondary) max-w-xl mx-auto">
+          <h4 className='flex justify-center mt-4 md:text-md text-xl text-(--text-secondary) max-w-xl mx-auto'>
             {tagline}
           </h4>
         )}
-          <ul className="mt-6 flex justify-center  flex-wrap">
-            {(ctas ?? []).map((cta, idx) => (
-              <Link key={idx} href={cta.href} className="transition duration-300 transform hover:scale-110">
-                <li className={`px-6 py-2  text-(--text-primary) ${itemFormat}`}>
-                  {cta.label}
-                </li>
-              </Link>
-            ))}
-          </ul>
+        <ul className='mt-6 flex justify-center  flex-wrap'>
+          {(ctas ?? []).map((cta, idx) => (
+            <Link
+              key={idx}
+              href={cta.href}
+              className='transition duration-300 transform hover:scale-110'
+            >
+              <li className={`px-6 py-2  text-(--text-primary) ${itemFormat}`}>
+                {cta.label}
+              </li>
+            </Link>
+          ))}
+        </ul>
       </div>
       {/* Optional animation node (SVG, Lottie, etc.) */}
       {animation && (
-        <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className='absolute inset-0 -z-10 pointer-events-none'>
           {animation}
         </div>
       )}

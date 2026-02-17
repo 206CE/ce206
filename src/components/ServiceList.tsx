@@ -8,9 +8,9 @@
 
 */
 
-import Image from "next/image";
-import Link from "next/link";
-import { ReactNode } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { ReactNode } from 'react';
 
 export type ServiceItem = {
   title: string;
@@ -18,7 +18,7 @@ export type ServiceItem = {
   icon?: ReactNode;
   imgUrl?: string;
   imgSize?: number;
-  link?: string ;
+  link?: string;
 };
 
 type ServiceListProps = {
@@ -26,36 +26,37 @@ type ServiceListProps = {
   subheading?: string;
   services: ServiceItem[];
   itemStyle?: string;
-  layout?: "grid" | "list";
+  layout?: 'grid' | 'list';
   columns?: number;
 };
 
 export default function ServiceList({
   heading,
   subheading,
-  services, itemStyle,
-  layout = "grid",
+  services,
+  itemStyle,
+  layout = 'grid',
   columns = 3,
 }: ServiceListProps) {
   const gridCols =
     {
-      1: "grid-cols-1",
-      2: "grid-cols-1 sm:grid-cols-2",
-      3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-      4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
-    }[columns] || "grid-cols-1";
+      1: 'grid-cols-1',
+      2: 'grid-cols-1 sm:grid-cols-2',
+      3: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+      4: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4',
+    }[columns] || 'grid-cols-1';
 
   return (
-    <section className="py-16 px-4 bg-(--bg-primary) text-(--text-primary)">
-      <div className="text-center mb-12">
-        {heading && <h1 className="text-3xl font-bold">{heading}</h1>}
+    <section className='py-16 px-4 bg-(--bg-primary) text-(--text-primary)'>
+      <div className='text-center mb-12'>
+        {heading && <h1 className='text-3xl font-bold'>{heading}</h1>}
         {subheading && (
-          <h2 className="text-lg text-(--text-secondary) mt-2">{subheading}</h2>
+          <h2 className='text-lg text-(--text-secondary) mt-2'>{subheading}</h2>
         )}
       </div>
       <div
         className={`${
-          layout === "grid" ? `grid ${gridCols}` : "space-y-8"
+          layout === 'grid' ? `grid ${gridCols}` : 'space-y-8'
         } gap-8 max-w-7xl mx-auto `}
       >
         {services.map((service, idx) => (
@@ -64,19 +65,16 @@ export default function ServiceList({
             key={idx}
           >
             {service.link && (
-              <Link
-
-                href={service.link}
-              >
+              <Link href={service.link}>
                 {service.icon && (
-                  <div className="mb-4 text-(--text-primary) text-3xl">
+                  <div className='mb-4 text-(--text-primary) text-3xl'>
                     {service.icon}
                   </div>
                 )}
                 {/* End Icon */}
                 {service.imgUrl && (
                   <Image
-                    className="object-cover mb-4"
+                    className='object-cover mb-4'
                     src={service.imgUrl}
                     alt={service.description}
                     height={service.imgSize || 50}
@@ -85,12 +83,10 @@ export default function ServiceList({
                 )}
                 {/* End Image */}
                 {service.title && (
-                  <h3 className="text-xl font-semibold ">
-                    {service.title}
-                  </h3>
+                  <h3 className='text-xl font-semibold '>{service.title}</h3>
                 )}
                 {service.description && (
-                  <p className="text-(--text-secondary) mb-4">
+                  <p className='text-(--text-secondary) mb-4'>
                     {service.description}
                   </p>
                 )}

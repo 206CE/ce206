@@ -67,10 +67,10 @@ const benefitsD: Benefit[] = [
 
 export default function Expand() {
   return (
-    <div className="text-(--primary) p-10">
-      <section className="flex"></section>
+    <div className='text-(--primary) p-10'>
+      <section className='flex'></section>
       <section>
-        <h1 className="text-4xl pb-4">Our Web Stack</h1>
+        <h1 className='text-4xl pb-4'>Our Web Stack</h1>
         {/* Benefits 
         <Benefits benefits={benefitsD} />*/}
       </section>

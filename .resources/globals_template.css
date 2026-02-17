@@ -1,5 +1,4 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 :root {
   --bg-primary: ;
@@ -16,7 +15,6 @@
 
 /* class present on html after switch or next-themes*/
 .dark {
-
 }
 
 /* Typography Hierarchy */
@@ -66,31 +64,25 @@
 @layer components {
   /* Primary Action: High Visual Weight */
   .btn-primary {
-
   }
 
   /* Secondary Action: Low Visual Weight */
   .btn-secondary {
-
   }
 
   /* Ghost/Tertiary Action: For "Cancel" or "Go Back" */
   .btn-ghost {
-
   }
 }
-
 
 /* The Interaction - Feedback */
 @layer utilities {
   /* Skeleton Loading Pattern */
   .animate-skeleton {
-
   }
 
   /* Form Focus State */
   .input-focus {
-
   }
 }
 
@@ -98,39 +90,34 @@
 
 @layer base {
   /* Remove default browser styling for a clean slate */
-  input, textarea, select {
-
+  input,
+  textarea,
+  select {
   }
 }
 
 @layer components {
   /* 1. THE LABEL (Hierarchy: Level 4 - Small & Bold) */
   .form-label {
-
   }
 
   /* 2. THE INPUT (The Container) */
   .form-input {
-    
   }
 
   /* Interaction: Focus State */
   .form-input:focus {
-
   }
 
   /* Feedback: Error State */
   .form-input-error {
-
   }
 
   /* 3. HELP TEXT / ERROR MESSAGE */
   .form-helper {
-
   }
 
   .form-error-msg {
-
   }
 }
 
@@ -143,29 +130,22 @@ body {
 
 /* Interactive Buttons */
 .btn_1 {
-
 }
 
 .btn_1:hover {
-
 }
 
 .card {
-
 }
 .card:hover {
-
 }
 
 /*micro animaiton*/
 .cursor:hover::after {
-
 }
 
 .btn_2 {
-    
 }
 
 .btn_2:hover span {
 }
-

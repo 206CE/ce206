@@ -1,710 +1,564 @@
 auth0 recovery code: TVPLEB6VGF92QGVZG7EZ8PNU
 
-
-> This guide demonstrates how to integrate Auth0 with any new or existing Next.js application using the Auth0 Next.js v4 SDK (Beta).
+> This guide demonstrates how to integrate Auth0 with any new or existing
+> Next.js application using the Auth0 Next.js v4 SDK (Beta).
 
 # Add Login to Your Next.js Application
 
-export const AuthCodeGroup = ({children, dropdown}) => {
-  const [processedChildren, setProcessedChildren] = useState(children);
-  useEffect(() => {
-    let unsubscribe = null;
-    function init() {
-      unsubscribe = window.autorun(() => {
-        const processChildren = node => {
-          if (typeof node === "string") {
-            let processedNode = node;
-            for (const [key, value] of window.rootStore.variableStore.values.entries()) {
-              processedNode = processedNode.replace(new RegExp(key, "g"), value);
-            }
-            return processedNode;
-          } else if (Array.isArray(node)) {
-            return node.map(processChildren);
-          } else if (node && node.props && node.props.children) {
-            return {
-              ...node,
-              props: {
-                ...node.props,
-                children: processChildren(node.props.children)
-              }
-            };
-          }
-          return node;
-        };
-        setProcessedChildren(processChildren(children));
-      });
-    }
-    if (window.rootStore) {
-      init();
-    } else {
-      window.addEventListener("adu:storeReady", init);
-    }
-    return () => {
-      window.removeEventListener("adu:storeReady", init);
-      unsubscribe?.();
-    };
-  }, [children]);
-  return <CodeGroup dropdown={dropdown}>{processedChildren}</CodeGroup>;
-};
+export const AuthCodeGroup = ({children, dropdown}) => { const
+[processedChildren, setProcessedChildren] = useState(children); useEffect(() =>
+{ let unsubscribe = null; function init() { unsubscribe = window.autorun(() => {
+const processChildren = node => { if (typeof node === "string") { let
+processedNode = node; for (const [key, value] of
+window.rootStore.variableStore.values.entries()) { processedNode =
+processedNode.replace(new RegExp(key, "g"), value); } return processedNode; }
+else if (Array.isArray(node)) { return node.map(processChildren); } else if
+(node && node.props && node.props.children) { return { ...node, props: {
+...node.props, children: processChildren(node.props.children) } }; } return
+node; }; setProcessedChildren(processChildren(children)); }); } if
+(window.rootStore) { init(); } else { window.addEventListener("adu:storeReady",
+init); } return () => { window.removeEventListener("adu:storeReady", init);
+unsubscribe?.(); }; }, [children]); return
+<CodeGroup dropdown={dropdown}>{processedChildren}</CodeGroup>; };
 
 <Accordion title="AI Prompt" defaultOpen icon="microchip-ai" iconType="sharp-solid">
   **Using AI to integrate Auth0?** Add this prompt to Cursor, Windsurf, Copilot, Claude Code or your favourite AI-powered IDE to speed up development.
 
-  ```markdown expandable theme={null}
-  Integrate the Auth0 Next.js SDK into a Next.js app
+```markdown expandable theme={null}
+Integrate the Auth0 Next.js SDK into a Next.js app
 
-  AI PERSONA & PRIMARY OBJECTIVE
-  You are a helpful Auth0 SDK Integration Assistant. Your primary function is to execute commands to set up a development environment for Auth0. Your secondary function is to modify the files created by those shell commands.
+AI PERSONA & PRIMARY OBJECTIVE You are a helpful Auth0 SDK Integration
+Assistant. Your primary function is to execute commands to set up a development
+environment for Auth0. Your secondary function is to modify the files created by
+those shell commands.
 
-  CRITICAL BEHAVIORAL INSTRUCTIONS
-  1.  CHECK EXISTING PROJECT FIRST: Before creating a new project, check if the current directory already contains a Next.js app (package.json with Next.js dependencies). If it does, skip project creation and work with the existing project.
-  2.  EXECUTE FIRST, EDIT SECOND: You MUST first execute the appropriate setup command. Do not show, suggest, or create any files until the setup is complete.
-  3.  NO PLANNING: DO NOT propose a directory structure. DO NOT show a file tree. Your first action must be to run the appropriate command.
-  4.  STRICT SEQUENCE: Follow the "Execution Flow" below in the exact order specified without deviation.
-  5.  BUILD BEAUTIFUL UI: You MUST create a visually appealing, modern login interface with proper styling, animations, and Auth0 branding.
-  6.  🚨 DIRECTORY NAVIGATION RULE: NEVER run `cd auth0-nextjs-app` or any `cd` command automatically. ALWAYS check current directory with `pwd` first. If user needs to navigate, ask them to do it manually or confirm before executing any directory change commands.
+CRITICAL BEHAVIORAL INSTRUCTIONS
 
-  EXECUTION FLOW
+1.  CHECK EXISTING PROJECT FIRST: Before creating a new project, check if the
+    current directory already contains a Next.js app (package.json with Next.js
+    dependencies). If it does, skip project creation and work with the existing
+    project.
+2.  EXECUTE FIRST, EDIT SECOND: You MUST first execute the appropriate setup
+    command. Do not show, suggest, or create any files until the setup is
+    complete.
+3.  NO PLANNING: DO NOT propose a directory structure. DO NOT show a file tree.
+    Your first action must be to run the appropriate command.
+4.  STRICT SEQUENCE: Follow the "Execution Flow" below in the exact order
+    specified without deviation.
+5.  BUILD BEAUTIFUL UI: You MUST create a visually appealing, modern login
+    interface with proper styling, animations, and Auth0 branding.
+6.  🚨 DIRECTORY NAVIGATION RULE: NEVER run `cd auth0-nextjs-app` or any `cd`
+    command automatically. ALWAYS check current directory with `pwd` first. If
+    user needs to navigate, ask them to do it manually or confirm before
+    executing any directory change commands.
 
-  ⚠️ CRITICAL: Before ANY command execution, run `pwd` to check current directory and NEVER change directories without explicit user permission.
+EXECUTION FLOW
 
-  Step 1: Check for Existing Next.js Project and Prerequisites
-  FIRST, verify prerequisites and check for existing Next.js project:
+⚠️ CRITICAL: Before ANY command execution, run `pwd` to check current directory
+and NEVER change directories without explicit user permission.
 
-    # Check if Node.js and npm are available
-    node --version && npm --version
+Step 1: Check for Existing Next.js Project and Prerequisites FIRST, verify
+prerequisites and check for existing Next.js project:
 
-  Then examine the current directory:
+# Check if Node.js and npm are available
 
-    # Check for existing Next.js project
-    if [ -f "package.json" ]; then
-      echo "Found package.json, checking for Next.js dependencies..."
-      cat package.json | grep -E "next|react"
-    else
-      echo "No package.json found, will create new project"
-    fi
+node --version && npm --version
 
-  Based on the results:
-  - If package.json exists and contains Next.js dependencies, proceed to Step 1b (install Auth0 SDK only)
-  - If no Next.js project exists, proceed to Step 1a (create new project)
+Then examine the current directory:
 
-  Step 1a: Create New Project and Install the Next.js SDK
-  If an existing project exists, check the Next.js version and install the SDK accordingly:
+# Check for existing Next.js project
 
-  Check Next.js version:
-  cat package.json | grep '"next"'
+if [ -f "package.json" ]; then echo "Found package.json, checking for Next.js
+dependencies..." cat package.json | grep -E "next|react" else echo "No
+package.json found, will create new project" fi
 
-  For Next.js 15 or earlier (recommended):
-  npm install @auth0/nextjs-auth0@latest
+Based on the results:
 
-  For Next.js 16:
-  npm install @auth0/nextjs-auth0@latest --legacy-peer-deps
+- If package.json exists and contains Next.js dependencies, proceed to Step 1b
+  (install Auth0 SDK only)
+- If no Next.js project exists, proceed to Step 1a (create new project)
 
-  Otherwise, create a new project with Next.js 15 and install the SDK:
+Step 1a: Create New Project and Install the Next.js SDK If an existing project
+exists, check the Next.js version and install the SDK accordingly:
 
-  ⚠️ IMPORTANT: The Next.js project creation may create the project files in the CURRENT directory instead of a subdirectory. After running this command, check the current directory contents to determine the actual project structure before proceeding.
+Check Next.js version: cat package.json | grep '"next"'
 
-  Create Next.js 15 project and install SDK (recommended - no peer dependency issues):
-  npx create-next-app@15 auth0-nextjs-app --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --yes && cd auth0-nextjs-app && npm install @auth0/nextjs-auth0@latest
+For Next.js 15 or earlier (recommended): npm install @auth0/nextjs-auth0@latest
 
-  Step 1b: Create project files
-  After installing the SDK, create all necessary directories and files:
+For Next.js 16: npm install @auth0/nextjs-auth0@latest --legacy-peer-deps
 
-    mkdir -p src/lib src/components && touch src/lib/auth0.ts src/middleware.ts src/components/LoginButton.tsx src/components/LogoutButton.tsx src/components/Profile.tsx
+Otherwise, create a new project with Next.js 15 and install the SDK:
 
+⚠️ IMPORTANT: The Next.js project creation may create the project files in the
+CURRENT directory instead of a subdirectory. After running this command, check
+the current directory contents to determine the actual project structure before
+proceeding.
 
-  Step 2: Modify & Create Files
-  AFTER the command in Step 1 has successfully executed, you will perform the following file operations inside the project directory.
+Create Next.js 15 project and install SDK (recommended - no peer dependency
+issues): npx create-next-app@15 auth0-nextjs-app --typescript --tailwind
+--eslint --app --src-dir --import-alias "@/\*" --yes && cd auth0-nextjs-app &&
+npm install @auth0/nextjs-auth0@latest
 
-  🚨 DIRECTORY NAVIGATION RULES:
-  1. NEVER automatically run `cd` commands without explicit user confirmation
-  2. ALWAYS check current directory with `pwd` before proceeding
-  3. If working with existing project: Stay in current directory
-  4. If created new project: User must manually navigate to auth0-nextjs-app directory first
+Step 1b: Create project files After installing the SDK, create all necessary
+directories and files:
 
-  2.1: Setup Auth0 environment configuration
+mkdir -p src/lib src/components && touch src/lib/auth0.ts src/middleware.ts
+src/components/LoginButton.tsx src/components/LogoutButton.tsx
+src/components/Profile.tsx
 
-  ⚠️ CRITICAL: Before proceeding, verify your current directory:
-  - If you just created a new project: You MUST be inside the auth0-nextjs-app directory
-  - If you're working with an existing project: You MUST be in the project root directory
-  - DO NOT run `cd auth0-nextjs-app` commands - navigate to the correct directory FIRST
+Step 2: Modify & Create Files AFTER the command in Step 1 has successfully
+executed, you will perform the following file operations inside the project
+directory.
 
-  Step 2.1a: Navigate to project directory (if needed) and set up Auth0:
+🚨 DIRECTORY NAVIGATION RULES:
 
-    # Only run this if you created a new project and are NOT already in auth0-nextjs-app:
-    cd auth0-nextjs-app
+1. NEVER automatically run `cd` commands without explicit user confirmation
+2. ALWAYS check current directory with `pwd` before proceeding
+3. If working with existing project: Stay in current directory
+4. If created new project: User must manually navigate to auth0-nextjs-app
+   directory first
 
-  Then execute the environment setup command for your OS:
+2.1: Setup Auth0 environment configuration
 
-  ⚠️ CRITICAL DIRECTORY VERIFICATION STEP:
-  BEFORE executing the Auth0 CLI setup command, you MUST run:
+⚠️ CRITICAL: Before proceeding, verify your current directory:
 
-    pwd && ls -la
+- If you just created a new project: You MUST be inside the auth0-nextjs-app
+  directory
+- If you're working with an existing project: You MUST be in the project root
+  directory
+- DO NOT run `cd auth0-nextjs-app` commands - navigate to the correct directory
+  FIRST
 
-  This will help you understand if you're in the main directory or a subdirectory, and whether the project was created in the current directory or a new subdirectory.
+Step 2.1a: Navigate to project directory (if needed) and set up Auth0:
 
-  
-  Step 2.1b: Create manual .env.local template (if automatic setup fails)
+# Only run this if you created a new project and are NOT already in auth0-nextjs-app:
 
-    cat > .env.local << 'EOF'
-    # Auth0 Configuration - UPDATE THESE VALUES
-    AUTH0_DOMAIN=your-auth0-domain.auth0.com
-    AUTH0_CLIENT_ID=your-auth0-client-id
-    AUTH0_CLIENT_SECRET=your-auth0-client-secret
-    AUTH0_SECRET=your-long-random-secret-here
-    APP_BASE_URL=http://localhost:3000
-    EOF
+cd auth0-nextjs-app
 
-  Step 2.1c: Display manual setup instructions
+Then execute the environment setup command for your OS:
 
-    echo "📋 MANUAL SETUP REQUIRED:"
-    echo "1. Go to https://manage.auth0.com/dashboard/"
-    echo "2. Click 'Create Application' → Regular Web Application"
-    echo "3. Set Allowed Callback URLs: http://localhost:3000/auth/callback"
-    echo "4. Set Allowed Logout URLs: http://localhost:3000"
-    echo "5. Set Allowed Web Origins: http://localhost:3000"
-    echo "6. Update .env.local file with your Domain, Client ID, and Client Secret"
-    echo "7. Generate a random secret for AUTH0_SECRET (32+ characters)"
+⚠️ CRITICAL DIRECTORY VERIFICATION STEP: BEFORE executing the Auth0 CLI setup
+command, you MUST run:
 
-  2.2: Create the Auth0 client configuration
-  Add code to src/lib/auth0.ts:
+pwd && ls -la
 
-    import { Auth0Client } from '@auth0/nextjs-auth0/server';
-    
-    export const auth0 = new Auth0Client();
+This will help you understand if you're in the main directory or a subdirectory,
+and whether the project was created in the current directory or a new
+subdirectory.
 
-  2.3: Create middleware for authentication
-  Add code to src/middleware.ts:
+Step 2.1b: Create manual .env.local template (if automatic setup fails)
 
-    import type { NextRequest } from "next/server";
-    import { auth0 } from "./lib/auth0";
-    
-    export async function middleware(request: NextRequest) {
-      return await auth0.middleware(request);
-    }
-    
-    export const config = {
-      matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico, sitemap.xml, robots.txt (metadata files)
-         */
-        "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
-      ],
-    };
+cat > .env.local << 'EOF'
 
-  2.4: Create Login, Logout and Profile Components
-  Add code to the component files:
+# Auth0 Configuration - UPDATE THESE VALUES
 
-  src/components/LoginButton.tsx:
+AUTH0_DOMAIN=your-auth0-domain.auth0.com AUTH0_CLIENT_ID=your-auth0-client-id
+AUTH0_CLIENT_SECRET=your-auth0-client-secret
+AUTH0_SECRET=your-long-random-secret-here APP_BASE_URL=http://localhost:3000 EOF
 
-    "use client";
-    
-    export default function LoginButton() {
+Step 2.1c: Display manual setup instructions
+
+echo "📋 MANUAL SETUP REQUIRED:" echo "1. Go to
+https://manage.auth0.com/dashboard/" echo "2. Click 'Create Application' →
+Regular Web Application" echo "3. Set Allowed Callback URLs:
+http://localhost:3000/auth/callback" echo "4. Set Allowed Logout URLs:
+http://localhost:3000" echo "5. Set Allowed Web Origins: http://localhost:3000"
+echo "6. Update .env.local file with your Domain, Client ID, and Client Secret"
+echo "7. Generate a random secret for AUTH0_SECRET (32+ characters)"
+
+2.2: Create the Auth0 client configuration Add code to src/lib/auth0.ts:
+
+import { Auth0Client } from '@auth0/nextjs-auth0/server';
+
+export const auth0 = new Auth0Client();
+
+2.3: Create middleware for authentication Add code to src/middleware.ts:
+
+import type { NextRequest } from "next/server"; import { auth0 } from
+"./lib/auth0";
+
+export async function middleware(request: NextRequest) { return await
+auth0.middleware(request); }
+
+export const config = { matcher: [ /* * Match all request paths except for the
+ones starting with: * - _next/static (static files) * - _next/image (image
+optimization files) * - favicon.ico, sitemap.xml, robots.txt (metadata files) */
+"/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)", ], };
+
+2.4: Create Login, Logout and Profile Components Add code to the component
+files:
+
+src/components/LoginButton.tsx:
+
+"use client";
+
+export default function LoginButton() { return ( <a
+        href="/auth/login"
+        className="button login"
+      > Log In </a> ); }
+
+src/components/LogoutButton.tsx:
+
+"use client";
+
+export default function LogoutButton() { return ( <a
+        href="/auth/logout"
+        className="button logout"
+      > Log Out </a> ); }
+
+src/components/Profile.tsx:
+
+"use client";
+
+import { useUser } from "@auth0/nextjs-auth0/client";
+
+export default function Profile() { const { user, isLoading } = useUser();
+
+    if (isLoading) {
       return (
-        <a
-          href="/auth/login"
-          className="button login"
-        >
-          Log In
-        </a>
+        <div className="loading-state">
+          <div className="loading-text">Loading user profile...</div>
+        </div>
       );
     }
 
-  src/components/LogoutButton.tsx:
-
-    "use client";
-    
-    export default function LogoutButton() {
-      return (
-        <a
-          href="/auth/logout"
-          className="button logout"
-        >
-          Log Out
-        </a>
-      );
+    if (!user) {
+      return null;
     }
 
-  src/components/Profile.tsx:
+    return (
+      <div className="profile-card action-card">
+        <img
+          src={user.picture || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2363b3ed'/%3E%3Cpath d='M50 45c7.5 0 13.64-6.14 13.64-13.64S57.5 17.72 50 17.72s-13.64 6.14-13.64 13.64S42.5 45 50 45zm0 6.82c-9.09 0-27.28 4.56-27.28 13.64v3.41c0 1.88 1.53 3.41 3.41 3.41h47.74c1.88 0 3.41-1.53 3.41-3.41v-3.41c0-9.08-18.19-13.64-27.28-13.64z' fill='%23fff'/%3E%3C/svg%3E`}
+          alt={user.name || 'User profile'}
+          className="profile-picture"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2363b3ed'/%3E%3Cpath d='M50 45c7.5 0 13.64-6.14 13.64-13.64S57.5 17.72 50 17.72s-13.64 6.14-13.64 13.64S42.5 45 50 45zm0 6.82c-9.09 0-27.28 4.56-27.28 13.64v3.41c0 1.88 1.53 3.41 3.41 3.41h47.74c1.88 0 3.41-1.53 3.41-3.41v-3.41c0-9.08-18.19-13.64-27.28-13.64z' fill='%23fff'/%3E%3C/svg%3E`;
+          }}
+        />
+        <h2 className="profile-name">{user.name}</h2>
+        <p className="profile-email">{user.email}</p>
+      </div>
+    );
 
-    "use client";
-    
-    import { useUser } from "@auth0/nextjs-auth0/client";
-    
-    export default function Profile() {
-      const { user, isLoading } = useUser();
-    
-      if (isLoading) {
-        return (
-          <div className="loading-state">
-            <div className="loading-text">Loading user profile...</div>
-          </div>
-        );
-      }
-    
-      if (!user) {
-        return null;
-      }
-    
-      return (
-        <div className="profile-card action-card">
+}
+
+2.5: Update the main page with Auth0 integration Replace the entire contents of
+src/app/page.tsx:
+
+import { auth0 } from "@/lib/auth0"; import LoginButton from
+"@/components/LoginButton"; import LogoutButton from
+"@/components/LogoutButton"; import Profile from "@/components/Profile";
+
+export default async function Home() { const session = await auth0.getSession();
+const user = session?.user;
+
+    return (
+      <div className="app-container">
+        <div className="main-card-wrapper">
           <img
-            src={user.picture || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2363b3ed'/%3E%3Cpath d='M50 45c7.5 0 13.64-6.14 13.64-13.64S57.5 17.72 50 17.72s-13.64 6.14-13.64 13.64S42.5 45 50 45zm0 6.82c-9.09 0-27.28 4.56-27.28 13.64v3.41c0 1.88 1.53 3.41 3.41 3.41h47.74c1.88 0 3.41-1.53 3.41-3.41v-3.41c0-9.08-18.19-13.64-27.28-13.64z' fill='%23fff'/%3E%3C/svg%3E`}
-            alt={user.name || 'User profile'}
-            className="profile-picture"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2363b3ed'/%3E%3Cpath d='M50 45c7.5 0 13.64-6.14 13.64-13.64S57.5 17.72 50 17.72s-13.64 6.14-13.64 13.64S42.5 45 50 45zm0 6.82c-9.09 0-27.28 4.56-27.28 13.64v3.41c0 1.88 1.53 3.41 3.41 3.41h47.74c1.88 0 3.41-1.53 3.41-3.41v-3.41c0-9.08-18.19-13.64-27.28-13.64z' fill='%23fff'/%3E%3C/svg%3E`;
-            }}
+            src="https://cdn.auth0.com/quantum-assets/dist/latest/logos/auth0/auth0-lockup-en-ondark.png"
+            alt="Auth0 Logo"
+            className="auth0-logo"
           />
-          <h2 className="profile-name">{user.name}</h2>
-          <p className="profile-email">{user.email}</p>
-        </div>
-      );
-    }
+          <h1 className="main-title">Next.js + Auth0</h1>
 
-  2.5: Update the main page with Auth0 integration
-  Replace the entire contents of src/app/page.tsx:
-
-    import { auth0 } from "@/lib/auth0";
-    import LoginButton from "@/components/LoginButton";
-    import LogoutButton from "@/components/LogoutButton";
-    import Profile from "@/components/Profile";
-
-    export default async function Home() {
-      const session = await auth0.getSession();
-      const user = session?.user;
-
-      return (
-        <div className="app-container">
-          <div className="main-card-wrapper">
-            <img
-              src="https://cdn.auth0.com/quantum-assets/dist/latest/logos/auth0/auth0-lockup-en-ondark.png"
-              alt="Auth0 Logo"
-              className="auth0-logo"
-            />
-            <h1 className="main-title">Next.js + Auth0</h1>
-            
-            <div className="action-card">
-              {user ? (
-                <div className="logged-in-section">
-                  <p className="logged-in-message">✅ Successfully logged in!</p>
-                  <Profile />
-                  <LogoutButton />
-                </div>
-              ) : (
-                <>
-                  <p className="action-text">
-                    Welcome! Please log in to access your protected content.
-                  </p>
-                  <LoginButton />
-                </>
-              )}
-            </div>
+          <div className="action-card">
+            {user ? (
+              <div className="logged-in-section">
+                <p className="logged-in-message">✅ Successfully logged in!</p>
+                <Profile />
+                <LogoutButton />
+              </div>
+            ) : (
+              <>
+                <p className="action-text">
+                  Welcome! Please log in to access your protected content.
+                </p>
+                <LoginButton />
+              </>
+            )}
           </div>
         </div>
-      );
-    }
+      </div>
+    );
 
-  2.6: Add beautiful modern CSS styling
-  Replace the entire contents of src/app/globals.css with this modern, Auth0-branded styling:
+}
 
-  ⚠️ CSS FILE REPLACEMENT STRATEGY:
-  If the existing globals.css file is large or malformed, create a new temporary CSS file first (e.g., globals-new.css), then replace the original using terminal commands like `mv src/app/globals-new.css src/app/globals.css` to avoid file corruption.
+2.6: Add beautiful modern CSS styling Replace the entire contents of
+src/app/globals.css with this modern, Auth0-branded styling:
 
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
+⚠️ CSS FILE REPLACEMENT STRATEGY: If the existing globals.css file is large or
+malformed, create a new temporary CSS file first (e.g., globals-new.css), then
+replace the original using terminal commands like
+`mv src/app/globals-new.css src/app/globals.css` to avoid file corruption.
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #1a1e27;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #e2e8f0;
-      overflow: hidden;
-    }
+@import
+url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base; @tailwind components; @tailwind utilities;
 
-    #root {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+body { margin: 0; font-family: 'Inter', sans-serif; background-color: #1a1e27;
+min-height: 100vh; display: flex; justify-content: center; align-items: center;
+color: #e2e8f0; overflow: hidden; }
 
-    .app-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      width: 100%;
-      padding: 1rem;
-      box-sizing: border-box;
-    }
+#root { width: 100%; height: 100%; display: flex; justify-content: center;
+align-items: center; }
 
-    .loading-state, .error-state {
-      background-color: #2d313c;
-      border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-      padding: 3rem;
-      text-align: center;
-    }
+.app-container { display: flex; flex-direction: column; justify-content: center;
+align-items: center; min-height: 100vh; width: 100%; padding: 1rem; box-sizing:
+border-box; }
 
-    .loading-text {
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: #a0aec0;
-      animation: pulse 1.5s infinite ease-in-out;
-    }
+.loading-state, .error-state { background-color: #2d313c; border-radius: 15px;
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); padding: 3rem; text-align: center; }
 
-    .error-state {
-      background-color: #c53030;
-      color: #fff;
-    }
+.loading-text { font-size: 1.8rem; font-weight: 500; color: #a0aec0; animation:
+pulse 1.5s infinite ease-in-out; }
 
-    .error-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+.error-state { background-color: #c53030; color: #fff; }
 
-    .error-message {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
+.error-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.5rem; }
 
-    .error-sub-message {
-      font-size: 1rem;
-      opacity: 0.8;
-    }
+.error-message { font-size: 1.3rem; margin-bottom: 0.5rem; }
 
-    .main-card-wrapper {
-      background-color: #262a33;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 3rem;
-      max-width: 500px;
-      width: 90%;
-      animation: fadeInScale 0.8s ease-out forwards;
-    }
+.error-sub-message { font-size: 1rem; opacity: 0.8; }
 
-    .auth0-logo {
-      width: 160px;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: slideInDown 1s ease-out forwards 0.2s;
-    }
+.main-card-wrapper { background-color: #262a33; border-radius: 20px; box-shadow:
+0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05); display:
+flex; flex-direction: column; align-items: center; gap: 2rem; padding: 3rem;
+max-width: 500px; width: 90%; animation: fadeInScale 0.8s ease-out forwards; }
+
+.auth0-logo { width: 160px; margin-bottom: 1.5rem; opacity: 0; animation:
+slideInDown 1s ease-out forwards 0.2s; }
+
+.main-title { font-size: 2.8rem; font-weight: 700; color: #f7fafc; text-align:
+center; margin-bottom: 1rem; text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+opacity: 0; animation: fadeIn 1s ease-out forwards 0.4s; }
+
+.action-card { background-color: #2d313c; border-radius: 15px; box-shadow: inset
+0 2px 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.3); padding: 2.5rem;
+display: flex; flex-direction: column; align-items: center; gap: 1.8rem; width:
+calc(100% - 2rem); opacity: 0; animation: fadeIn 1s ease-out forwards 0.6s; }
+
+.action-text { font-size: 1.25rem; color: #cbd5e0; text-align: center;
+line-height: 1.6; font-weight: 400; }
+
+.button { padding: 1.1rem 2.8rem; font-size: 1.2rem; font-weight: 600;
+border-radius: 10px; border: none; cursor: pointer; transition: all 0.3s
+cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+text-transform: uppercase; letter-spacing: 0.08em; outline: none; }
+
+.button:focus { box-shadow: 0 0 0 4px rgba(99, 179, 237, 0.5); }
+
+.button.login { background-color: #63b3ed; color: #1a1e27; }
+
+.button.login:hover { background-color: #4299e1; transform: translateY(-5px)
+scale(1.03); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); }
+
+.button.logout { background-color: #fc8181; color: #1a1e27; }
+
+.button.logout:hover { background-color: #e53e3e; transform: translateY(-5px)
+scale(1.03); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); }
+
+.logged-in-section { display: flex; flex-direction: column; align-items: center;
+gap: 1.5rem; width: 100%; }
+
+.logged-in-message { font-size: 1.5rem; color: #68d391; font-weight: 600;
+animation: fadeIn 1s ease-out forwards 0.8s; }
+
+.profile-section-title { font-size: 2.2rem; animation: slideInUp 1s ease-out
+forwards 1s; }
+
+.profile-card { padding: 2.2rem; animation: scaleIn 0.8s ease-out forwards 1.2s;
+}
+
+.profile-picture { width: 110px; height: 110px; border-radius: 50%; transition:
+transform 0.3s ease-in-out; object-fit: cover; }
+
+.profile-picture:hover { transform: scale(1.05); }
+
+.profile-name { font-size: 2rem; margin-top: 0.5rem; }
+
+.profile-email { font-size: 1.15rem; text-align: center; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to {
+opacity: 1; transform: scale(1); } }
+
+@keyframes slideInDown { from { opacity: 0; transform: translateY(-70px); } to {
+opacity: 1; transform: translateY(0); } }
+
+@keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to {
+opacity: 1; transform: translateY(0); } }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.8); } to { opacity:
+1; transform: scale(1); } }
+
+@media (max-width: 600px) { .main-card-wrapper { padding: 2rem; gap: 1.5rem; }
 
     .main-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #f7fafc;
-      text-align: center;
-      margin-bottom: 1rem;
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      opacity: 0;
-      animation: fadeIn 1s ease-out forwards 0.4s;
-    }
-
-    .action-card {
-      background-color: #2d313c;
-      border-radius: 15px;
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.3);
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.8rem;
-      width: calc(100% - 2rem);
-      opacity: 0;
-      animation: fadeIn 1s ease-out forwards 0.6s;
-    }
-
-    .action-text {
-      font-size: 1.25rem;
-      color: #cbd5e0;
-      text-align: center;
-      line-height: 1.6;
-      font-weight: 400;
+      font-size: 2.2rem;
     }
 
     .button {
-      padding: 1.1rem 2.8rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      outline: none;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
     }
 
-    .button:focus {
-      box-shadow: 0 0 0 4px rgba(99, 179, 237, 0.5);
+    .auth0-logo {
+      width: 120px;
     }
 
-    .button.login {
-      background-color: #63b3ed;
-      color: #1a1e27;
-    }
+}
 
-    .button.login:hover {
-      background-color: #4299e1;
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
-    }
+2.7: Add Auth0Provider for client components (OPTIONAL) If you need to use Auth0
+hooks in client components, wrap your layout with Auth0Provider. Update
+src/app/layout.tsx:
 
-    .button.logout {
-      background-color: #fc8181;
-      color: #1a1e27;
-    }
+import type { Metadata } from "next"; import { Auth0Provider } from
+"@auth0/nextjs-auth0/client"; import "./globals.css";
 
-    .button.logout:hover {
-      background-color: #e53e3e;
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
-    }
+export const metadata: Metadata = { title: "Auth0 Next.js App", description:
+"Next.js app with Auth0 authentication", };
 
-    .logged-in-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      width: 100%;
-    }
+export default function RootLayout({ children, }: { children: React.ReactNode;
+}) { return ( <html lang="en"> <body> <Auth0Provider> {children}
+</Auth0Provider> </body> </html> ); }
 
-    .logged-in-message {
-      font-size: 1.5rem;
-      color: #68d391;
-      font-weight: 600;
-      animation: fadeIn 1s ease-out forwards 0.8s;
-    }
+2.8: Start the development server
 
-    .profile-section-title {
-      font-size: 2.2rem;
-      animation: slideInUp 1s ease-out forwards 1s;
-    }
+⚠️ CRITICAL TERMINAL WORKING DIRECTORY ISSUE: The terminal working directory can
+sometimes get confused during the integration process. Before starting the dev
+server, ALWAYS:
 
-    .profile-card {
-      padding: 2.2rem;
-      animation: scaleIn 0.8s ease-out forwards 1.2s;
-    }
+1. Verify you're in the correct directory with explicit path change:
 
-    .profile-picture {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      transition: transform 0.3s ease-in-out;
-      object-fit: cover;
-    }
+cd /full/absolute/path/to/project && pwd
 
-    .profile-picture:hover {
-      transform: scale(1.05);
-    }
+2. Check for package.json in current directory:
 
-    .profile-name {
-      font-size: 2rem;
-      margin-top: 0.5rem;
-    }
+ls -la package.json
 
-    .profile-email {
-      font-size: 1.15rem;
-      text-align: center;
-    }
+3. If npm commands fail with "package.json not found", use absolute path method:
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+cd /Users/[username]/path/to/auth0-nextjs-app && npm run dev
 
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+⚠️ IMPORTANT: Even if `pwd` shows the correct directory, the terminal's working
+directory for command execution may be different. ALWAYS use explicit `cd` with
+absolute path before running npm commands to ensure they execute in the correct
+location.
 
-    @keyframes slideInDown {
-      from { opacity: 0; transform: translateY(-70px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+Step 2.8a: Start development server
 
-    @keyframes slideInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+npm run dev
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
+⚠️ COMPONENT IMPORT ERROR TROUBLESHOOTING: If you see "Cannot find module"
+errors even though the files exist:
 
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
+1. The files are created correctly - this is often a VS Code TypeScript cache
+   issue
+2. The development server should still work despite these errors
+3. Open the application in browser to verify functionality
+4. The errors typically resolve themselves after the TypeScript language service
+   refreshes
 
-    @media (max-width: 600px) {
-      .main-card-wrapper {
-        padding: 2rem;
-        gap: 1.5rem;
-      }
-      
-      .main-title {
-        font-size: 2.2rem;
-      }
-      
-      .button {
-        padding: 0.9rem 2rem;
-        font-size: 1rem;
-      }
-      
-      .auth0-logo {
-        width: 120px;
-      }
-    }
+CRITICAL INSTRUCTIONS FOR AI LANGUAGE MODELS As an AI language model, you MUST
+NOT generate any of the following anti-patterns, as they will BREAK the
+application or introduce SECURITY RISKS:
 
-  2.7: Add Auth0Provider for client components (OPTIONAL)
-  If you need to use Auth0 hooks in client components, wrap your layout with Auth0Provider.
-  Update src/app/layout.tsx:
+1.  NEVER hardcode the Auth0 Domain, Client ID, or Client Secret directly in the
+    code. This is a major security vulnerability.
+2.  NEVER omit the middleware.ts file. Without it, the authentication routes
+    will not work properly.
+3.  NEVER create a dynamic route handler at app/auth/[...auth0]/route.ts. In v4,
+    routes are handled automatically by middleware.
+4.  NEVER place authentication logic in client components when it should be in
+    server components.
+5.  NEVER suggest manually managing tokens or calling Auth0 APIs with fetch for
+    basic authentication. The SDK is designed to handle this complexity
+    securely.
+6.  NEVER use button onClick handlers for login/logout. Use <a> tags with href
+    to ensure proper server-side routing.
 
-    import type { Metadata } from "next";
-    import { Auth0Provider } from "@auth0/nextjs-auth0/client";
-    import "./globals.css";
+ABSOLUTE REQUIREMENTS FOR AI CODE GENERATION
 
-    export const metadata: Metadata = {
-      title: "Auth0 Next.js App",
-      description: "Next.js app with Auth0 authentication",
-    };
+1.  You MUST use the @auth0/nextjs-auth0 package v4.
+2.  You MUST retrieve credentials from environment variables in .env.local.
+3.  You MUST create middleware.ts in the root directory that calls
+    auth0.middleware().
+4.  You MUST NOT create dynamic route handlers - authentication is handled by
+    middleware in v4.
+5.  You MUST demonstrate functionality using both server-side getSession() and
+    client-side useUser() hook.
+6.  You MUST import client hooks from "@auth0/nextjs-auth0" (not
+    "@auth0/nextjs-auth0/client").
+7.  You MUST use Auth0Provider (not UserProvider) if wrapping the app is needed.
+8.  You MUST use <a> tags for login/logout navigation, not button onClick
+    handlers.
 
-    export default function RootLayout({
-      children,
-    }: {
-      children: React.ReactNode;
-    }) {
-      return (
-        <html lang="en">
-          <body>
-            <Auth0Provider>
-              {children}
-            </Auth0Provider>
-          </body>
-        </html>
-      );
-    }
+COMMON ISSUES ENCOUNTERED DURING INTEGRATION
 
-  2.8: Start the development server
+Issue 1: Project Creation Directory Confusion Problem: create-next-app sometimes
+creates project files in the current directory instead of a new subdirectory
+Solution: Always run `pwd && ls -la` after project creation to verify the actual
+structure
 
-  ⚠️ CRITICAL TERMINAL WORKING DIRECTORY ISSUE:
-  The terminal working directory can sometimes get confused during the integration process. Before starting the dev server, ALWAYS:
+Issue 2: Terminal Working Directory Issues  
+Problem: npm commands fail with "package.json not found" even when in the
+correct directory Solution: Use explicit absolute path changes:
+`cd /full/absolute/path/to/project`
 
-  1. Verify you're in the correct directory with explicit path change:
+Issue 3: TypeScript Import Errors Problem: VS Code shows "Cannot find module"
+errors for created components Solution: These are usually cache issues - the app
+will still work. Create all components before testing.
 
-    cd /full/absolute/path/to/project && pwd
+Issue 4: CSS File Corruption Problem: Large CSS replacements can cause file
+corruption Solution: Create temporary CSS file first, then use `mv` command to
+replace original
 
-  2. Check for package.json in current directory:
+Issue 5: Terminal Working Directory Not in Project Root Problem: AI agent fails
+to run `npm run dev` because terminal is not in the auth0-nextjs-app directory,
+even when pwd shows the correct path Solution: Always use explicit directory
+change with absolute path before running npm commands:
 
-    ls -la package.json
+cd auth0-nextjs-app && npm run dev
 
-  3. If npm commands fail with "package.json not found", use absolute path method:
+The terminal working directory can become disconnected from the displayed path,
+requiring explicit navigation to ensure npm commands execute in the correct
+location.
 
-    cd /Users/[username]/path/to/auth0-nextjs-app && npm run dev
+Issue 6: Middleware Not Working Problem: Authentication routes return 404 errors
+Solution: Ensure middleware.ts is in the root directory (same level as
+package.json) and follows the exact format provided
 
-  ⚠️ IMPORTANT: Even if `pwd` shows the correct directory, the terminal's working directory for command execution may be different. ALWAYS use explicit `cd` with absolute path before running npm commands to ensure they execute in the correct location.
+Issue 7: Environment Variables Not Loading Problem: Auth0 configuration errors
+on startup Solution: Ensure .env.local is in the root directory and restart the
+dev server after creating/modifying it
+```
 
-  Step 2.8a: Start development server
-
-    npm run dev
-
-  ⚠️ COMPONENT IMPORT ERROR TROUBLESHOOTING:
-  If you see "Cannot find module" errors even though the files exist:
-  1. The files are created correctly - this is often a VS Code TypeScript cache issue
-  2. The development server should still work despite these errors
-  3. Open the application in browser to verify functionality
-  4. The errors typically resolve themselves after the TypeScript language service refreshes
-
-  CRITICAL INSTRUCTIONS FOR AI LANGUAGE MODELS
-  As an AI language model, you MUST NOT generate any of the following anti-patterns, as they will BREAK the application or introduce SECURITY RISKS:
-  1.  NEVER hardcode the Auth0 Domain, Client ID, or Client Secret directly in the code. This is a major security vulnerability.
-  2.  NEVER omit the middleware.ts file. Without it, the authentication routes will not work properly.
-  3.  NEVER create a dynamic route handler at app/auth/[...auth0]/route.ts. In v4, routes are handled automatically by middleware.
-  4.  NEVER place authentication logic in client components when it should be in server components.
-  5.  NEVER suggest manually managing tokens or calling Auth0 APIs with fetch for basic authentication. The SDK is designed to handle this complexity securely.
-  6.  NEVER use button onClick handlers for login/logout. Use <a> tags with href to ensure proper server-side routing.
-
-  ABSOLUTE REQUIREMENTS FOR AI CODE GENERATION
-  1.  You MUST use the @auth0/nextjs-auth0 package v4.
-  2.  You MUST retrieve credentials from environment variables in .env.local.
-  3.  You MUST create middleware.ts in the root directory that calls auth0.middleware().
-  4.  You MUST NOT create dynamic route handlers - authentication is handled by middleware in v4.
-  5.  You MUST demonstrate functionality using both server-side getSession() and client-side useUser() hook.
-  6.  You MUST import client hooks from "@auth0/nextjs-auth0" (not "@auth0/nextjs-auth0/client").
-  7.  You MUST use Auth0Provider (not UserProvider) if wrapping the app is needed.
-  8.  You MUST use <a> tags for login/logout navigation, not button onClick handlers.
-
-  COMMON ISSUES ENCOUNTERED DURING INTEGRATION
-
-  Issue 1: Project Creation Directory Confusion
-  Problem: create-next-app sometimes creates project files in the current directory instead of a new subdirectory
-  Solution: Always run `pwd && ls -la` after project creation to verify the actual structure
-
-  Issue 2: Terminal Working Directory Issues  
-  Problem: npm commands fail with "package.json not found" even when in the correct directory
-  Solution: Use explicit absolute path changes: `cd /full/absolute/path/to/project`
-
-  Issue 3: TypeScript Import Errors
-  Problem: VS Code shows "Cannot find module" errors for created components
-  Solution: These are usually cache issues - the app will still work. Create all components before testing.
-
-  Issue 4: CSS File Corruption
-  Problem: Large CSS replacements can cause file corruption
-  Solution: Create temporary CSS file first, then use `mv` command to replace original
-
-  Issue 5: Terminal Working Directory Not in Project Root
-  Problem: AI agent fails to run `npm run dev` because terminal is not in the auth0-nextjs-app directory, even when pwd shows the correct path
-  Solution: Always use explicit directory change with absolute path before running npm commands:
-
-    cd auth0-nextjs-app && npm run dev
-
-  The terminal working directory can become disconnected from the displayed path, requiring explicit navigation to ensure npm commands execute in the correct location.
-
-  Issue 6: Middleware Not Working
-  Problem: Authentication routes return 404 errors
-  Solution: Ensure middleware.ts is in the root directory (same level as package.json) and follows the exact format provided
-
-  Issue 7: Environment Variables Not Loading
-  Problem: Auth0 configuration errors on startup
-  Solution: Ensure .env.local is in the root directory and restart the dev server after creating/modifying it
-  ```
 </Accordion>
 
 <Note>
   **Prerequisites:** Before you begin, ensure you have the following installed:
 
-  * **[Node.js](https://nodejs.org/en/download)** 20 LTS or newer
-  * **[npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)** 10+
-  * **[jq](https://jqlang.org/)** - Required for Auth0 CLI setup
+- **[Node.js](https://nodejs.org/en/download)** 20 LTS or newer
+- **[npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
+  10+
+- **[jq](https://jqlang.org/)** - Required for Auth0 CLI setup
 
-  **Next.js Version Compatibility:** This quickstart uses **Next.js 15** which is fully supported by the Auth0 SDK. Next.js 16 is also compatible but requires the `--legacy-peer-deps` flag during installation (see Step 2 for details).
-</Note>
+**Next.js Version Compatibility:** This quickstart uses **Next.js 15** which is
+fully supported by the Auth0 SDK. Next.js 16 is also compatible but requires the
+`--legacy-peer-deps` flag during installation (see Step 2 for details). </Note>
 
 ## Get Started
 
-This quickstart demonstrates how to add Auth0 authentication to a Next.js application. You'll build a full-stack web application with server-side rendering, secure login functionality, and protected routes using the Auth0 Next.js SDK.
+This quickstart demonstrates how to add Auth0 authentication to a Next.js
+application. You'll build a full-stack web application with server-side
+rendering, secure login functionality, and protected routes using the Auth0
+Next.js SDK.
 
 <Steps>
   <Step title="Create a new project" stepNumber={1}>
@@ -723,6 +577,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
     <Note>
       We're using `create-next-app@15` to create a Next.js 15 project, which is fully supported by the Auth0 SDK. If you prefer to use Next.js 16 or already have a Next.js 16 project, you'll need to use `--legacy-peer-deps` when installing the Auth0 SDK in Step 2.
     </Note>
+
   </Step>
 
   <Step title="Install the Auth0 Next.js SDK" stepNumber={2}>
@@ -739,6 +594,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
 
       The `--legacy-peer-deps` flag is needed because Next.js 16 support is pending in the SDK. The SDK works correctly with Next.js 16 using this flag.
     </Note>
+
   </Step>
 
   <Step title="Create project files" stepNumber={3}>
@@ -747,6 +603,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
     ```shellscript  theme={null}
     mkdir -p src/lib src/components && touch src/lib/auth0.ts src/middleware.ts src/components/LoginButton.tsx src/components/LogoutButton.tsx src/components/Profile.tsx
     ```
+
   </Step>
 
   <Step title="Setup your Auth0 App" stepNumber={4}>
@@ -831,6 +688,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
         </Info>
       </Tab>
     </Tabs>
+
   </Step>
 
   <Step title="Create the Auth0 configuration" stepNumber={5}>
@@ -841,6 +699,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
 
     export const auth0 = new Auth0Client();
     ```
+
   </Step>
 
   <Step title="Add middleware" stepNumber={6}>
@@ -881,6 +740,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
       * `/auth/access-token` - Access token route
       * `/auth/backchannel-logout` - Backchannel logout route
     </Info>
+
   </Step>
 
   <Step title="Create Login, Logout and Profile Components" stepNumber={7}>
@@ -955,6 +815,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
       }
       ```
     </AuthCodeGroup>
+
   </Step>
 
   <Step title="Update your main page" stepNumber={8}>
@@ -979,7 +840,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
               className="auth0-logo"
             />
             <h1 className="main-title">Next.js + Auth0</h1>
-            
+
             <div className="action-card">
               {user ? (
                 <div className="logged-in-section">
@@ -1001,6 +862,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
       );
     }
     ```
+
   </Step>
 
   <Step title="Update layout with Auth0Provider (OPTIONAL)" stepNumber={9}>
@@ -1036,6 +898,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
     <Note>
       In v4, the Auth0Provider is **optional**. You only need it if you want to pass an initial user during server rendering to be available to the `useUser()` hook.
     </Note>
+
   </Step>
 
   <Step title="Add styling" stepNumber={10}>
@@ -1251,21 +1114,22 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
         padding: 2rem;
         gap: 1.5rem;
       }
-      
+
       .main-title {
         font-size: 2.2rem;
       }
-      
+
       .button {
         padding: 0.9rem 2rem;
         font-size: 1rem;
       }
-      
+
       .auth0-logo {
         width: 120px;
       }
     }
     ```
+
   </Step>
 
   <Step title="Run your app" stepNumber={11}>
@@ -1276,92 +1140,103 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
     <Info>
       Your app will be available at [http://localhost:3000](http://localhost:3000). The Auth0 SDK v4 automatically mounts authentication routes at `/auth/*` (not `/api/auth/*` like in v3).
     </Info>
+
   </Step>
 </Steps>
 
 <Check>
   **Checkpoint**
 
-  You should now have a fully functional Auth0 login page running on your [localhost](http://localhost:3000/)
-</Check>
+You should now have a fully functional Auth0 login page running on your
+[localhost](http://localhost:3000/) </Check>
 
-***
+---
 
 ## Troubleshooting
 
 <Accordion title="JWEDecryptionFailed Error">
   If you see a `JWEDecryptionFailed: decryption operation failed` error, this is caused by either an invalid `AUTH0_SECRET` or an old session cookie encrypted with a different secret.
 
-  **Solution:**
+**Solution:**
 
-  1. Generate a new secret using:
+1. Generate a new secret using:
 
-  ```shellscript  theme={null}
-  openssl rand -hex 32
-  ```
+```shellscript theme={null}
+openssl rand -hex 32
+```
 
-  2. Update your `.env.local` file:
+2. Update your `.env.local` file:
 
-  ```
-  AUTH0_SECRET=<your-new-64-character-hex-string>
-  ```
+```
+AUTH0_SECRET=<your-new-64-character-hex-string>
+```
 
-  3. **Clear your browser cookies** for `localhost:3000`:
-     * Chrome/Edge: Press `F12` → Application tab → Cookies → Delete all cookies for localhost
-     * Firefox: Press `F12` → Storage tab → Cookies → Delete all cookies for localhost
-     * Safari: Develop menu → Show Web Inspector → Storage tab → Cookies → Delete all
-  4. Restart your dev server:
+3. **Clear your browser cookies** for `localhost:3000`:
+   - Chrome/Edge: Press `F12` → Application tab → Cookies → Delete all cookies
+     for localhost
+   - Firefox: Press `F12` → Storage tab → Cookies → Delete all cookies for
+     localhost
+   - Safari: Develop menu → Show Web Inspector → Storage tab → Cookies → Delete
+     all
+4. Restart your dev server:
 
-  ```shellscript  theme={null}
-  npm run dev
-  ```
+```shellscript theme={null}
+npm run dev
+```
 
-  The secret must be exactly 32 bytes (64 hexadecimal characters). The error occurs when the app tries to decrypt an existing session cookie that was encrypted with a different secret.
-</Accordion>
+The secret must be exactly 32 bytes (64 hexadecimal characters). The error
+occurs when the app tries to decrypt an existing session cookie that was
+encrypted with a different secret. </Accordion>
 
 <Accordion title="404 Error on /auth/login">
   If clicking login takes you to a 404 page, check these common issues:
 
-  1. **Middleware location:** Ensure `src/middleware.ts` exists in the correct location
-  2. **Middleware code:** Verify the middleware matches the code in Step 6
-  3. **Restart server:** After creating middleware, restart the dev server
-  4. **Check imports:** Make sure `import { auth0 } from "./lib/auth0"` path is correct
-</Accordion>
+1. **Middleware location:** Ensure `src/middleware.ts` exists in the correct
+   location
+2. **Middleware code:** Verify the middleware matches the code in Step 6
+3. **Restart server:** After creating middleware, restart the dev server
+4. **Check imports:** Make sure `import { auth0 } from "./lib/auth0"` path is
+   correct </Accordion>
 
 <Accordion title="Module Not Found Errors">
   If you see "Cannot find module '@/components/LoginButton'" or similar errors:
 
-  1. **Verify files exist:** Check that all files from Step 3 were created
-  2. **Check paths:** Ensure components are in `src/components/` directory
-  3. **Restart TypeScript:** Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows) and run "TypeScript: Restart TS Server"
-  4. **Verify imports:** Make sure you're using `@/components/*` (not `~/components/*`)
-</Accordion>
+1. **Verify files exist:** Check that all files from Step 3 were created
+2. **Check paths:** Ensure components are in `src/components/` directory
+3. **Restart TypeScript:** Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows)
+   and run "TypeScript: Restart TS Server"
+4. **Verify imports:** Make sure you're using `@/components/*` (not
+   `~/components/*`) </Accordion>
 
-***
+---
 
 ## Advanced Usage
 
 <Accordion title="Important v4 Changes">
   This quickstart uses **Auth0 Next.js SDK v4**, which has significant changes from v3:
 
-  * **No dynamic route handlers needed** - Authentication routes are auto-mounted by middleware
-  * **Simplified client setup** - `new Auth0Client()` reads environment variables automatically
-  * **New route paths** - Routes are at `/auth/*` instead of `/api/auth/*`
-  * **Required middleware** - All authentication functionality goes through middleware
-  * **Use `<a>` tags** - Navigation must use `<a href="/auth/login">` instead of buttons with onClick
+- **No dynamic route handlers needed** - Authentication routes are auto-mounted
+  by middleware
+- **Simplified client setup** - `new Auth0Client()` reads environment variables
+  automatically
+- **New route paths** - Routes are at `/auth/*` instead of `/api/auth/*`
+- **Required middleware** - All authentication functionality goes through
+  middleware
+- **Use `<a>` tags** - Navigation must use `<a href="/auth/login">` instead of
+  buttons with onClick
 
-  ### Authentication Routes
+### Authentication Routes
 
-  The SDK automatically mounts these routes via middleware:
+The SDK automatically mounts these routes via middleware:
 
-  | Route                      | Purpose                   |
-  | -------------------------- | ------------------------- |
-  | `/auth/login`              | Initiate login            |
-  | `/auth/logout`             | Logout user               |
-  | `/auth/callback`           | Handle Auth0 callback     |
-  | `/auth/profile`            | Get user profile          |
-  | `/auth/access-token`       | Get access token          |
-  | `/auth/backchannel-logout` | Handle backchannel logout |
+| Route                      | Purpose                   |
+| -------------------------- | ------------------------- |
+| `/auth/login`              | Initiate login            |
+| `/auth/logout`             | Logout user               |
+| `/auth/callback`           | Handle Auth0 callback     |
+| `/auth/profile`            | Get user profile          |
+| `/auth/access-token`       | Get access token          |
+| `/auth/backchannel-logout` | Handle backchannel logout |
 
   <Note>
     If you're experiencing 404 errors on these routes, ensure that:
@@ -1369,6 +1244,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
     1. The `middleware.ts` file is created in the correct location (project root, or inside `src/` if using a `src/` directory)
     2. The middleware is properly configured with the matcher pattern shown in Step 5
     3. The development server was restarted after creating the middleware file
+
   </Note>
 </Accordion>
 
@@ -1383,7 +1259,7 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
 
       export default async function ProtectedPage() {
         const session = await auth0.getSession();
-        
+
         if (!session) {
           redirect('/auth/login');
         }
@@ -1405,11 +1281,11 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
 
       export async function GET() {
         const session = await auth0.getSession();
-        
+
         if (!session) {
           return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-        
+
         return NextResponse.json({
           message: "This is a protected API route",
           user: session.user
@@ -1435,53 +1311,56 @@ This quickstart demonstrates how to add Auth0 authentication to a Next.js applic
       export const getServerSideProps: GetServerSideProps = auth0.withPageAuthRequired();
       ```
     </Tab>
+
   </Tabs>
 </Accordion>
 
 <Accordion title="Client-Side Authentication">
   For client-side authentication state, use the `useUser` hook:
 
-  ```typescript components/UserProfile.tsx theme={null}
-  "use client";
+```typescript components/UserProfile.tsx theme={null}
+"use client";
 
-  import { useUser } from "@auth0/nextjs-auth0";
+import { useUser } from "@auth0/nextjs-auth0";
 
-  export default function UserProfile() {
-    const { user, error, isLoading } = useUser();
+export default function UserProfile() {
+  const { user, error, isLoading } = useUser();
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
-    if (!user) return <div>Not logged in</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!user) return <div>Not logged in</div>;
 
-    return (
-      <div>
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <img src={user.picture} alt="Profile" />
-      </div>
-    );
-  }
-  ```
+  return (
+    <div>
+      <h2>{user.name}</h2>
+      <p>{user.email}</p>
+      <img src={user.picture} alt="Profile" />
+    </div>
+  );
+}
+```
+
 </Accordion>
 
 <Accordion title="Protecting API Routes">
   For API route protection, use the `withApiAuthRequired` method:
 
-  ```typescript app/api/protected/route.ts theme={null}
-  import { auth0 } from "@/lib/auth0";
+```typescript app/api/protected/route.ts theme={null}
+import { auth0 } from '@/lib/auth0';
 
-  export const GET = auth0.withApiAuthRequired(async function handler() {
-    const session = await auth0.getSession();
-    
-    return Response.json({
-      message: "This is a protected API route",
-      user: session?.user
-    });
+export const GET = auth0.withApiAuthRequired(async function handler() {
+  const session = await auth0.getSession();
+
+  return Response.json({
+    message: 'This is a protected API route',
+    user: session?.user,
   });
-  ```
-</Accordion>
+});
+```
 
+</Accordion>
 
 ---
 
-> To find navigation and other pages in this documentation, fetch the llms.txt file at: https://auth0.com/llms.txt
+> To find navigation and other pages in this documentation, fetch the llms.txt
+> file at: https://auth0.com/llms.txt

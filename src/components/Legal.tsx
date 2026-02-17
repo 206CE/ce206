@@ -1,18 +1,18 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Legal() {
   return (
-    <div className="flex flex-row space-x-5 ml-10 justify-center">
-      <Link className="btn" href={"/engagement"}>
+    <div className='flex flex-row space-x-5 ml-10 justify-center'>
+      <Link className='btn' href={'/engagement'}>
         Privacy Policy
       </Link>
-      <Link className="btn" href={"/engagement"}>
+      <Link className='btn' href={'/engagement'}>
         Terms & Conditions
       </Link>
-      <Link className="btn" href={"/engagement"}>
+      <Link className='btn' href={'/engagement'}>
         Cookie Policy
       </Link>
-      <Link className="btn" href={"/engagement"}>
+      <Link className='btn' href={'/engagement'}>
         Disclaimers
       </Link>
     </div>

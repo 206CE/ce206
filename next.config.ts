@@ -1,9 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: 'standalone',
   turbopack: {
-    root: "/home/roach/Projects/sites/ce206"
+    root: '/home/roach/Projects/sites/ce206',
   },
   reactCompiler: true,
 };

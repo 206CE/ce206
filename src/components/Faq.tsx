@@ -1,16 +1,12 @@
-"use client";
+'use client';
 
 /*  1.0.3
 
-  > Custom styling?
+1. shadcn Accordian 
 
-  CSS:
-  --primary
-  --surface
-  --text-secondary
 */
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export interface Faq {
   question: string;
@@ -18,10 +14,10 @@ export interface Faq {
 }
 
 interface FaqProps {
-  faqs:Faq[];
+  faqs: Faq[];
 }
 
-const Faq: React.FC<FaqProps> = ({faqs}) => {
+const Faq: React.FC<FaqProps> = ({ faqs }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -29,29 +25,31 @@ const Faq: React.FC<FaqProps> = ({faqs}) => {
   };
 
   return (
-    <section className="  mb-5">
-      <div className="max-w-4xl mx-auto px-6">
-
-        <div className="">
+    <section className='  mb-5'>
+      <div className='max-w-4xl mx-auto px-6'>
+        <div className=''>
           {faqs.map((faq, index) => (
-            <div key={index} className="mt-4 border border-(--border)  overflow-hidden">
+            <div
+              key={index}
+              className='mt-4 border border-(--border)  overflow-hidden'
+            >
               <button
-                className="w-full text-left px-6 py-4 flex justify-between items-center  hover:text-(--primary) bg-(--bg-secondary) cursor-pointer"
+                className='w-full text-left px-6 py-4 flex justify-between items-center  hover:text-(--primary) bg-(--bg-secondary) cursor-pointer'
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="text-md">{faq.question}</span>
-                <span className="text-(--text-secondary)">
-                  {openIndex === index ? "-" : "+"}
+                <span className='text-md'>{faq.question}</span>
+                <span className='text-(--text-secondary)'>
+                  {openIndex === index ? '-' : '+'}
                 </span>
               </button>
               <div
                 className={`transition-all duration-300 ease-in-out ${
                   openIndex === index
-                    ? "max-h-96 p-6"
-                    : "max-h-0 overflow-hidden"
+                    ? 'max-h-96 p-6'
+                    : 'max-h-0 overflow-hidden'
                 }`}
               >
-                <p className="text-(--text-secondary)">{faq.answer}</p>
+                <p className='text-(--text-secondary)'>{faq.answer}</p>
               </div>
             </div>
           ))}

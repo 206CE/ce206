@@ -1,6 +1,6 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface TeamMember {
   id: string | number;
@@ -27,32 +27,39 @@ export default function Team({
   members,
 }: TeamMemberProps) {
   return (
-    <section className="py-section px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-group space-y-4 p-5">
-        <h2 className="text-5xl text-(--primary)">{heading}</h2>
-        {subheading && (<h4 className="uppercase text-2xl text-(--secondary)">{subheading}</h4>)}
-        </div>
-        <div className={`${listStyle}`}>
-          {members.map((member, index) => (
-            <div
-              key={index}
-              className={`${cardStyle}`}
-            >
-              {member.imgUrl && (
-                <Image className=" rounded-xl"
-                  src={member.imgUrl}
-                  alt={`portrait of ${member.name}`}
-                  height={member.size}
-                  width={member.size}
-                />
-              )}
-              <h5 className="mt-2 text-2xl font-bold">{member.name}</h5>
-              {member.role && <p className="text-lg font-semibold mb-3">{member.role}</p>}
-              {member.bio && <p className="text-sm text-(--tertiary) text-balance">{member.bio}</p>}
-            </div>
-          ))}
-        </div>
-
+    <section className='py-section px-4 max-w-7xl mx-auto'>
+      <div className='text-center mb-group space-y-4 p-5'>
+        <h2 className='text-5xl text-(--primary)'>{heading}</h2>
+        {subheading && (
+          <h4 className='uppercase text-2xl text-(--secondary)'>
+            {subheading}
+          </h4>
+        )}
+      </div>
+      <div className={`${listStyle}`}>
+        {members.map((member, index) => (
+          <div key={index} className={`${cardStyle}`}>
+            {member.imgUrl && (
+              <Image
+                className=' rounded-xl'
+                src={member.imgUrl}
+                alt={`portrait of ${member.name}`}
+                height={member.size}
+                width={member.size}
+              />
+            )}
+            <h5 className='mt-2 text-2xl font-bold'>{member.name}</h5>
+            {member.role && (
+              <p className='text-lg font-semibold mb-3'>{member.role}</p>
+            )}
+            {member.bio && (
+              <p className='text-sm text-(--tertiary) text-balance'>
+                {member.bio}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

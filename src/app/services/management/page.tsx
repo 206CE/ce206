@@ -1,27 +1,27 @@
-import Container from "../../../components/Container";
-import FeatureList from "../../../components/FeatureList";
+import Container from '../../../components/Container';
+import FeatureList from '../../../components/FeatureList';
 
 export default function ServiceManagement() {
   return (
-    <Container as={"section"} className="">
+    <Container as={'section'} className=''>
       <FeatureList
-        heading="Services available:"
-        subheading="How I can improve your business..."
+        heading='Services available:'
+        subheading='How I can improve your business...'
         features={[
           {
-            title: "Operational & Support Services",
+            title: 'Operational & Support Services',
             description:
-              "Working directly with users and customers to make approved changes, manage incidents and become a single point of contact for your people.",
+              'Working directly with users and customers to make approved changes, manage incidents and become a single point of contact for your people.',
           },
           {
-            title: "Coordination & Governance Services",
+            title: 'Coordination & Governance Services',
             description:
-              "Monitoring events, managing events and making it easier to adapt to change.",
+              'Monitoring events, managing events and making it easier to adapt to change.',
           },
           {
-            title: "Relationship & Value Services",
+            title: 'Relationship & Value Services',
             description:
-              "Make sure IT meets business requirements, Improve systems to save money and time. Ensure that IT systems align with what customers realy need.",
+              'Make sure IT meets business requirements, Improve systems to save money and time. Ensure that IT systems align with what customers realy need.',
           },
         ]}
       />

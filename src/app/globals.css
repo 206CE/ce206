@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 /* ---break---*/
 @custom-variant dark (&:is(.dark *));
 
@@ -33,7 +33,6 @@
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
   --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
-
 }
 
 /* Typography Hierarchy */
@@ -83,17 +82,14 @@
 @layer components {
   /* Primary Action: High Visual Weight */
   .btn-primary {
-
   }
 
   /* Secondary Action: Low Visual Weight */
   .btn-secondary {
-
   }
 
   /* Ghost/Tertiary Action: For "Cancel" or "Go Back" */
   .btn-ghost {
-
   }
 }
 
@@ -101,12 +97,10 @@
 @layer utilities {
   /* Skeleton Loading Pattern */
   .animate-skeleton {
-
   }
 
   /* Form Focus State */
   .input-focus {
-
   }
 }
 
@@ -114,39 +108,34 @@
 
 @layer base {
   /* Remove default browser styling for a clean slate */
-  input, textarea, select {
-
+  input,
+  textarea,
+  select {
   }
 }
 
 @layer components {
   /* 1. THE LABEL (Hierarchy: Level 4 - Small & Bold) */
   .form-label {
-
   }
 
   /* 2. THE INPUT (The Container) */
   .form-input {
-
   }
 
   /* Interaction: Focus State */
   .form-input:focus {
-
   }
 
   /* Feedback: Error State */
   .form-input-error {
-
   }
 
   /* 3. HELP TEXT / ERROR MESSAGE */
   .form-helper {
-
   }
 
   .form-error-msg {
-
   }
 }
 
@@ -189,25 +178,43 @@ body {
 }
 .card:hover {
   background: var(--bg-tertiary);
-  transform:scale(1.05);
+  transform: scale(1.05);
 }
 
 /*micro animaiton*/
 
 @keyframes glitch-distort {
-  0% { clip-path: inset(10% 0 30% 0); transform: translate(-5px, 2px); }
-  20% { clip-path: inset(40% 0 10% 0); transform: translate(5px, -2px); }
-  40% { clip-path: inset(15% 0 80% 0); transform: translate(-2px, 5px); }
-  60% { clip-path: inset(50% 0 5% 0); transform: translate(2px, -5px); }
-  80% { clip-path: inset(5% 0 50% 0); transform: translate(-5px, 2px); }
-  100% { clip-path: inset(10% 0 30% 0); transform: translate(0); }
+  0% {
+    clip-path: inset(10% 0 30% 0);
+    transform: translate(-5px, 2px);
+  }
+  20% {
+    clip-path: inset(40% 0 10% 0);
+    transform: translate(5px, -2px);
+  }
+  40% {
+    clip-path: inset(15% 0 80% 0);
+    transform: translate(-2px, 5px);
+  }
+  60% {
+    clip-path: inset(50% 0 5% 0);
+    transform: translate(2px, -5px);
+  }
+  80% {
+    clip-path: inset(5% 0 50% 0);
+    transform: translate(-5px, 2px);
+  }
+  100% {
+    clip-path: inset(10% 0 30% 0);
+    transform: translate(0);
+  }
 }
 
 .btn-binary:hover span {
   display: none;
 }
 .btn-binary:hover::after {
-  content: "_";
+  content: '_';
   color: #ffd166;
   text-shadow: 0 0 10px rgb(255, 215, 0, 0.6);
   display: block;
@@ -223,4 +230,3 @@ body {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
-
