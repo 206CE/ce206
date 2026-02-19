@@ -1,4 +1,4 @@
-import Container from '../../../components/Container';
+import Container from '../../../../components/Container';
 import FeatureList from '../../../components/FeatureList';
 
 export default function ServiceManagement() {

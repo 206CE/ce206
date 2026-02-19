@@ -21,45 +21,56 @@ ID Proposal
 
 Building:
 
-0.0.+ - Font (woff2 latin only) > layout.tsx  
-0.0.+ - Typography Hierarchy > globals.css
+Design
 
-0.+.0 - Navigation / Interact > globals.css  
-0.+.0 - logo.svg > public > layout <Navigation> 0.0.+ - logosm.svg > public >
-layout <footer> 0.+.0 - favicon.ico (svg) > /app  
-0.+.0 - icon.ico (32png) > /app  
-0.0.+ - apple-icon.ico (180png) > /app  
-0.+.0 - background.svg > public > layout <body> 0.+.0 - og-1200-630.png/jpg >
-SEO > layout > sitemap (.env) 0.+.0 - hero-1920-1080.webp < 300KB > public >
-page 0.+.0 - video-hero-1080-720.mp4 < 5MiB > public > page 0.0.+ -
-icon/graph32.svg > public > \* 0.+.0 - service/product-800xwebp > public >
-/services 0.0.+ - headshot-400.webp > public > /about 0.0.+ - ContactInfo >
-layout <footer> 0.0.+ - Copyright > layout <footer>
+Step:       Description:
+1.  DO          Font (woff2 latin only) > layout.tsx  
+2.  DO          Typography Hierarchy > globals.css
+3.  DO          Navigation / Interact > globals.css  
+    4.  DO          logo.svg > public > layout <Navigation> 
+    5.  DO          logosm.svg > public > layout <footer> 
+    6.  DO          favicon.ico (svg) > /app  
+    7.  DO          icon.ico (32png) > /app  
+    8.  Done        apple-icon.ico (180png) > /app  
+    9.  DO          background.svg > public > layout <body> 
+    10. DO          og-1200-630.png/jpg >
+11. DO          SEO > layout > sitemap (.env) 
+    12. DO          hero-1920-1080.webp < 300KB > public > page 
+    13. DO          video-hero-1080-720.mp4 < 5MiB > public > page 0.0.+ -
+    14. DO          icon/graph32.svg > public > \* 
+    15. DO          service/product-800xwebp > public > /services 
+    16. DO          headshot-400.webp > public > /about 
+17. Done        ContactInfo > layout <footer> 
+18. DO          Copyright > layout <footer>
+19. DO          ResponsiveH: 360-384-414, 800, 1366
+20. DO          Debug & Build: 1.A.8-alpha+001 (14 hours) (R 700)
 
-0.+.0 - ResponsiveH: 360-384-414, 800, 1366
+21. DO          Form Styling > globals.css > /contact > key 
+    22. DO          icon512.ico (png) > /app 
+23. DO          Terms & conditions > layout <footer> 
+24. DO          Trust Badges > layout <top&bottom> 
+25. DO          0Auth > ... User Auth > /signin ... 
+26. DO          User Dashboard > /dashboard ... 
+27. DO          Blog > /blog ... 
+28. DO          Accessibility > ...
+29. DO          Debug & Build: 1.7.1-beta+001 (8 hours) (R 800)
 
-1.+.+ - Debug & Build: 1.A.8-alpha+001 (14 hours) (R 700)
+    30. DO          placeholder-X.svg > public > loading... 
+31. DO          Pricing/Plans > /services/page.tsx 
+32. DO          Careers/Culture > /about/page.tsx 
+33. DO          Search > layout <Navigation> 
+34. DO          Individual Service > /services/...
+35. DO          Performance Optimizations Assets
+36. DO          ResponsiveH: 1920, 1536 0.+.0 - ResponsiveV: 1080, 864, 832, 768, 600
+37. DO          Implement next-themes > ... > Theme Switch > layout <Navigation> 
+38. DO          Implement Multi-Lanuage > ... 
+39. DO          Signup > /signup <Navigation> 
+40. DO          Debug & Build: 1.7.1+001 (7.5 hours) ( R 750)
 
-0.+.0 - Form Styling > globals.css > /contact > key 0.0.+ - icon512.ico (png) >
-/app 0.+.0 - Terms & conditions > layout <footer> 0.+.0 - Trust Badges > layout
-<top&bottom> 0.+.0 - 0Auth > ... User Auth > /signin ... 0.+.0 - User
-Dashboard > /dashboard ... 0.+.0 - Blog > /blog ... 0.+.0 - Accessibility > ...
 
-Debug & Build: 1.7.1-beta+001 (8 hours) (R 800)
-
-0.+.0 - placeholder-X.svg > public > loading... 0.+.0 - Pricing/Plans >
-/services/page.tsx 0.+.0 - Careers/Culture > /about/page.tsx 0.0.+ - Search >
-layout <Navigation> 0.+.0 - Individual Service > /services/...
-
-0.+.0 - Performance Optimizations Assets
-
-0.+.0 - ResponsiveH: 1920, 1536 0.+.0 - ResponsiveV: 1080, 864, 832, 768, 600
-
-1.+.+ - Debug & Build: 1.7.1+001 (7.5 hours) ( R 750)
-
-0.+.0 - Implement next-themes > ... > Theme Switch > layout <Navigation> 0.+.0 -
-Implement Multi-Lanuage > ... 0.+.0 - Cart > /cart/ <Navigation> 0.+.0 -
-Signup > /signup <Navigation> 0.+.0 - AI Chat > Headless on top 0.+.0 - Security
-Audit > ... 0.+.0 - Sentry > ... 0.+.0 - Analitics > ...
-
-2.8+.0+ - Debug & Build: 2.0.0+001 (8 hours) (R 1600)
+41. DO          Cart > /cart/ <Navigation> 
+42. DO          AI Chat > Headless on top 
+43. DO          Security Audit > ... 
+44. DO          Sentry > ... 
+45. DO          Analitics > ...
+46. DO          Debug & Build: 2.0.0+001 (8 hours) (R 1600)

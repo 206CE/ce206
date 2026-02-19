@@ -12,7 +12,7 @@ WebDev Human Aspect:
 
     Adapting:
         Responsiveness & Device Compatibility
-        Performance Otpimization & Tech Upgrades
+        Performance Optimization & Tech Upgrades
         Scalability & Resource Management
 
     Expanding:

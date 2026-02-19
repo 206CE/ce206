@@ -1,5 +1,5 @@
 auth0 recovery code: TVPLEB6VGF92QGVZG7EZ8PNU
-
+Bonsai API KEY: sk_cr_63GZiE2bFePT61XkugAvXxgRMfg9iJagFVNEVhEVKSgu
 > This guide demonstrates how to integrate Auth0 with any new or existing
 > Next.js application using the Auth0 Next.js v4 SDK (Beta).
 
