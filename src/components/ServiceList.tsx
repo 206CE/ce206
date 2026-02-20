@@ -28,7 +28,7 @@ type ServiceListProps = {
   columns?: number;
 };
 
-export default function ServiceList({
+export function ServiceList({
   heading,
   subheading,
   services,

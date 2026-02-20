@@ -64,7 +64,7 @@ export default function RootLayout({
           />
           <div className='ml-6'>
             <Navigation
-              compStyling='btn'
+              compStyling='btn-primary'
               items={[
                 { label: 'HOME', href: '/' },
                 { label: 'SERVICES', href: '/services' },
@@ -78,7 +78,7 @@ export default function RootLayout({
         <footer className='bg-(--bg-primary) pt-4'>
           <BackButton />
           <Social
-            linkStyle='btn'
+            linkStyle='btn-primary'
             urls={[
               'https://www.linkedin.com/in/jaco-botha-886b7b95/',
               'https://www.facebook.com/jaco.botha.12139',

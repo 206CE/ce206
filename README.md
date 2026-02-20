@@ -24,29 +24,29 @@ Building:
 Design
 
 Step:       Description:
-1.  DO          Font (woff2 latin only) > layout.tsx  
-2.  Done        Typography Hierarchy > globals.css
-3.  Done        Navigation / Interact > globals.css  
-    4.  DO          logo.svg > public > layout <Navigation> 
-    5.  DO          logosm.svg > public > layout <footer> 
-    6.  DO          favicon.ico (svg) > /app  
-    7.  DO          icon.ico (32png) > /app  
-    8.  Done        apple-icon.ico (180png) > /app  
-    9.  DO          background.svg > public > layout <body> 
-    10. DO          og-1200-630.png/jpg >
+                    1.  Done          Font (woff2 latin only) > layout.tsx  
+                    2.  Done        Typography Hierarchy > globals.css
+                    3.  Done        Navigation / Interact > globals.css  
+4.  DO          logo.svg > public > layout <Navigation> 
+5.  DO          logosm.svg > public > layout <footer> 
+6.  DO          favicon_32.ico (svg) > /app  
+7.  DO          icon.ico (32png) > /app  
+                    8.  Done        apple-icon.ico (180png) > /app  
+9.  DO          background.svg > public > layout <body> 
+10. DO          og-1200-630.png/jpg >
 11. DO          SEO > layout > sitemap (.env) 
-    12. DO          hero-1920-1080.webp < 300KB > public > page 
-    13. DO          video-hero-1080-720.mp4 < 5MiB > public > page 0.0.+ -
-    14. DO          icon/graph32.svg > public > \* 
-    15. DO          service/product-800xwebp > public > /services 
-    16. DO          headshot-400.webp > public > /about 
-17. Done        ContactInfo > layout <footer> 
+12. DO          hero-1920-1080.webp < 300KB > public > page 
+13. DO          video-hero-1080-720.mp4 < 5MiB > public > page 0.0.+ -
+14. DO          icon/graph32.svg > public > \* 
+15. DO          service/product-800xwebp > public > /services 
+16. DO          headshot-400.webp > public > /about 
+                    17. Done        ContactInfo > layout <footer> 
 18. DO          Copyright > layout <footer>
 19. DO          ResponsiveH: 360-384-414, 800, 1366
 20. DO          Debug & Build: 1.A.8-alpha+001 (14 hours) (R 700)
 
 21. DO          Form Styling > globals.css > /contact > key 
-    22. DO          icon512.ico (png) > /app 
+22. DO          icon512.ico (png) > /app 
 23. DO          Terms & conditions > layout <footer> 
 24. DO          Trust Badges > layout <top&bottom> 
 25. DO          0Auth > ... User Auth > /signin ... 

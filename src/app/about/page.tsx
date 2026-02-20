@@ -1,23 +1,23 @@
 import About from '@/components/About';
-import Team from '@/components/Team';
+import {Team} from '@/components/Team';
 
 export default function AboutP() {
   return (
     <section>
       <section>
         <Team
-          heading='The CE_206 Team'
-          subheading='We are here for everyone'
+          heading='CE_206_316_11101100'
+          subheading='We are more'
           listStyle='text-(--primary) text-2xl flex flex-col items-center justify-center'
           cardStyle='group flex flex-col items-center text-center p-6 bg-(--bg-secondary) rounded-brand shadow-2xl border-(--border) border-4'
           members={[
             {
               id: 1,
               name: 'Jaco Botha',
-              role: 'CEO',
+              role: 'Plebian',
               bio: 'From theory to practice, to leading to learning.',
               imgUrl: '/about/jaco_botha_561_573.jpg',
-              size: 100,
+              size: 200,
             },
           ]}
         />

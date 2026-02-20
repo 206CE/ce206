@@ -26,7 +26,7 @@ interface TeamMemberProps {
   members: TeamMember[];
 }
 
-export default function Team({
+export  function Team({
   heading,
   subheading,
   listStyle,

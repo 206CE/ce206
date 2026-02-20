@@ -1,13 +1,14 @@
+import {ServiceList} from '@/components/ServiceList';
 import Container from '../../../../components/Container';
-import FeatureList from '../../../components/FeatureList';
+
 
 export default function ServiceManagement() {
   return (
     <Container as={'section'} className=''>
-      <FeatureList
+      <ServiceList
         heading='Services available:'
         subheading='How I can improve your business...'
-        features={[
+        services={[
           {
             title: 'Operational & Support Services',
             description:
