@@ -1,7 +1,7 @@
 export default function Training() {
   return (
     <section>
-      <div></div>
+      <div>Training</div>
     </section>
   );
 }

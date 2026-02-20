@@ -1,4 +1,4 @@
-import Cards from '../../../components/Cards';
+import { Card } from "@/components/ui/card";
 
 const cards = [
   {
@@ -19,7 +19,7 @@ const cards = [
 export default function Biography() {
   return (
     <section className=''>
-      <Cards cards={cards} />
+      <Card Card={cards} />
 
       <h2 className='text-4xl pb-4 text-center'>
         The Narrative of Emergent Energy

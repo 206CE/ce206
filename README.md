@@ -25,8 +25,8 @@ Design
 
 Step:       Description:
 1.  DO          Font (woff2 latin only) > layout.tsx  
-2.  DO          Typography Hierarchy > globals.css
-3.  DO          Navigation / Interact > globals.css  
+2.  Done        Typography Hierarchy > globals.css
+3.  Done        Navigation / Interact > globals.css  
     4.  DO          logo.svg > public > layout <Navigation> 
     5.  DO          logosm.svg > public > layout <footer> 
     6.  DO          favicon.ico (svg) > /app  
