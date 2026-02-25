@@ -6,7 +6,7 @@ export default function AboutP() {
     <section>
       <section>
         <Team
-          heading='CE_206_316_11101100'
+          heading='CE_206'
           subheading='We are more'
           listStyle='text-(--primary) text-2xl flex flex-col items-center justify-center'
           cardStyle='group flex flex-col items-center text-center p-6 bg-(--bg-secondary) rounded-brand shadow-2xl border-(--border) border-4'

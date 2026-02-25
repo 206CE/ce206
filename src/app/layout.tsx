@@ -42,7 +42,6 @@ const AudioW = Audiowide({
 
 import { Logo, Navigation, ContactInfo } from '@/components';
 
-import BackButton from '@/components/BackNav';
 import Social from '@/components/Social';
 
 import CopyRight from '@/components/CopyRight';
@@ -62,7 +61,7 @@ export default function RootLayout({
             imgPath='/Logo_160.webp'
             size={50}
           />
-          <div className='ml-6'>
+          <div className=''>
             <Navigation
               compStyling='btn-primary'
               items={[
@@ -76,7 +75,6 @@ export default function RootLayout({
         </div>
         {children}
         <footer className='bg-(--bg-primary) pt-4'>
-          <BackButton />
           <Social
             linkStyle='btn-primary'
             urls={[

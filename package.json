@@ -1,6 +1,6 @@
 {
   "name": "ce206",
-  "version": "0.0.0-alpha+001",
+  "version": "1.0.1-beta+002",
   "private": true,
   "scripts": {
     "dev": "next dev",

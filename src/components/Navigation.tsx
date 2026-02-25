@@ -87,7 +87,7 @@ export function Navigation({ items, compStyling = '' }: NavigationProps) {
 
       {/* Hamburger */}
       <button
-        className={`md:hidden fixed top-0 right-0 z-10 p-2 cursor-pointer bg-(--bg-primary) ${commonLinkClass}`}
+        className={`md:hidden fixed top-1 right-1 z-10 p-2 cursor-pointer bg-(--bg-primary) ${commonLinkClass}`}
         onClick={() => setOpen(!open)}
         aria-label='Toggle menu'
       >

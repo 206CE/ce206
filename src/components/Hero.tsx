@@ -49,7 +49,8 @@ const Hero: React.FC<HeroProps> = ({
                 className=''
                 width={imageSize || 20}
                 height={imageSize || 20}
-                priority
+                loading='eager'
+                fetchPriority='high'
               />
             </div>
           )}

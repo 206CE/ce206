@@ -34,8 +34,8 @@ export  function Team({
   members,
 }: TeamMemberProps) {
   return (
-    <section className='py-section px-4 max-w-7xl mx-auto'>
-      <div className='text-center mb-group space-y-4 p-5'>
+    <section className='p-2'>
+      <div className='text-center mb-group space-y-4 p-2'>
         <h2 className='text-5xl text-(--primary)'>{heading}</h2>
         {subheading && (
           <h4 className='uppercase text-2xl text-(--secondary)'>

@@ -13,20 +13,12 @@ export default function Home() {
           ctas={[{ label: 'Contact', href: '/contact' }]}
           itemFormat='btn'
           listformat=''
-          imageSrc='/Logo_2048.webp'
+          imageSrc='/Logo_512.webp'
           imageAlt='Company Logo'
           imageSize={200}
         />
       </main>
-      <section>
-        <Services />
-      </section>
-      <section>
-        <AboutP />
-      </section>
-      <section>
-        <Contact />
-      </section>
+
     </div>
   );
 }
