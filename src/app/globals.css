@@ -78,10 +78,14 @@
 /* Navigation / Interact */
 @layer base {
   body {
-    @apply bg-(--bg-primary) text-gray-200 min-h-screen;
+    @apply  text-gray-200 min-h-screen;
+    background-image: url("/background.svg");
+    background-size: cover;
+    background-attachment: fixed;
 
     :focus-visible {
       @apply outline-none ring-2 ring-(--secondary) ring-offset-2 ring-offset-(--bg-primary);
+
     }
 
     a,

@@ -1,11 +1,9 @@
 import Hero from '@/components/Hero';
-import Services from './services/page';
-import AboutP from './about/page';
-import Contact from './contact/page';
+
 
 export default function Home() {
   return (
-    <div className='bg-(--bg-primary)'>
+    <div className=''>
       <main className=''>
         <Hero
           title='CE_206'
@@ -13,7 +11,7 @@ export default function Home() {
           ctas={[{ label: 'Contact', href: '/contact' }]}
           itemFormat='btn'
           listformat=''
-          imageSrc='/Logo_512.webp'
+          imageSrc='/Logo_256.webp'
           imageAlt='Company Logo'
           imageSize={200}
         />

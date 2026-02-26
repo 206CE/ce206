@@ -52,7 +52,7 @@ export default function Contacts() {
             Name:
           </label>
           <input
-            className='shadow-md bg-(--surface) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
+            className='shadow-md bg-(bg-secondary) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
             type='text'
             id='name'
             required
@@ -66,7 +66,7 @@ export default function Contacts() {
             Email:
           </label>
           <input
-            className='shadow-md bg-(--surface) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
+            className='shadow-md bg-(--bg-secondary) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
             type='email'
             id='email'
             required
@@ -80,14 +80,14 @@ export default function Contacts() {
             Message:
           </label>
           <textarea
-            className='shadow-md bg-(--surface) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
+            className='shadow-md bg-(--bg-secondary) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
             id='message'
             required
             rows={3}
             placeholder='This is your message...'
           />
         </fieldset>
-        <button className='btn cursor-pointer' type='submit'>
+        <button className='btn-primary cursor-pointer' type='submit'>
           Send
         </button>
       </form>

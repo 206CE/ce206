@@ -45,7 +45,7 @@ export function ServiceList({
     }[columns] || 'grid-cols-1';
 
   return (
-    <section className='py-16 px-4 bg-(--bg-primary) text-(--text-primary)'>
+    <section className='py-16 px-4  text-(--text-primary)'>
       <div className='text-center mb-12'>
         {heading && <h1 className='text-3xl font-bold'>{heading}</h1>}
         {subheading && (

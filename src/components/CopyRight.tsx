@@ -9,14 +9,15 @@
 
 export default function CopyRight() {
   return (
-    <footer className='p-6 border-t border-(--border) bg-(--bg-primary)'>
-      <div className='flex flex-col items-center gap-2'>
+    <footer className='p-6 border-t border-(--border) '>
+      <div className='flex items-center gap-2 justify-center'>
         <p className='text-(--text-secondary) text-xs tracking-widest uppercase glow-text'>
           &copy; 2026 206CE{' '}
         </p>
         <span className='text-(--text-secondary) text-xs tracking-widest uppercase glow-text mx-2'>
           |
         </span>
+
         <p className='text-(--text-secondary) text-xs tracking-widest uppercase glow-text'>
           Operational Protocol v1.0
         </p>

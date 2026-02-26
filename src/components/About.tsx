@@ -36,7 +36,7 @@ export default function About({
   heroImage,
 }: AboutProps) {
   return (
-    <div className='bg-(--bg-primary) text-(--text-primary)'>
+    <div className=' text-(--text-primary)'>
       {/* Hero */}
       <section className='py-16 px-4 text-center'>
         {heroImage && (
@@ -64,8 +64,8 @@ export default function About({
       </section>
 
       {/* Mission & Vision */}
-      <section className='bg-(--bg-secondary) py-10 px-6'>
-        <div className='max-w-4xl mx-auto grid gap-8 md:grid-cols-1 lg:grid-cols-2'>
+      <section className='py-10 px-6'>
+        <div className='max-w-4xl mx-auto grid gap-8 md:grid-cols-1 lg:grid-cols-2 '>
           <div>
             <h3 className='text-2xl font-semibold mb-2'>Our Mission</h3>
             <p className='text-(--text-secondary) text-md'>{mission}</p>

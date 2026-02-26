@@ -40,6 +40,9 @@ const AudioW = Audiowide({
   subsets: ['latin'],
 });
 
+
+
+
 import { Logo, Navigation, ContactInfo } from '@/components';
 
 import Social from '@/components/Social';
@@ -53,12 +56,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`bg-(--bg-primary) ${AudioW.className} antialiased`}>
+      <body className={` ${AudioW.className} antialiased`}>
         <div className='flex items-center'>
           <Logo
             compStyling='text-(--primary) block'
             text='CE_206'
-            imgPath='/Logo_160.webp'
+            imgPath='/Logo_32.png'
             size={50}
           />
           <div className=''>
@@ -74,7 +77,7 @@ export default function RootLayout({
           </div>
         </div>
         {children}
-        <footer className='bg-(--bg-primary) pt-4'>
+        <footer className=' pt-4'>
           <Social
             linkStyle='btn-primary'
             urls={[
