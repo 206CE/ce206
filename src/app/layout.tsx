@@ -2,6 +2,10 @@
 import './globals.css';
 
 /* auth0 */
+import { auth0 } from '@/lib/auth0';
+import LoginButton from '@/components/LoginButton';
+import LogoutButton from '@/components/LogoutButton';
+import Profile from '@/components/Profile';
 
 /* SEO */
 import type { Metadata } from 'next';
@@ -68,11 +72,13 @@ import Social from '@/components/Social';
 
 import CopyRight from '@/components/CopyRight';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth0.getSession();
+  const user = session?.user;
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
@@ -93,6 +99,18 @@ export default function RootLayout({
                 { label: 'CONTACT', href: '/contact' },
               ]}
             />
+          </div>
+          <div className='p-4'>
+            {user ? (
+              <div className='flex'>
+
+                <Profile />
+              </div>
+            ) : (
+              <>
+                <LoginButton />
+              </>
+            )}
           </div>
         </div>
         {children}

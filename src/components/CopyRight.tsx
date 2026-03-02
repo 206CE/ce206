@@ -6,8 +6,13 @@
 
 
  */
+'use client';
+
+import { useState } from 'react';
 
 export default function CopyRight() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <footer className='p-6 border-t border-(--border) '>
       <div className='flex items-center gap-2 justify-center'>
@@ -18,11 +23,19 @@ export default function CopyRight() {
           |
         </span>
 
-        <p className='text-(--text-secondary) text-xs tracking-widest uppercase glow-text'>
-          Operational Protocol v1.0
-        </p>
-        <p className='distort-hover text-[10px] text-(--text-tertiary)] cursor-default text-center'>
-          Unauthorized duplication is a violation of system integrity.
+        <p
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {isHovered ? (
+            <span className='glitch-hover text-[10px] text-(--text-tertiary) cursor-default text-center'>
+              Unauthorized duplication is a violation of system integrity.
+            </span>
+          ) : (
+            <span className='text-(--text-secondary) text-xs tracking-widest uppercase glow-text'>
+              Operational Protocol v1.0
+            </span>
+          )}
         </p>
       </div>
     </footer>
