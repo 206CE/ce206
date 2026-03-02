@@ -1,6 +1,10 @@
 import About from '@/components/About';
 import {Team} from '@/components/Team';
 
+export const metadata = {
+  title: 'About Us',
+}
+
 export default function AboutP() {
   return (
     <section>
@@ -16,7 +20,7 @@ export default function AboutP() {
               name: 'Jaco Botha',
               role: 'Plebian',
               bio: 'From theory to practice, to leading to learning.',
-              imgUrl: '/about/jaco_botha_561_573.jpg',
+              imgUrl: '/about/jaco_botha_400_409.webp',
               size: 200,
             },
           ]}

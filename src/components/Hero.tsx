@@ -49,8 +49,7 @@ const Hero: React.FC<HeroProps> = ({
                 className=''
                 width={imageSize || 20}
                 height={imageSize || 20}
-                loading='eager'
-                fetchPriority='high'
+                priority
               />
             </div>
           )}
@@ -60,21 +59,23 @@ const Hero: React.FC<HeroProps> = ({
         </h1>
 
         {tagline && (
-          <h4 className='flex justify-center mt-4 md:text-md text-xl text-(--text-secondary) max-w-xl mx-auto'>
+          <h2 className='flex justify-center mt-4 md:text-md text-xl text-(--text-secondary) max-w-xl mx-auto'>
             {tagline}
-          </h4>
+          </h2>
         )}
         <ul className='mt-6 flex justify-center  flex-wrap'>
           {(ctas ?? []).map((cta, idx) => (
-            <Link
+            <li
               key={idx}
-              href={cta.href}
-              className='transition duration-300 transform hover:scale-110'
+              className={`px-6 py-2  text-(--text-primary) ${itemFormat}`}
             >
-              <li className={`px-6 py-2  text-(--text-primary) ${itemFormat}`}>
+              <Link
+                href={cta.href}
+                className='transition duration-300 transform hover:scale-110'
+              >
                 {cta.label}
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
         </ul>
       </div>

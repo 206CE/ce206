@@ -8,32 +8,34 @@
 
 
  */
-
 'use client';
 
+import { useState } from 'react';
+
 export default function Contacts() {
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
+  const [result, setResult] = useState('');
+
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult('Sending....');
+    const formData = new FormData(event.target);
+    formData.append('access_key', '8461831b-6c08-4586-8302-dd960d36aac6');
+
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        access_key: '8461831b-6c08-4586-8302-dd960d36aac6',
-        name: (form.elements.namedItem('name') as HTMLInputElement)?.value,
-        email: (form.elements.namedItem('email') as HTMLInputElement)?.value,
-        message: (form.elements.namedItem('message') as HTMLInputElement)
-          ?.value,
-      }),
+      body: formData,
     });
-    const result = await response.json();
-    if (result.success) {
-      console.log(result);
+
+    const data = await response.json();
+    if (data.success) {
+      setResult('Form Submitted Successfully');
+      event.target.reset();
+    } else {
+      setResult('Error');
     }
-  }
+  };
+
 
   return (
     <section className='py-8 lg:py-16 px-4 mx-auto'>
@@ -43,7 +45,7 @@ export default function Contacts() {
       <p className='mb-8 lg:mb-16 text-center text-(--text-secondary) sm:text-xl'>
         Please contact us...
       </p>
-      <form className='' onSubmit={handleSubmit}>
+      <form className='' onSubmit={onSubmit}>
         <fieldset>
           <label
             className='block m-2 text-md font-medium text-(--text-secondary)'

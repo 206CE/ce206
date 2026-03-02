@@ -57,6 +57,7 @@ export default function Social({ urls, linkStyle }: SocialProps) {
           target='_blank'
           rel='noopener noreferrer'
           className={`${linkStyle} text-(--text-primary) hover:text-(--primary)`}
+          area-label={iconMap}
         >
           {getIcon(url)}
         </Link>

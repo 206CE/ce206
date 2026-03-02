@@ -7,16 +7,29 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '206_CE Services',
-  description: 'Everything Simplified',
+  title: '206_CE Services - Best Websites in Potchefstroom',
+  description:
+    'We cultivate and enhance your business and your people to improve performance on all levels.',
+  keywords: [
+    'Websites',
+    'web development',
+    'next.js',
+    'South Africa',
+    'seo',
+    'tutoring',
+    'services',
+    'service management',
+  ],
+  authors: [{ name: 'Jaco Botha' }],
   openGraph: {
     title: '206_CE Services',
-    description: 'Everything Simplified',
+    description:
+      'We make your company digitally efficient, become our partner.',
     url: 'https://ce206.vercel.app/',
-    siteName: '206_CE Services',
+    siteName: '206_CE',
     images: [
       {
-        url: 'https://206CE.github.io/Logo/logo_res_OG.png',
+        url: '/public/og_1200_630.webp',
         width: 1200,
         height: 630,
       },
@@ -26,22 +39,28 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '206_CE Services',
-    description: 'Everything Simplified',
-    images: 'https://206CE.github.io/Logo/logo_res_OG.png',
+    title: '206_CE',
+    description:
+      'We improve services, digital presence and increase employee production.',
+    images: '/public/og_1200_630.webp',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
 /* FONT */
-import { Audiowide } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const AudioW = Audiowide({
-  weight: '400',
-  subsets: ['latin'],
-});
-
-
-
+export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf', weight:'400',style:'normal',})
 
 import { Logo, Navigation, ContactInfo } from '@/components';
 
@@ -56,7 +75,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={` ${AudioW.className} antialiased`}>
+      <body className={` ${myCustomFont.className} antialiased`}>
         <div className='flex items-center'>
           <Logo
             compStyling='text-(--primary) block'
