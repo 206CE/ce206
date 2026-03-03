@@ -1,3 +1,4 @@
+
 /* CSS */
 import './globals.css';
 
@@ -70,6 +71,7 @@ import { Logo, Navigation, ContactInfo } from '@/components';
 
 import Social from '@/components/Social';
 
+
 import CopyRight from '@/components/CopyRight';
 
 export default async function RootLayout({
@@ -77,6 +79,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   const session = await auth0.getSession();
   const user = session?.user;
   return (
@@ -131,8 +134,9 @@ export default async function RootLayout({
             address='19 Carpie Diem, BailliePark, Potchefstroom, 2531'
           />
           <CopyRight />
+
         </footer>
-      </body>
+        </body>
     </html>
   );
 }

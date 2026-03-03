@@ -7,7 +7,7 @@ Branding:   Core, Definitions, Personality, Voice
 Proposal:   Change Enablement, Audiance Alignment, Hosting, Costs, Competetor Analisis
 
 Building:
-8.4.1.20
+8.4.2.19
 
 B.  Logo's: favicon_32.svg (favicon.ico), icon_32.png (icon.ico), icon_512.png (icon512.ico)
 A.  Fonts: local font: globals.css Typo-Hierarchy
@@ -20,7 +20,7 @@ A.  Email: Contacts : .env key : globals.css Form-Input
 A.  Debugging and Building
 A. Responsive: 320, 360-390, 414, 480
 B. Logo's: Apple-icon_180.png (Apple-icon.ico) & logosm.svg
-D. Header & Footer: Auth0, Search, T&C's
+C. Header & Footer: Auth0, Search, T&C's
 B. SEO: /app/utils : og-1200-630.png
 D. Trust: TBadges : media?
 D. Blog: Blog
