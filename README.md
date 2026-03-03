@@ -1,81 +1,43 @@
-Check Out:
+Planning Phase
 
-Cypress vitest
+Situation Analisis: Vission, Goal, Mission, Service Portfolio, Org. Personality
 
-Situation Analisis:
+Branding:   Core, Definitions, Personality, Voice
 
-Vission, Goal, Mission Service Portfolio Org. Personality Questionare Digital
-Presence Audit  
-Conversion Path
-
-Branding:
-
-Core Definition Personality Voice
-
-Deposit... (R 700)
-
-Proposal:
-
-Plan ID changes Audiance Alignment Hosting & Cost Competitor Analisis Market Gap
-ID Proposal
+Proposal:   Change Enablement, Audiance Alignment, Hosting, Costs, Competetor Analisis
 
 Building:
+5.6.2.*
 
-Design
-
-Step:           Description:                            Location:
-1.  Done        Font (woff2 latin only)                 > layout.tsx  
-2.  Done        Typography Hierarchy                    > globals.css
-3.  Done        Navigation / Interact                   > globals.css               
-4.  Done        logo.svg > public                       > layout <Navigation>       
-5.  NO          logosm.svg > public                     > layout <footer> 
-6.  Done        favicon_32.ico (svg)                    > /app  
-7.  Done        icon.ico (32png)                        > /app  
-8.  Done        apple-icon.ico (180png)                 > /app  
-9.  Done        background.svg > public                 > globals.css
-Phase 1         9
-
-
-10. Done        og-1200-630.png/jpg                     > /SEO?
-11. Done        SEO                                     > layout > sitemap (.env) 
-12. Done        hero-1920-1080.webp < 300KB > public    > /page 
-13. NO          video-hero-1080-720.mp4 < 5MiB > public > /page
-14. DO          icon/graph32.svg > public               > /* 
-15. DO          service/product-800xwebp > public       > /services 
-16. DO          headshot-400.webp > public              > /about
-17. FIX         Email contact .env key                  > /contact 
-17. Done        ContactInfo                             > layout <footer> 
-18. FIX         Copyright                               > layout <footer>
-19. DO          ResponsiveH: 360-384-414, 800, 1366
-Phase 2         
-
-20. DO          Debug & Build: 0.B.0-alpha+001 (14 hours) (R 700)
-21. DO          Form Styling > globals.css > /contact > key 
-22. DO          icon512.ico (png) > /app 
-23. DO          Terms & conditions > layout <footer> 
-24. DO          Trust Badges > layout <top&bottom> 
-25. DO          0Auth > ... User Auth > /signin ... 
-26. DO          User Dashboard > /dashboard ... 
-27. DO          Blog > /blog ... 
-28. DO          Accessibility > ...
-29. DO          Debug & Build: 1.7.1-beta+001 (8 hours) (R 800)
-
-    30. DO          placeholder-X.svg > public > loading... 
-31. DO          Pricing/Plans > /services/page.tsx 
-32. DO          Careers/Culture > /about/page.tsx 
-33. DO          Search > layout <Navigation> 
-34. DO          Individual Service > /services/...
-35. DO          Performance Optimizations Assets
-36. DO          ResponsiveH: 1920, 1536 0.+.0 - ResponsiveV: 1080, 864, 832, 768, 600
-37. DO          Implement next-themes > ... > Theme Switch > layout <Navigation> 
-38. DO          Implement Multi-Lanuage > ... 
-39. DO          Signup > /signup <Navigation> 
-40. DO          Debug & Build: 1.7.1+001 (7.5 hours) ( R 750)
-
-
-41. DO          Cart > /cart/ <Navigation> 
-42. DO          AI Chat > Headless on top 
-43. DO          Security Audit > ... 
-44. DO          Sentry > ... 
-45. DO          Analitics > ...
-46. DO          Debug & Build: 2.0.0+001 (8 hours) (R 1600)
+B.  Logo's: favicon_32.svg (favicon.ico), icon_32.png (icon.ico), icon_512.png (icon512.ico)
+A.  Fonts: local font: globals.css Typo-Hierarchy
+A.  Header: Logo, Navigation: globals.css Navi-Interaction 
+A.  Footer: ContactInfo, Copyright & Social Media
+B.  LandingPage: Hero :video-hero-1080-720.mp4 < 5MiB : globals.css background.svg
+A.  Services: ServiceList : service/product-800.webp
+B.  About: About : headshot-400.webp
+B.  Email: Contacts : .env key : globals.css Form-Input
+A.  Debugging and Building
+D. Responsive: 320, 360-390, 414, 480
+B. Logo's: Apple-icon_180.png (Apple-icon.ico) & logosm.svg
+C. Header & Footer: Auth0, Search, T&C's
+B. SEO: /app/utils : og-1200-630.png
+D. Trust: TBadges : media?
+D. Blog: Blog
+D. Dashboard: Dashboard
+D. Header: ThemeSwitch
+D. Loading...lazy stuff
+D. Culture&Career: /about/...
+C. ServicePages: /services/...
+D. Performance Optimization
+D. Responsive: 1280, 1366, 1440, 1536, 1920, 2560
+D. Pricing/Plans: /services/...
+D. CustomIcons: /app/utils icon/graph32.svg
+D. MultiLanguage: ?
+D. AI: Chat floatting
+D. Shopping: Cart component linked to dash
+D. Monitoring: Sentry to dash
+D. Analitics: GA to dash
+D. Security Audit
+D. Accessability
+D. Responsiveness: 768, 800, 900, 1024

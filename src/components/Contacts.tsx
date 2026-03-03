@@ -16,12 +16,18 @@ export default function Contacts() {
   const [result, setResult] = useState('');
 
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
+  const onSubmit = async (e:React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setResult('Sending....');
-    const formData = new FormData(event.target);
-    formData.append('access_key', '8461831b-6c08-4586-8302-dd960d36aac6');
-
+    const formData = new FormData(e.currentTarget);
+    
+    const access_key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    
+    if (access_key) {
+    formData.append('access_key', access_key);
+    } else {
+      console.error('Access key is missing in environment variables!');
+    }
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData,
@@ -30,7 +36,7 @@ export default function Contacts() {
     const data = await response.json();
     if (data.success) {
       setResult('Form Submitted Successfully');
-      event.target.reset();
+      e.currentTarget.reset();
     } else {
       setResult('Error');
     }

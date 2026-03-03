@@ -1,7 +1,6 @@
 'use client';
 
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -9,19 +8,15 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
 
 export default function Profile() {
   const { user, isLoading } = useUser();
-  const { Open, setOpen } = useState(false);
+
 
   if (isLoading) {
     return (
