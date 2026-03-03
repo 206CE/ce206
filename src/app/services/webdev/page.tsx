@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero';
+
 import {ServiceList} from '@/components/ServiceList';
 
 export default function WebDev() {
@@ -36,6 +36,34 @@ export default function WebDev() {
         ]}
         layout='grid'
         columns={2}
+      />
+      <ServiceList
+        heading='Our Previous Work...'
+        subheading='These are the sites we are currently building'
+        itemStyle='card'
+        services={[
+          {
+            title: 'Aurora',
+            description:
+              'Aurora is a family tax consultancy firm that specializes in personal tax.',
+            link: '/', imgUrl: '/services/Customers/Aurora-Logo-203-213.webp', 
+          },
+          {
+            title: 'Play2Heal',
+            description:
+              'Professional play therapist in Potchefstroom.',
+            link: '/', imgUrl: '/services/Customers/Play2Heal-Logo-596.webp'
+          },
+          {
+            title: 'Per-Gratiam',
+            description:
+              'Counseling and Addiction specialist that really want to help.',
+            link: '/', imgUrl: '/services/Customers/PerGratiam-Logo-364.webp'
+          },
+          
+        ]}
+        layout='grid'
+        columns={1}
       />
     </section>
   );

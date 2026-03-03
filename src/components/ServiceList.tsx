@@ -45,8 +45,8 @@ export function ServiceList({
     }[columns] || 'grid-cols-1';
 
   return (
-    <section className='py-16 px-4  text-(--text-primary)'>
-      <div className='text-center mb-12'>
+    <section className='p-5  text-(--text-primary)'>
+      <div className='text-center mb-5'>
         {heading && <h1 className='text-3xl font-bold'>{heading}</h1>}
         {subheading && (
           <h2 className='text-lg text-(--text-secondary) mt-2'>{subheading}</h2>
@@ -59,7 +59,7 @@ export function ServiceList({
       >
         {services.map((service, idx) => (
           <div
-            className={`flex flex-col items-center p-6 border border-(--border) shadow-sm hover:shadow-lg transition-shadow duration-300 bg-(--bg-secondary) ${itemStyle}`}
+            className={`flex flex-col  p-6 border border-(--border) shadow-md hover:shadow-lg transition-shadow duration-300 bg-(--bg-secondary) ${itemStyle}`}
             key={idx}
           >
             {service.link && (
