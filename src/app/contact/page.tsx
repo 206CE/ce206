@@ -1,15 +1,10 @@
-import Contacts from '@/components/Contacts';
+"use client";
 
-export const metadata = {
-  title: 'Send us an email now',
-}
-
-export default function Contact() {
+import Contacts from "@/_Components/Api/Contacts";
+export default function ContactPage() {
   return (
-    <section className=' flex flex-row justify-center'>
-      <div className='w-3/4'>
-        <Contacts />
-      </div>
-    </section>
+    <div className=" mx-auto px-4 py-8 bg-[#132148]">
+      <Contacts />
+    </div>
   );
 }

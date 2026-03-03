@@ -3,37 +3,27 @@ import './globals.css';
 
 /* auth0 */
 import { auth0 } from '@/lib/auth0';
-import LoginButton from '@/components/LoginButton';
-import LogoutButton from '@/components/LogoutButton';
-import Profile from '@/components/Profile';
+
 
 /* SEO */
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '206_CE Services - Best Websites in Potchefstroom',
+  title: 'Per-Gratiam - Professional Counselling Services',
   description:
-    'We cultivate and enhance your business and your people to improve performance on all levels.',
-  keywords: [
-    'Websites',
-    'web development',
-    'next.js',
-    'South Africa',
-    'seo',
-    'tutoring',
-    'services',
-    'service management',
-  ],
-  authors: [{ name: 'Jaco Botha' }],
+    'Offering professional counselling services including life coaching, addiction counselling, trauma-informed care, and more.',
+  keywords:
+    'counselling, life coaching, addiction counselling, trauma care, workplace counselling, career coaching',
+  authors: [{ name: '206CE', url: 'https://206ce.github.io' }],
   openGraph: {
-    title: '206_CE Services',
+    title: 'Per-Gratiam',
     description:
-      'We make your company digitally efficient, become our partner.',
-    url: 'https://ce206.vercel.app/',
-    siteName: '206_CE',
+      'We can help you improve your life.',
+    url: 'https://pergratiam.vercel.app/',
+    siteName: 'Per-Gratiam',
     images: [
       {
-        url: '/public/og_1200_630.webp',
+        url: '/public/og-1024-1024.png',
         width: 1200,
         height: 630,
       },
@@ -43,10 +33,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '206_CE',
+    title: 'Per-Gratiam',
     description:
       'We improve services, digital presence and increase employee production.',
-    images: '/public/og_1200_630.webp',
+    images: '/public/og-1024-1024.png',
   },
   robots: {
     index: true,
@@ -64,7 +54,7 @@ export const metadata: Metadata = {
 /* FONT */
 import localFont from 'next/font/local';
 
-export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf', weight:'400',style:'normal',})
+export const myCustomFont = localFont({src: '../../public/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf', weight:'400',style:'normal',})
 
 import { Logo, Navigation, ContactInfo } from '@/components';
 
@@ -84,26 +74,44 @@ export default async function RootLayout({
       <body className={` ${myCustomFont.className} antialiased`}>
         <div className='flex items-center'>
           <Logo
-            compStyling='text-(--primary) block'
-            text='CE_206'
-            imgPath='/Logo_32.png'
+            compStyling='text-(--text-primary) block'
+            text='Per-Gratiam'
+            imgPath='/Logo-751-736.png'
             size={50}
           />
           <div className=''>
             <Navigation
-              compStyling='btn-primary'
+              compStyling='btn-primary border'
               items={[
-                { label: 'HOME', href: '/' },
-                { label: 'SERVICES', href: '/services' },
-                { label: 'ABOUT', href: '/about' },
-                { label: 'CONTACT', href: '/contact' },
+                { label: 'Home', href: '/' },
+                { label: 'About', href: '/about' },
+                {
+                  label: 'Services',
+                  dropdown: [
+                    { label: 'Life Coaching', href: '/services/life' },
+                    {
+                      label: 'Addiction Counselling',
+                      href: '/services/addiction',
+                    },
+                    { label: 'Trauma-Informed Care', href: '/services/trauma' },
+                    {
+                      label: 'Workplace & Employee Counselling',
+                      href: '/services/workplace',
+                    },
+                    { label: 'Career Coaching', href: '/services/career' },
+                    { label: '24/7 Crisis Control', href: '/services/crisis' },
+                  ],
+                },
+                { label: 'Testimonials', href: 'testimonials' },
+                { label: 'Resources', href: '/resources' },
+                { label: 'Contact', href: '/contact' },
               ]}
             />
           </div>
+          {/** CMS Pergratiam
           <div className='p-4'>
             {user ? (
               <div className='flex'>
-
                 <Profile />
               </div>
             ) : (
@@ -111,24 +119,18 @@ export default async function RootLayout({
                 <LoginButton />
               </>
             )}
-          </div>
+          </div>*/}
         </div>
         {children}
         <footer className=' pt-4'>
           <Social
             linkStyle='btn-primary'
             urls={[
-              'https://www.linkedin.com/in/jaco-botha-886b7b95/',
-              'https://www.facebook.com/jaco.botha.12139',
-              'https://github.com/206CE',
-              'https://discord.com/users/1337346807100866580',
-              'https://x.com/206Roaches',
+             
             ]}
           />
           <ContactInfo
-            cellphone='+27 079 497 2646'
-            email='jacobotha206@gmail.com'
-            address='19 Carpie Diem, BailliePark, Potchefstroom, 2531'
+
           />
           <CopyRight />
         </footer>

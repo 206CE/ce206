@@ -3,16 +3,16 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --bg-primary: #0a0a10;
-  --bg-secondary: #12121d;
-  --bg-tertiary: #141523;
-  --primary: #ffd166;
-  --secondary: #4f83ca;
-  --tertiary: #ff6b35;
-  --text-primary: #ffd166;
-  --text-secondary: var(--secondary);
-  --text-tertiary: var(--tertiary);
-  --border: rgba(255, 255, 255, 0.171);
+  --bg-primary: #132148;
+  --bg-secondary: #132148;
+  --bg-tertiary: #132148;
+  --primary: ;
+  --secondary: ;
+  --tertiary: ;
+  --text-primary: #e5dbb7;
+  --text-secondary: #e5dbb7;
+  --text-tertiary: #e5dbb7;
+  --border: #b5b7c6;
   --sidebar: hsl(0 0% 98%);
   --sidebar-foreground: hsl(240 5.3% 26.1%);
   --sidebar-primary: hsl(240 5.9% 10%);
