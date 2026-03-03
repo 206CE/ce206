@@ -169,11 +169,11 @@
   }
 
   .form-input {
-    @apply w-full bg-[var(--bg-tertiary)] border border-[var(--border)] rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 transition-all duration-200;
+    @apply w-full bg-(--bg-tertiary) border border-(--border) rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 transition-all duration-200;
   }
 
   .form-input:focus {
-    @apply border-[var(--secondary)] ring-2 ring-[var(--secondary)]/40 shadow-[0_0_20px_rgba(79,131,202,0.3)];
+    @apply border-(--secondary) ring-2 ring-(--secondary)/40 shadow-[0_0_20px_rgba(79,131,202,0.3)];
   }
 
   .form-input-error {

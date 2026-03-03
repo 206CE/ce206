@@ -38,9 +38,9 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <section className='p-5 bg-(--bg-secondary) m-10 border-(--border) border-2'>
-      <div className=''>
+      <div className='flex-col justify-center'>
         {/* Optional image display */}
-        <div className=' flex justify-center'>
+        <div className='flex justify-center'>
           {imageSrc && (
             <div className='p-10'>
               <Image
@@ -54,12 +54,12 @@ const Hero: React.FC<HeroProps> = ({
             </div>
           )}
         </div>
-        <h1 className='flex justify-center text-5xl md:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent'>
+        <h1 className=' flex justify-center items-center text-4xl lg:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent'>
           {title}
         </h1>
 
         {tagline && (
-          <h2 className='flex justify-center mt-4 md:text-md text-xl text-(--text-secondary) max-w-xl mx-auto'>
+          <h2 className='flex justify-center mt-2 text-xl text-(--text-secondary) '>
             {tagline}
           </h2>
         )}

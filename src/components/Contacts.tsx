@@ -95,7 +95,7 @@ export default function Contacts() {
             placeholder='This is your message...'
           />
         </fieldset>
-        <button className='btn-primary cursor-pointer' type='submit'>
+        <button className=' btn-primary cursor-pointer' type='submit'>
           Send
         </button>
       </form>

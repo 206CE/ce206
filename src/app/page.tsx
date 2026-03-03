@@ -3,14 +3,14 @@ import Hero from '@/components/Hero';
 
 export default function Home() {
   return (
-    <div className=''>
+    <div className='sm:text-hook text-md'>
       <main className=''>
         <Hero
           title='CE_206'
           tagline='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
-          itemFormat='btn'
-          listformat=''
+          itemFormat='btn-primary'
+          listformat='text-2xl'
           imageSrc='/Logo_256.webp'
           imageAlt='Company Logo'
           imageSize={200}

@@ -20,7 +20,7 @@ export default function AboutP() {
               name: 'Jaco Botha',
               role: 'Plebian',
               bio: 'From theory to practice, to leading to learning.',
-              imgUrl: '/about/jaco_botha_400_409.webp',
+              imgUrl: '/about/jaco_botha_400_400.webp',
               size: 200,
             },
           ]}

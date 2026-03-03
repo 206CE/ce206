@@ -105,7 +105,7 @@ export function Navigation({ items, compStyling = '' }: NavigationProps) {
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className='flex flex-col gap-2   bg-(--bg-primary)'>
+        <div className='flex flex-col gap-2   '>
           {items.map((item) => renderItem(item, true))}
         </div>
       </div>
