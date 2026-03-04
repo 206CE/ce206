@@ -3,7 +3,6 @@
 1. Generate banner with button/s in
 2. Top / bottom or left or right
 
-
  */
 
 export default function Ctas() {

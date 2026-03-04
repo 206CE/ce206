@@ -1,18 +1,12 @@
-/** GOOD - 1.0.0
+/** GOOD - 1.1.0
 
-1.  Add hover state change
- 
-
-
+1.  Add T&C Capabilities
 
  */
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
-
-
-
 
 export default function CopyRight() {
   const [isHovered, setIsHovered] = useState(false);

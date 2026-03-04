@@ -1,7 +1,5 @@
 /** GOOD - 1.0.0
 
-
-
  */
 
 'use client'; // Must be lowercase

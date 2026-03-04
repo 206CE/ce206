@@ -3,7 +3,6 @@
 1. Remove CTA's
 2. Testing
 
-
 */
 
 'use client';

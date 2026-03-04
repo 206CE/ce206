@@ -2,7 +2,6 @@
 
 1. Add flexibility to aspect ratio.
 
-
  */
 
 import Image from 'next/image';

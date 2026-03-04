@@ -5,7 +5,6 @@ import './globals.css';
 /* auth0 */
 import { auth0 } from '@/lib/auth0';
 import LoginButton from '@/components/LoginButton';
-import LogoutButton from '@/components/LogoutButton';
 import Profile from '@/components/Profile';
 
 /* SEO */
@@ -64,15 +63,12 @@ export const metadata: Metadata = {
 
 /* FONT */
 import localFont from 'next/font/local';
-
 export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf', weight:'400',style:'normal',})
 
 import { Logo, Navigation, ContactInfo } from '@/components';
-
 import Social from '@/components/Social';
-
-
 import CopyRight from '@/components/CopyRight';
+
 
 export default async function RootLayout({
   children,
@@ -85,7 +81,7 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
-        <div className='flex items-center'>
+        <div className='flex items-center gap-3'>
           <Logo
             compStyling='text-(--primary) block'
             text='CE_206'
@@ -103,10 +99,13 @@ export default async function RootLayout({
               ]}
             />
           </div>
+          {/*
+          <div>
+            <SearchBar />
+          </div> */}
           <div className='p-4'>
             {user ? (
               <div className='flex'>
-
                 <Profile />
               </div>
             ) : (
@@ -131,7 +130,7 @@ export default async function RootLayout({
           <ContactInfo
             cellphone='+27 079 497 2646'
             email='jacobotha206@gmail.com'
-            address='19 Carpie Diem, BailliePark, Potchefstroom, 2531'
+            address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
           />
           <CopyRight />
 

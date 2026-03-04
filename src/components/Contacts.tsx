@@ -1,11 +1,8 @@
-/** BAD - 0.0.0
+/** GOOD - 1.0.0
 
-1.  Access key to .env
-2.  Shadcn Components
-3.  Next 16 useAction
-4.  CSS Dependency
-
-
+1.  Shadcn Components
+2.  Next 16 useAction
+3.  CSS Dependency
 
  */
 'use client';

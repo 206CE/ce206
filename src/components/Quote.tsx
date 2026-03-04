@@ -2,7 +2,6 @@
 
 1. CSS Dependency
 
-
  */
 
 import React from 'react';
