@@ -6,7 +6,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+
 
 export default function CopyRight() {
   const [isHovered, setIsHovered] = useState(false);
@@ -18,11 +18,11 @@ export default function CopyRight() {
         <span className='text-(--text-secondary) text-xs tracking-widest uppercase glow-text mx-2'>
           |
         </span>
-        <Link href='/T&Cs'>T&C</Link>
+        {/*<Link href='/T&Cs'>T&C</Link>
 
         <span className='text-(--text-secondary) text-xs tracking-widest uppercase glow-text mx-2'>
           |
-        </span>
+        </span>*/}
         <p
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

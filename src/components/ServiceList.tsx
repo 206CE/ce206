@@ -59,11 +59,11 @@ export function ServiceList({
       >
         {services.map((service, idx) => (
           <div
-            className={`flex flex-col  p-6 border border-(--border) shadow-md hover:shadow-lg transition-shadow duration-300 bg-(--bg-secondary) ${itemStyle}`}
+            className={`flex flex-col  justify-items-center p-6 border border-(--border) shadow-md hover:shadow-lg transition-shadow duration-300 bg-(--bg-secondary) ${itemStyle}`}
             key={idx}
           >
             {service.link && (
-              <Link href={service.link}>
+              <Link className='justify-center' href={service.link}>
                 {service.icon && (
                   <div className='mb-4 text-(--text-primary) text-3xl'>
                     {service.icon}
@@ -72,7 +72,7 @@ export function ServiceList({
                 {/* End Icon */}
                 {service.imgUrl && (
                   <Image
-                    className='object-cover mb-4'
+                    className='object-cover mb-4 '
                     src={service.imgUrl}
                     alt={service.description}
                     height={service.imgSize || 50}

@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+/* Navi-Inter */
+@layer base {
+  body {
+    @apply  text-gray-200 min-h-screen;
+    background-image: url("/background.svg");
+    background-size: cover;
+    background-attachment: fixed;
+
+    :focus-visible {
+      @apply outline-none ring-2 ring-(--secondary) ring-offset-2 ring-offset-(--bg-primary);
+
+    }
+
+    a,
+    button,
+    select,
+    input {
+      @apply transition-all duration-300 ease-out;
+    }
+  }
+}
+
+/* The structure - Navigation patterns 
+@layer components {
+  .nav-link {
+    @apply px-4 py-2.5 rounded-md text-gray-300 hover:text-var(--primary) hover:bg-white/5 relative group font-medium;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-1.5 left-4 right-4 h-0.5 bg-[var(--primary)] scale-x-0 origin-right transition-transform duration-300 group-hover:scale-x-100;
+  }
+
+  .nav-link-active {
+    @apply text-[var(--primary)] bg-white/10 font-semibold;
+  }
+
+  .menu-item {
+    @apply px-4 py-2.5 text-sm hover:bg-white/10 hover:text-[var(--primary)] transition-colors rounded-md flex items-center gap-3;
+  }
+}
+*/
+/* Button Hierarchy */
+@layer components {
+  .btn-primary {
+    @apply bg-linear-to-r from-(--primary) to-(--tertiary) text-black font-bold px-6 py-3 rounded-lg shadow-lg shadow-(--primary)/30 hover:shadow-(--primary)/50 hover:scale-105 active:scale-95 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply border border-(--secondary) text-(--secondary) px-6 py-3 rounded-lg hover:bg-(--secondary)/10 hover:shadow-[0_0_20px_rgba(79,131,202,0.4)] transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply text-gray-300 hover:text-white px-6 py-3 rounded-lg hover:bg-white/5 transition-all duration-300;
+  }
+}
+
+/* Interaction - Feedback 
+@layer utilities {
+  .animate-skeleton {
+    @apply bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-[length:200%_100%] animate-[pulse_1.5s_ease-in-out_infinite];
+  }
+
+  .input-focus {
+    @apply focus:ring-2 focus:ring-[var(--secondary)] focus:border-[var(--secondary)] focus:shadow-[0_0_15px_rgba(79,131,202,0.5)];
+  }
+}*/
+
+/* Interaction - Feedback */
+@layer utilities {
+  .animate-skeleton {
+    @apply bg-linear-to-r from-gray-800 via-gray-700 to-gray-800 bg-[length:200%_100%] animate-[pulse_1.5s_ease-in-out_infinite];
+  }
+
+  .input-focus {
+    @apply focus:ring-2 focus:ring-[var(--secondary)] focus:border-[var(--secondary)] focus:shadow-[0_0_15px_rgba(79,131,202,0.5)];
+  }
+}

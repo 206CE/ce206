@@ -1,9 +1,9 @@
 import About from '@/components/About';
-import {Team} from '@/components/Team';
+import { Team } from '@/components/Team';
 
 export const metadata = {
   title: 'About Us',
-}
+};
 
 export default function AboutP() {
   return (

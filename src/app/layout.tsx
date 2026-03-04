@@ -1,13 +1,16 @@
-
 /* CSS */
-import './globals.css';
+import '@/styles/Basic.css';
+import '@/styles/Typo-Hierarchy.css';
+import '@/styles/Form-Inputs.css';
+import '@/styles/Navi-Interaction.css';
 
-/* auth0 */
+/* auth0 
 import { auth0 } from '@/lib/auth0';
 import LoginButton from '@/components/LoginButton';
 import Profile from '@/components/Profile';
+*/
 
-/* SEO */
+/* SEO 
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -59,9 +62,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-};
+};*/
 
-/* FONT */
+/* FONT (1) */
 import localFont from 'next/font/local';
 export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf', weight:'400',style:'normal',})
 
@@ -76,8 +79,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await auth0.getSession();
-  const user = session?.user;
+  {/*const session = await auth0.getSession();
+  const user = session?.user;*/}
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
@@ -99,10 +102,7 @@ export default async function RootLayout({
               ]}
             />
           </div>
-          {/*
-          <div>
-            <SearchBar />
-          </div> */}
+          {/**
           <div className='p-4'>
             {user ? (
               <div className='flex'>
@@ -113,10 +113,11 @@ export default async function RootLayout({
                 <LoginButton />
               </>
             )}
-          </div>
+          </div> */}
         </div>
         {children}
         <footer className=' pt-4'>
+          {/*}
           <Social
             linkStyle='btn-primary'
             urls={[
@@ -131,11 +132,10 @@ export default async function RootLayout({
             cellphone='+27 079 497 2646'
             email='jacobotha206@gmail.com'
             address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
-          />
+          />*/}
           <CopyRight />
-
         </footer>
-        </body>
+      </body>
     </html>
   );
 }

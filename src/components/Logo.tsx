@@ -17,14 +17,14 @@ interface LogoProps {
 
 export function Logo({
   text,
-  imgPath = '/Logo.png',
+  imgPath = '@/src/app/icon.ico',
   size,
   href = '/',
   compStyling = '',
 }: LogoProps) {
   return (
     <div
-      className={`gap-2 text-2xl font-extrabold cursor-pointer ${compStyling}`}
+      className={`gap-2 text-2xl font-extrabold  ${compStyling}`}
     >
       <Link href={href || ''}>
         <div className='flex flex-row items-center  gap-2 mr-4'>

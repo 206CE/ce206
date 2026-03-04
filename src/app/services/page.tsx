@@ -11,7 +11,7 @@ export default function Services() {
         <ServiceList
           heading='Our Service Offerings'
           subheading='Services Simplified'
-          itemStyle='card'
+          itemStyle=''
           services={[
             {
               title: 'Website Development',
@@ -19,21 +19,21 @@ export default function Services() {
                 'From basic to advanced websites custom built with added Content Management Systems that Users can update themselves.',
               imgUrl: '/services/Web_Development_800.webp',
               imgSize: 200,
-              link: '/services/webdev',
+              link: '/',
             },
             {
               title: 'Service Management',
               description: 'We manage your services to retain clients.',
               imgUrl: '/services/Service_Management_800.webp',
               imgSize: 200,
-              link: '/services/servicemanagement',
+              link: '/',
             },
             {
               title: 'Training & Tutoring',
               description: 'We teach and train anyone who needs to excel',
               imgUrl: '/services/Training_Learning_800.webp',
               imgSize: 200,
-              link: '/services/training',
+              link: '/',
             },
           ]}
           layout='grid'
