@@ -1,20 +1,20 @@
 /* CSS */
-import '@/styles/Basic.css';
-import '@/styles/Typo-Hierarchy.css';
-import '@/styles/Form-Inputs.css';
-import '@/styles/Navi-Interaction.css';
+import '@/app/styles/Basic.css';
+import '@/app/styles/Typo-Hierarchy.css';
+import '@/app/styles/Form-Inputs.css';
+import '@/app/styles/Navi-Interaction.css';
 
-/* auth0 
+/* auth0 */ 
 import { auth0 } from '@/lib/auth0';
 import LoginButton from '@/components/LoginButton';
 import Profile from '@/components/Profile';
-*/
 
-/* SEO 
+
+/* SEO */ 
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '206_CE Services - Best Websites in Potchefstroom',
+  title: 'CE206 Services',
   description:
     'We cultivate and enhance your business and your people to improve performance on all levels.',
   keywords: [
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-};*/
+};
 
 /* FONT (1) */
 import localFont from 'next/font/local';
@@ -79,8 +79,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  {/*const session = await auth0.getSession();
-  const user = session?.user;*/}
+  const session = await auth0.getSession();
+  const user = session?.user;
+
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
@@ -97,12 +98,12 @@ export default async function RootLayout({
               items={[
                 { label: 'HOME', href: '/' },
                 { label: 'SERVICES', href: '/services' },
-                { label: 'ABOUT', href: '/about' },
+                { label: 'ABOUT', dropdown: [{label:'CAREER',href:'/about/career'},{label: 'CULTURE',href:'/about/culture'}] },
                 { label: 'CONTACT', href: '/contact' },
               ]}
             />
           </div>
-          {/**
+          
           <div className='p-4'>
             {user ? (
               <div className='flex'>
@@ -113,11 +114,11 @@ export default async function RootLayout({
                 <LoginButton />
               </>
             )}
-          </div> */}
+          </div>
         </div>
         {children}
         <footer className=' pt-4'>
-          {/*}
+          
           <Social
             linkStyle='btn-primary'
             urls={[
@@ -132,7 +133,7 @@ export default async function RootLayout({
             cellphone='+27 079 497 2646'
             email='jacobotha206@gmail.com'
             address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
-          />*/}
+          />
           <CopyRight />
         </footer>
       </body>
