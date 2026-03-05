@@ -25,9 +25,10 @@ Building:
 </app apple-icon.ico (180png)>  
 [4][4][4]
 <Responsive 320, 414, 480> 
+320: <Hero> {tagline} will not center
 <Responsive 360-375> 
 <Responsive 375-390>
-<BUILD: Lighthouse 85%>
+<BUILD: Lighthouse 85%> Mobile Performance: 86
 [4]
 
 <SEO>

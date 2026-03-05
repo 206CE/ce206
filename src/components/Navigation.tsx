@@ -91,7 +91,7 @@ export function Navigation({ items, compStyling = '' }: NavigationProps) {
         onClick={() => setOpen(!open)}
         aria-label='Toggle menu'
       >
-        {open ? <FaTimes size={12} /> : <FaBars size={12} />}
+        {open ? <FaTimes size={20} /> : <FaBars size={20} />}
       </button>
 
       {/* Overlay */}

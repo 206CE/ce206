@@ -72,7 +72,7 @@ export function ServiceList({
                 {/* End Icon */}
                 {service.imgUrl && (
                   <Image
-                    className='object-cover mb-4 '
+                    className='object-cover mb-4'
                     src={service.imgUrl}
                     alt={service.description}
                     height={service.imgSize || 50}

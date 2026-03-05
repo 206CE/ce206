@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 /* Navi-Inter */
+
 @layer base {
   body {
     @apply  text-gray-200 min-h-screen;

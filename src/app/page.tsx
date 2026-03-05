@@ -10,7 +10,7 @@ export default function Home() {
           tagline='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
           itemFormat='btn-primary'
-          listformat='text-2xl'
+          listformat='items-center'
           imageSrc='/Logo_256.webp'
           imageAlt='Company Logo'
           imageSize={200}

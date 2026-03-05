@@ -10,7 +10,7 @@ import LoginButton from '@/components/LoginButton';
 import Profile from '@/components/Profile';
 */
 
-/* SEO 
+/* SEO */ 
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-};*/
+};
 
 /* FONT (1) */
 import localFont from 'next/font/local';
