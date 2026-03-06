@@ -9,27 +9,33 @@ Proposal:   Change Enablement, Audiance Alignment, Hosting, Costs, Competetor An
 Building:
 8.4.2.19
 
-<Font> LOCAL
-<Header  
+<Font>  
 <Logo> 
-<Navigation>/>
-<Footer  
-<Copyright>  />
+<Navigation> 
+<Copyright>  
 /
+<Hero>
 /services
+<ServiceList>
 /about
+<Team>
+<About>
 /contact
+<Contacts>
 </globals Navi-Interaction> 
 </app icon.ico (32png)> 
 </app icon512.ico (512png)> <Contacts> 
 </app apple-icon.ico (180png)>  
-[4][4][4]
+
 <Responsive 320, 414, 480> 
-320: <Hero> {tagline} will not center
-<Responsive 360-375> 
-<Responsive 375-390>
+    <Logo> Image background not transparent
+    <Hero> tagline dont center
+        <ServiceList> Images is not center
+    <Contacts> Send button not center
+<Responsive 360, 370, 380, 390>
+ 
 <BUILD: Lighthouse 85%> Mobile Performance: 86
-[4]
+
 
 <SEO>
 <Header <Auth0> />

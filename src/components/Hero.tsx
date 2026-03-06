@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({
                 width={imageSize || 20}
                 height={imageSize || 20}
                 priority
-                placeholder='blur'
+
               />
             </div>
           )}
