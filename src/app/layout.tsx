@@ -2,7 +2,7 @@
 import '@/app/styles/Basic.css';
 import '@/app/styles/Typo-Hierarchy.css';
 import '@/app/styles/Form-Inputs.css';
-import '@/app/styles/Navi-Interaction.css';
+import '@/app/styles/Navi-Inter.css';
 
 /* auth0 */ 
 import { auth0 } from '@/lib/auth0';
@@ -73,6 +73,45 @@ import Social from '@/components/Social';
 import CopyRight from '@/components/CopyRight';
 
 
+const Items: { title: string; href: string; description: string }[] = [
+  {
+    title: 'Alert Dialog',
+    href: '/docs/primitives/alert-dialog',
+    description:
+      'A modal dialog that interrupts the user with important content and expects a response.',
+  },
+  {
+    title: 'Hover Card',
+    href: '/docs/primitives/hover-card',
+    description:
+      'For sighted users to preview content available behind a link.',
+  },
+  {
+    title: 'Progress',
+    href: '/docs/primitives/progress',
+    description:
+      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
+  },
+  {
+    title: 'Scroll-area',
+    href: '/docs/primitives/scroll-area',
+    description: 'Visually or semantically separates content.',
+  },
+  {
+    title: 'Tabs',
+    href: '/docs/primitives/tabs',
+    description:
+      'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
+  },
+  {
+    title: 'Tooltip',
+    href: '/docs/primitives/tooltip',
+    description:
+      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
+  },
+];
+
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -86,23 +125,25 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
         <div className='flex items-center gap-3'>
+          {/* <Logo> */}
           <Logo
             compStyling='text-(--primary) block'
             text='CE_206'
             imgPath='/Logo_32.png'
             size={50}
           />
-          <div className=''>
-            <Navigation
-              compStyling='btn-primary'
-              items={[
-                { label: 'HOME', href: '/' },
-                { label: 'SERVICES', href: '/services' },
-                { label: 'ABOUT', dropdown: [{label:'CAREER',href:'/about/career'},{label: 'CULTURE',href:'/about/culture'}] },
-                { label: 'CONTACT', href: '/contact' },
-              ]}
-            />
-          </div>
+          {/* <Navi> */}
+          <Navigation
+            compStyling='btn-primary text-2xl font-extrabold justify-items'
+            items={[
+              { label: 'HOME', href: '/' },
+              { label: 'SERVICES', href: '/services' },
+              { label: 'ABOUT', dropdown: [{label:'CAREER',href:'/about/career'},{label: 'CULTURE',href:'/about/culture'}] },
+              { label: 'CONTACT', href: '/contact' },
+              {label: 'BLOG', href:'/blog'},
+            ]}
+          />
+
           
           <div className='p-4'>
             {user ? (

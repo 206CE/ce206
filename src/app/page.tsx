@@ -9,8 +9,8 @@ export default function Home() {
           title='CE_206'
           tagline='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
-          itemFormat='btn-primary'
-          listformat='text-2xl'
+          itemFormat='btn-primary '
+          listformat='text-2xl mr-2'
           imageSrc='/Logo_256.webp'
           imageAlt='Company Logo'
           imageSize={200}
