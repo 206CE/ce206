@@ -1,3 +1,8 @@
+/**
+ * Next.js request proxy
+ */
+
+
 import { auth0 } from './lib/auth0';
 
 export async function proxy(request: Request) {

@@ -7,7 +7,6 @@ Branding:   Core, Definitions, Personality, Voice
 Proposal:   Change Enablement, Audiance Alignment, Hosting, Costs, Competetor Analisis
 
 Building:
-8.4.2.19
 
 <Font> LOCAL
 <Header  
@@ -23,17 +22,21 @@ Building:
 </app icon.ico (32png)> 
 </app icon512.ico (512png)> <Contacts> 
 </app apple-icon.ico (180png)>  
-[4][4][4]
-<Responsive 320, 414, 480> 
-<Responsive 360-375> 
-<Responsive 375-390>
+</ hero-1920-1080.webp < 300KiB>
+<Responsive 320, 360> 
+<Responsive 370, 380> 
+<Responsive 390, 414, 480>
 <BUILD: Lighthouse 85%>
-[4]
+
+NOTES:
+Mobile Performance 86
+Unresponsive: <Hero> <ServiceList> dont center some text.
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase.
+<Navi-Inter> needs structure.
 
 <SEO>
 <Header <Auth0> />
 <Footer <ContactInfo>  <SocialMedia> />    
-
 /about/...  <Culture> <Career>
 /blog
 /utils auth0
@@ -46,7 +49,17 @@ Building:
 <Responsive 1280, 1366, 1440> 
 <Responsive 1536, 1920, 2560>
 <BUILD: LightHouse 90%>    
-[3]
+NOTES:
+/components/<Auth0 not working on Vercel>
+/career -styling
+/culture -styling
+/blog -styling
+Typo-Archi.css -structure
+/app favicon.ico (32svg)
+/og-1200-630.png -improve
+
+
+<Auth0> Not working on vercel
 
 
 <TCs>
