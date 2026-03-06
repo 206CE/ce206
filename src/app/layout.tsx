@@ -9,7 +9,6 @@ import { auth0 } from '@/lib/auth0';
 import LoginButton from '@/components/LoginButton';
 import Profile from '@/components/Profile';
 
-
 /* SEO */ 
 import type { Metadata } from 'next';
 

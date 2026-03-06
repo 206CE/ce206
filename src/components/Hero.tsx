@@ -37,9 +37,9 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <section className='p-5 bg-(--bg-secondary) m-10 border-(--border) border-2'>
-      <div className='flex-col justify-center'>
+      <div className='flex-col items-center'>
         {/* Optional image display */}
-        <div className='flex justify-center'>
+        <div className='flex '>
           {imageSrc && (
             <div className='p-10'>
               <Image
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({
             </div>
           )}
         </div>
-        <h1 className=' flex justify-center items-center text-4xl lg:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent'>
+        <h1 className='flex justify-center text-4xl lg:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent'>
           {title}
         </h1>
 
@@ -62,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({
             {tagline}
           </h2>
         )}
-        <ul className='mt-6 flex justify-center  flex-wrap'>
+        <ul className='mt-6 flex justify-center flex-wrap'>
           {(ctas ?? []).map((cta, idx) => (
             <li
               key={idx}
