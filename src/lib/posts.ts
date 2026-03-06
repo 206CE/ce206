@@ -4,9 +4,31 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+// lib/posts.ts  (or types/blog.ts)
+
+export interface FrontMatter {
+  title: string;
+  date: string;           // or Date if you parse it
+  description?: string;
+  author?: string;
+  tags?: string[];        // ← add this (array of strings)
+  draft?: boolean;
+  image?: string;
+  // add any other fields you use
+  [key: string]: any;     // optional: allow unknown extra fields
+}
+
+export interface Post {
+  slug: string;
+  frontMatter: FrontMatter;
+  content: string;        // HTML from remark
+  rawContent: string;     // original markdown/text
+}
+
+
 const postsDirectory = path.join(process.cwd(), 'content');
 
-export async function getAllPosts() {
+export async function getAllPosts():Promise<Post[]> {
   const fileNames = await fs.readdir(postsDirectory);
   const posts = await Promise.all(
     fileNames
@@ -40,9 +62,7 @@ export async function getAllPosts() {
   );
 
   // Sort by date descending
-  return posts.sort((a, b) =>
-    a.frontMatter.date > b.frontMatter.date ? -1 : 1,
-  );
+  return posts.sort(/* ... */) as Post[];
 }
 
 export async function getPostBySlug(slug: string) {

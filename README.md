@@ -18,7 +18,7 @@ Building:
 /services
 /about
 /contact
-</globals Navi-Interaction> 
+</globals Navi-Inter> 
 </app icon.ico (32png)> 
 </app icon512.ico (512png)> <Contacts> 
 </app apple-icon.ico (180png)>  
@@ -28,11 +28,13 @@ Building:
 <Responsive 390, 414, 480>
 <BUILD: Lighthouse 85%>
 
-NOTES:
-Mobile Performance 86
-Unresponsive: <Hero> <ServiceList> dont center some text.
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase.
-<Navi-Inter> needs structure.
+RESPONSIVE:
+    <Hero> <ServiceList> dont center some text.
+WARNINGS:
+    metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase.
+STYLE:
+    <Navi-Inter> needs structure.
+
 
 <SEO>
 <Header <Auth0> />
@@ -49,17 +51,17 @@ Unresponsive: <Hero> <ServiceList> dont center some text.
 <Responsive 1280, 1366, 1440> 
 <Responsive 1536, 1920, 2560>
 <BUILD: LightHouse 90%>    
-NOTES:
-/components/<Auth0 not working on Vercel>
-/career -styling
-/culture -styling
-/blog -styling
-Typo-Archi.css -structure
-/app favicon.ico (32svg)
-/og-1200-630.png -improve
 
-
-<Auth0> Not working on vercel
+WARNINGS:
+    metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+    metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+FAILED:
+    /components <Auth0> 
+STYLE:
+    /blog
+    /styles/Typo-Archi.css
+    /app favicon.ico (32svg)
+    /og-1200-630.png
 
 
 <TCs>

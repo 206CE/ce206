@@ -44,16 +44,16 @@ export default function CareerPage() {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900'>
+    <div className='min-h-screen '>
       {/* Hero / Intro */}
       <section className='pt-16 pb-20 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto'>
         <div className='text-center'>
-          <h1 className='text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white'>
-            My Career Journey
+          <h1 className='text-4xl md:text-5xl font-bold tracking-tight text-(--text-primary) '>
+            My Journey so far...
           </h1>
-          <p className='mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto'>
+          <p className='mt-6 text-xl text-(--text-secondary) max-w-3xl mx-auto'>
             From early web tinkering in Pretoria to building modern, performant
-            applications — here's the path that shaped who I am today.
+            applications — here&apos;s the path that shaped who I am today.
           </p>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default function CareerPage() {
       <section className='pb-24 px-6 md:px-12 lg:px-24 max-w-4xl mx-auto'>
         <div className='relative'>
           {/* Vertical line */}
-          <div className='absolute left-4 md:left-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700 transform md:-translate-x-1/2' />
+          <div className='absolute left-4 md:left-1/2 h-full w-0.5 bg-(--border)  transform md:-translate-x-1/2' />
 
           {careerTimeline.map((entry, index) => (
             <div
@@ -72,10 +72,10 @@ export default function CareerPage() {
               }`}
             >
               {/* Date bubble - centered on desktop */}
-              <div className='flex items-center justify-center w-28 h-28 rounded-full bg-white dark:bg-gray-800 border-4 border-blue-500 dark:border-blue-600 shadow-lg z-10 md:absolute md:left-1/2 md:-translate-x-1/2'>
+              <div className='flex items-center justify-center w-30 h-30 rounded-full bg-(--bg-secondary)  border-4 border-(--border)  shadow-lg z-10 md:absolute md:left-1/2 md:-translate-x-1/2'>
                 <div className='text-center'>
-                  <Calendar className='mx-auto mb-1 h-6 w-6 text-blue-600 dark:text-blue-400' />
-                  <span className='text-sm font-semibold text-gray-900 dark:text-white'>
+                  <Calendar className='mx-auto mb-1 h-6 w-6 text-(--text-tertiary) ' />
+                  <span className='text-sm font-semibold text-(--text-secondary)'>
                     {entry.year}
                   </span>
                 </div>
@@ -83,35 +83,35 @@ export default function CareerPage() {
 
               {/* Card */}
               <div
-                className={`w-full md:w-5/12 bg-white dark:bg-gray-800 rounded-xl shadow-md p-7 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-xl ${
+                className={`w-full md:w-5/12 bg-(--bg-secondary)   shadow-md p-7 border border-(--border)  transition-all hover:shadow-xl ${
                   index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
                 }`}
               >
                 <div className='flex items-center gap-3 mb-4'>
-                  <Briefcase className='h-6 w-6 text-blue-600 dark:text-blue-400' />
-                  <h3 className='text-xl font-bold text-gray-900 dark:text-white'>
+                  <Briefcase className='h-6 w-6 text-(--text-tertiary) ' />
+                  <h3 className='text-xl font-bold text-(--text-primary) '>
                     {entry.role}
                   </h3>
                 </div>
 
-                <p className='text-gray-700 dark:text-gray-300 font-medium mb-2'>
+                <p className='text-(--text-secondary)  font-medium mb-2'>
                   {entry.company}
                   {entry.location && (
-                    <span className='inline-flex items-center gap-1 ml-3 text-sm text-gray-500 dark:text-gray-400'>
+                    <span className='inline-flex items-center gap-1 ml-3 text-sm text-(--text-tertiary) '>
                       <MapPin className='h-4 w-4' /> {entry.location}
                     </span>
                   )}
                 </p>
 
-                <p className='text-gray-600 dark:text-gray-400 mb-5'>
+                <p className='text-(--text-secondary) '>
                   {entry.description}
                 </p>
 
                 {entry.achievements && entry.achievements.length > 0 && (
-                  <ul className='space-y-2 text-sm text-gray-600 dark:text-gray-400'>
+                  <ul className='space-y-2 text-sm text-(--text-tertiary) '>
                     {entry.achievements.map((ach, i) => (
                       <li key={i} className='flex items-start gap-2'>
-                        <span className='text-green-500 mt-1'>•</span>
+                        <span className='text-(text-tertiary) mt-1'>•</span>
                         {ach}
                       </li>
                     ))}
@@ -124,9 +124,9 @@ export default function CareerPage() {
       </section>
 
       {/* Optional: Skills / Tech Stack Highlights */}
-      <section className='py-20 px-6 md:px-12 lg:px-24 bg-gray-100 dark:bg-gray-900/50'>
+      <section className='py-20 px-6 md:px-12 lg:px-24 '>
         <div className='max-w-5xl mx-auto'>
-          <h2 className='text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white'>
+          <h2 className='text-3xl font-bold text-center mb-12 text-(--text-primary) '>
             Core Skills & Technologies
           </h2>
 
@@ -143,9 +143,9 @@ export default function CareerPage() {
             ].map((skill) => (
               <div
                 key={skill}
-                className='bg-white dark:bg-gray-800 rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow'
+                className='bg-(--bg-secondary) border-(--border) border-4 p-6 text-center shadow-sm hover:shadow-md transition-shadow'
               >
-                <p className='font-medium text-gray-900 dark:text-white'>
+                <p className='font-medium text-(--text-secondary) '>
                   {skill}
                 </p>
               </div>

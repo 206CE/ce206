@@ -137,7 +137,7 @@ export default async function RootLayout({
             items={[
               { label: 'HOME', href: '/' },
               { label: 'SERVICES', href: '/services' },
-              { label: 'ABOUT', dropdown: [{label:'CAREER',href:'/about/career'},{label: 'CULTURE',href:'/about/culture'}] },
+              { label: 'ABOUT',href:'/about' },
               { label: 'CONTACT', href: '/contact' },
               {label: 'BLOG', href:'/blog'},
             ]}

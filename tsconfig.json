@@ -31,6 +31,6 @@
     "**/*.mts",
     "src/middleware.ts",
     ".resources/_Cta.tsx"
-, ".resources/_SearchBar.tsx", "src/components/.SearchBar.tsx", ".resources/BackNav.tsx", "src/components/Container.tsx", ".resources/Ctas.tsx", ".resources/Legal.tsx", ".resources/Faq.tsx", ".resources/TrustBadges.tsx"  ],
+, ".resources/_SearchBar.tsx", "src/components/.SearchBar.tsx", ".resources/BackNav.tsx", "src/components/Container.tsx", ".resources/Ctas.tsx", ".resources/Legal.tsx", ".resources/Faq.tsx", ".resources/TrustBadges.tsx", ".resources/Navi.tsx"  ],
   "exclude": ["node_modules"]
 }
