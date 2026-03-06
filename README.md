@@ -8,82 +8,105 @@ Proposal:   Change Enablement, Audiance Alignment, Hosting, Costs, Competetor An
 
 Building:
 
-<Font> LOCAL
-<Header  
+<Font>  
 <Logo> 
-<Navigation>/>
-<Footer  
-<Copyright>  />
+<Navigation>  
+<Copyright>
+<Contacts>
+
 /
+<Hero>                                              //Responsiveness failed
 /services
+<ServiceList>                                       //Responsiveness failed
 /about
+<Team>
+<About>
 /contact
-</globals Navi-Inter> 
-</app icon.ico (32png)> 
-</app icon512.ico (512png)> <Contacts> 
-</app apple-icon.ico (180png)>  
-</ hero-1920-1080.webp < 300KiB>
+<Contacts>
+/globals Navi-Inter.css                             //Restructure
+
+/app icon.ico (32png) 
+/app apple-icon.ico (180png)  
+/app icon512.ico (512png)  
+/public hero-1920-1080.webp < 300KiB
+
 <Responsive 320, 360> 
 <Responsive 370, 380> 
 <Responsive 390, 414, 480>
+
 <BUILD: Lighthouse 85%>
 
-RESPONSIVE:
-    <Hero> <ServiceList> dont center some text.
 WARNINGS:
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase.
-STYLE:
-    <Navi-Inter> needs structure.
-
 
 <SEO>
-<Header <Auth0> />
-<Footer <ContactInfo>  <SocialMedia> />    
-/about/...  <Culture> <Career>
-/blog
+<Auth0>                                             //Failed on Vercel
+<ContactInfo>  
+<SocialMedia>
+
+/about/culture 
+/about/career
+/blog                                               //Styling
 /utils auth0
-</globals Typo-Hierarchy> 
-</app favicon.ico (32svg)> 
-</service-800.webp> 
-</headshot-400.webp> 
-</og-1200-630.png> 
-[4][4][5]
-<Responsive 1280, 1366, 1440> 
-<Responsive 1536, 1920, 2560>
+
+/globals Typo-Hierarchy                             //Restructure
+/app favicon.ico (32svg)                            //Create
+/public/service-800.webp 
+/public/headshot-400.webp 
+/public/og-1200-630.png                             //Improve
+/app background.svg 
+
+<Responsive 320, 360>  
+    <Profile> Login button broken
+    <Hero> tagline left aligned must be center
+    <ServiceList> Left aligned pictures etc.  
+    <About navigation changes when inside, gets trapped   
+    <Contacts> Send button left aligned 
+    /blog/page.tsx not styled
+    /blog/[slug]/page.tsx not working                       
+        <Login> button overlapping burger menu
+
+<Responsive 370, 380>                               
+    <Login> button too close to burger menu
+
+<Responsive 390, 414, 480>  
+
+<Responsive 1280, 1366, 1440>    
+    / cut off login/profile part
+    /services footer too big shows nothing
+    /about cuts off font on right side
+    Move content to right and realign
+
+<Responsive 1536, 1920, 2560>                       
+    
 <BUILD: LightHouse 90%>    
 
 WARNINGS:
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-FAILED:
-    /components <Auth0> 
-STYLE:
-    /blog
-    /styles/Typo-Archi.css
-    /app favicon.ico (32svg)
-    /og-1200-630.png
-
 
 <TCs>
 <TBadges>
 <Loading>
-<Monitoring/Analitics>
+<Monitor>
+<Analyze>
+
 /services/... Individual Landing Pages
 /services/pricing/</services/Pricing>
 /utils 
-</globals Form-Input>
-[4][4][1]
+
+/globals Form-Input.css
+
 <Responsive 768, 800, 900, 1024>
+
 <BUILD: LightHouse 95%>
-[2]
 
 <SearchBar>
 <ThemeSwitch>
 <Language>
 <AIChat>
 <Cart>
-</app /globals background.svg> 
-</icons>
-</logosm.svg> 
-</video-hero-1080-720.mp4 < 5MiB>
-[3][0][]
+
+/icons/graph32.svg
+/logosm.svg 
+/video-hero-1080-720.mp4 < 5MiB
