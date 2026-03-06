@@ -2,7 +2,7 @@
 import '@/styles/Basic.css';
 import '@/styles/Typo-Hierarchy.css';
 import '@/styles/Form-Inputs.css';
-import '@/styles/Navi-Interaction.css';
+import '@/styles/Navi-Inter.css';
 
 /* auth0 
 import { auth0 } from '@/lib/auth0';
