@@ -39,7 +39,7 @@ const Hero: React.FC<HeroProps> = ({
     <section className='p-5 bg-(--bg-secondary) m-10 border-(--border) border-2'>
       <div className='flex-col items-center'>
         {/* Optional image display */}
-        <div className='flex '>
+        <div className='flex justify-center'>
           {imageSrc && (
             <div className='p-10'>
               <Image
@@ -49,6 +49,7 @@ const Hero: React.FC<HeroProps> = ({
                 width={imageSize || 20}
                 height={imageSize || 20}
                 priority
+                placeholder='blur'
               />
             </div>
           )}

@@ -13,7 +13,7 @@ export default function Home() {
           listformat='items-center'
           imageSrc='/Logo_256.webp'
           imageAlt='Company Logo'
-          imageSize={200}
+          imageSize={256}
         />
       </main>
 
