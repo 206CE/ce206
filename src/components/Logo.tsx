@@ -8,19 +8,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface LogoProps {
-  compStyling: string;
-  text: string;
+  compStyling?: string;
+  text?: string;
   imgPath?: string;
-  size: number;
+  size?: number;
   href?: string;
 }
 
 export function Logo({
-  text,
+  text = '<LOGO>',
   imgPath = '@/src/app/icon.ico',
-  size,
+  size = 30,
   href = '/',
-  compStyling = '',
+  compStyling = 'flex',
 }: LogoProps) {
   return (
     <div

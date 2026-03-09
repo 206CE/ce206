@@ -9,6 +9,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { Menu } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -16,6 +17,7 @@ import {
   DropdownMenuItem,
 } from './ui/dropdown-menu';
 import { Button } from './ui/button';
+import { Logo } from './Logo';
 
 interface NavItem {
   label: string;
@@ -110,5 +112,42 @@ export function Navigation({ items, compStyling = '' }: NavigationProps) {
         </div>
       </div>
     </nav>
+  );
+}
+
+
+
+
+export function Navigation2({ items, compStyling = '' }: NavigationProps) {
+
+
+  return (
+    <header>
+      <div>
+        <div>
+          <Logo />
+          {/*Desktop Menu*/}
+          <nav>
+            {items.map((item) => (
+              <Link
+                key={item.href}
+                href={
+                  item.href ||
+                  `/${
+                    item.label === 'Home'
+                      ? ''
+                      : item.label.toLowerCase().replace(/\s+/g, '-')
+                  }`
+                }
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          {/* Mobile Hamburger Button */}
+          <Button><Menu size={28}/></Button>
+        </div>
+      </div>
+    </header>
   );
 }
