@@ -109,9 +109,9 @@ export default async function RootLayout({
                 <Profile />
               </div>
             ) : (
-              <>
+              <div className='fixed  top-1 right-11 btn-primary p-2'>
                 <LoginButton />
-              </>
+              </div>
             )}
           </div> */}
         </div>

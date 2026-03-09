@@ -23,7 +23,7 @@ Building:
 <About>
 /contact
 <Contacts>
-/globals Navi-Inter.css                             //Restructure
+/globals Navi-Inter.css                             
 
 /app icon.ico (32png) 
 /app apple-icon.ico (180png)  
@@ -46,7 +46,7 @@ WARNINGS:
 
 /about/culture 
 /about/career
-/blog                                               //Styling
+/blog                                               
 /utils auth0
 
 /globals Typo-Hierarchy                             //Restructure
@@ -57,18 +57,14 @@ WARNINGS:
 /app background.svg 
 
 <Responsive 320, 360>  
-    <Profile> Login button broken
-    <Hero> tagline left aligned must be center
+    <Profile> <LoginButton> black background something small
     <ServiceList> Left aligned pictures etc.  
+    /career <TimeLine> takes alot of scrolling
     <About navigation changes when inside, gets trapped   
-    <Contacts> Send button left aligned 
-    /blog/page.tsx not styled
-    /blog/[slug]/page.tsx not working                       
-        <Login> button overlapping burger menu
-
+    <Contacts> Send button left aligned                       
+    <LoginButton> size slightly off
 <Responsive 370, 380>                               
-    <Login> button too close to burger menu
-
+    /blog Page heading not center
 <Responsive 390, 414, 480>  
 
 <Responsive 1280, 1366, 1440>    
@@ -78,7 +74,9 @@ WARNINGS:
     Move content to right and realign
 
 <Responsive 1536, 1920, 2560>                       
-    
+
+Test /dashboard protected path
+
 <BUILD: LightHouse 90%>    
 
 WARNINGS:
