@@ -83,7 +83,7 @@ export function Navigation({ items, compStyling = '' }: NavigationProps) {
   return (
     <nav className='relative'>
       {/* Desktop Menu */}
-      <div className='hidden  md:flex md:text-xl py-4 gap-2 items-center text-2xl font-extrabold z-10'>
+      <div className='hidden  sm:text-md md:flex md:text-xl py-2 gap-1 items-center text-2xl font-extrabold z-10'>
         {items.map((item) => renderItem(item))}
       </div>
 

@@ -3,13 +3,11 @@ import '@/app/globals.css';
 import '@/app/styles/Typo-Hierarchy.css';
 import '@/app/styles/Form-Inputs.css';
 
-
-/* auth0 */ 
+/* auth0 */
 import { auth0 } from '@/lib/auth0';
-import LoginButton from '@/components/LoginButton';
 import Profile from '@/components/Profile';
 
-/* SEO */ 
+/* SEO */
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -65,12 +63,15 @@ export const metadata: Metadata = {
 
 /* FONT (1) */
 import localFont from 'next/font/local';
-export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf', weight:'400',style:'normal',})
+export const myCustomFont = localFont({
+  src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf',
+  weight: '400',
+  style: 'normal',
+});
 
 import { Logo, Navigation, ContactInfo } from '@/components';
 import Social from '@/components/Social';
 import CopyRight from '@/components/CopyRight';
-
 
 const Items: { title: string; href: string; description: string }[] = [
   {
@@ -110,13 +111,11 @@ const Items: { title: string; href: string; description: string }[] = [
   },
 ];
 
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   const session = await auth0.getSession();
   const user = session?.user;
 
@@ -133,7 +132,7 @@ export default async function RootLayout({
           />
           {/* <Navi> */}
           <Navigation
-            compStyling='btn-primary text-2xl font-extrabold justify-items'
+            compStyling=' btn-primary  font-extrabold justify-items'
             items={[
               { label: 'HOME', href: '/' },
               { label: 'SERVICES', href: '/services' },
@@ -142,19 +141,15 @@ export default async function RootLayout({
               { label: 'BLOG', href: '/blog' },
             ]}
           />
+        </div>
+        <div className=''>
 
-          <div className='fixed font-extrabold not-first:flex z-10  top-12 right-1 md:hidden'>
-            {user ? (
-              <div className='flex'>
-                <Profile />
-              </div>
-            ) : (
-              <div className='fixed  top-1 right-11 btn-primary p-2'>
-                <LoginButton />
-              </div>
-            )}
+          
+          <div className='fixed text-2xl p-1 justify-items top-11 right-1.5 btn-primary'>
+            <Profile />
           </div>
         </div>
+
         {children}
         <footer className=' pt-4'>
           <Social
