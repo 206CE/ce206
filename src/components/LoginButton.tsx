@@ -1,9 +1,12 @@
 'use client';
+import {LogIn} from 'lucide-react';
+
 
 export default function LoginButton() {
   return (
-    <a href='/auth/login' className='button login btn-primary'>
-      Log In
+    
+    <a href='/auth/login' className=''>
+      <LogIn className=''/>
     </a>
   );
 }

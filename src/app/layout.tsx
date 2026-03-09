@@ -71,6 +71,7 @@ export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiow
 import { Logo, Navigation, ContactInfo } from '@/components';
 import Social from '@/components/Social';
 import CopyRight from '@/components/CopyRight';
+import Profile from '@/components/Profile';
 
 
 export default async function RootLayout({
@@ -84,6 +85,7 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
+        <div>
         <div className='flex items-center gap-3'>
           <Logo
             compStyling='text-(--primary) block'
@@ -91,33 +93,23 @@ export default async function RootLayout({
             imgPath='/Logo_32.png'
             size={50}
           />
-          <div className=''>
-            <Navigation
-              compStyling='btn-primary'
-              items={[
-                { label: 'HOME', href: '/' },
-                { label: 'SERVICES', href: '/services' },
-                { label: 'ABOUT', href: '/about' },
-                { label: 'CONTACT', href: '/contact' },
-              ]}
-            />
+          <Navigation
+            compStyling='btn-primary text-2xl font-extrabold justify-items'
+            items={[
+              { label: 'HOME', href: '/' },
+              { label: 'SERVICES', href: '/services' },
+              { label: 'ABOUT', href: '/about' },
+              { label: 'CONTACT', href: '/contact' },
+              { label: 'BLOG', href: '/blog' },
+            ]}
+          />
+
+          
           </div>
-          {/**
-          <div className='p-4'>
-            {user ? (
-              <div className='flex'>
-                <Profile />
-              </div>
-            ) : (
-              <>
-                <LoginButton />
-              </>
-            )}
-          </div> */}
+          <div><Profile /></div>
         </div>
         {children}
         <footer className=' pt-4'>
-          {/*}
           <Social
             linkStyle='btn-primary'
             urls={[
@@ -132,7 +124,7 @@ export default async function RootLayout({
             cellphone='+27 079 497 2646'
             email='jacobotha206@gmail.com'
             address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
-          />*/}
+          />
           <CopyRight />
         </footer>
       </body>
