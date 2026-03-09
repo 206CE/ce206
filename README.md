@@ -10,44 +10,19 @@ Building:
 
 <Font>  
 <Logo> 
-<<<<<<< HEAD
-<Navigation> 
-<Copyright>  
-/
-<Hero>
-/services
-<ServiceList>
-=======
 <Navigation>  
 <Copyright>
 <Contacts>
 
 /
-<Hero>                                              //Responsiveness failed
+<Hero>                                              
 /services
 <ServiceList>                                       //Responsiveness failed
->>>>>>> main
 /about
 <Team>
 <About>
 /contact
 <Contacts>
-<<<<<<< HEAD
-</globals Navi-Interaction> 
-</app icon.ico (32png)> 
-</app icon512.ico (512png)> <Contacts> 
-</app apple-icon.ico (180png)>  
-
-<Responsive 320, 414, 480> 
-    <Logo> Image background not transparent
-    <Hero> tagline dont center
-        <ServiceList> Images is not center
-    <Contacts> Send button not center
-<Responsive 360, 370, 380, 390>
- 
-<BUILD: Lighthouse 85%> Mobile Performance: 86
-
-=======
 /globals Navi-Inter.css                             //Restructure
 
 /app icon.ico (32png) 
@@ -63,7 +38,6 @@ Building:
 
 WARNINGS:
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase.
->>>>>>> main
 
 <SEO>
 <Auth0>                                             //Failed on Vercel

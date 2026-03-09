@@ -1,8 +1,8 @@
 /* CSS */
-import '@/styles/Basic.css';
+
 import '@/styles/Typo-Hierarchy.css';
 import '@/styles/Form-Inputs.css';
-import '@/styles/Navi-Inter.css';
+import '@/app/globals.css';
 
 /* auth0 
 import { auth0 } from '@/lib/auth0';

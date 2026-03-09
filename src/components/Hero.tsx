@@ -59,7 +59,7 @@ const Hero: React.FC<HeroProps> = ({
         </h1>
 
         {tagline && (
-          <h2 className='flex justify-center mt-2 text-xl text-(--text-secondary) '>
+          <h2 className='flex justify-center mt-2 text-xl text-(--text-secondary) text-center'>
             {tagline}
           </h2>
         )}
