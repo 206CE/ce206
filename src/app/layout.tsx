@@ -1,8 +1,8 @@
 /* CSS */
-import '@/app/styles/Basic.css';
+import '@/app/globals.css';
 import '@/app/styles/Typo-Hierarchy.css';
 import '@/app/styles/Form-Inputs.css';
-import '@/app/styles/Navi-Inter.css';
+
 
 /* auth0 */ 
 import { auth0 } from '@/lib/auth0';
@@ -137,28 +137,26 @@ export default async function RootLayout({
             items={[
               { label: 'HOME', href: '/' },
               { label: 'SERVICES', href: '/services' },
-              { label: 'ABOUT',href:'/about' },
+              { label: 'ABOUT', href: '/about' },
               { label: 'CONTACT', href: '/contact' },
-              {label: 'BLOG', href:'/blog'},
+              { label: 'BLOG', href: '/blog' },
             ]}
           />
 
-          
-          <div className='p-4'>
+          <div className='fixed font-extrabold not-first:flex z-10  top-12 right-1 md:hidden'>
             {user ? (
               <div className='flex'>
                 <Profile />
               </div>
             ) : (
-              <>
+              <div className='fixed  top-1 right-11 btn-primary p-2'>
                 <LoginButton />
-              </>
+              </div>
             )}
           </div>
         </div>
         {children}
         <footer className=' pt-4'>
-          
           <Social
             linkStyle='btn-primary'
             urls={[

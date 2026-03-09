@@ -10,40 +10,35 @@ export default function CulturePage() {
   const coreValues = [
     {
       icon: <Code className="h-10 w-10 text-blue-600" />,
-      title: 'Craft Over Cargo Cult',
+      title: 'Perfection through Iteration',
       description:
-        'I believe in understanding why things work, not just copying patterns. Clean, intentional code > trendy shortcuts every time.',
+        'I believe that getting things done is sometimes more important than doing things well. When the pressure is on, and money is at stake we must complete the task at hand. After that we can improve.',
     },
     {
       icon: <Sun className="h-10 w-10 text-amber-600 " />,
-      title: 'Optimism & Iteration',
+      title: 'Dependability and Routine',
       description:
-        'Start with the best version you can imagine today, then improve it tomorrow. Small, consistent steps beat waiting for perfection.',
+        'I believe that if you want anything to succeed you have to be the first to arrive and the last to leave. If you stop doing that you are losing control.',
     },
     {
       icon: <Heart className="h-10 w-10 text-red-600 " />,
-      title: 'People First',
+      title: 'If I cant create it, I don\'t understand it.',
       description:
-        'Tech serves humans. I write code that’s maintainable for the next dev, accessible for users, and respectful of everyone’s time and energy.',
+        'Only through understanding something completely do we find solutions to what it needs.',
     },
     {
       icon: <BookOpen className="h-10 w-10 text-purple-600 " />,
-      title: 'Lifelong Learning',
+      title: 'Doing a lot is the same as doing little.',
       description:
-        'The stack changes fast — embracing curiosity keeps me sharp. From Next.js experiments to deep dives into performance or Rust side projects.',
+        'The only difference between someone who gets things done and one that doesn\'t is their ability to organize. ',
     },
     {
       icon: <Globe className="h-10 w-10 text-green-600 " />,
-      title: 'Open & Generous',
+      title: 'Combining different concepts, is creativity.',
       description:
-        'Share what I learn. Open source when possible, write about wins & failures, help others in the community — knowledge grows when it’s given away.',
+        'Creativity is a problem solving skill. If you can imagine a solution you can probably find a better one.',
     },
-    {
-      icon: <Coffee className="h-10 w-10 text-rose-600 " />,
-      title: 'Balance & Grounding',
-      description:
-        'Code is important, but so is family, braai with friends, a good trail run in the veld, and not burning out. Sustainable pace wins long-term.',
-    },
+
   ];
 
   return (
@@ -55,13 +50,10 @@ export default function CulturePage() {
             Culture & Principles
           </h1>
           <p className='text-(--text-secondary)   text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-90'>
-            I build software the way I try to live: deliberately, kindly,
-            curiously, and with respect for the long game.
+            Without enough knowledge about oneself one can not improve.
           </p>
           <p className='mt-8 text-lg max-w-3xl mx-auto text-(--text-tertiary)'>
-            Growing up in Pretoria shaped a practical optimism — solve real
-            problems, enjoy the process, don&apos;t take yourself too seriously.
-            Here&apos;s what guides me.
+            Growing up in Vereniging shaped a practical optimism to solve real-world problems, enjoy the process, don&apos;t take yourself too seriously. Here&apos;s what guides me.
           </p>
         </div>
       </section>
@@ -94,30 +86,20 @@ export default function CulturePage() {
           </h2>
           <ul className='space-y-6 text-(--text-secondary) '>
             <li>
-              <strong>Mornings</strong> — Coffee, planning the day&apos;s deep
-              work blocks, usually tackling the hardest problem first while the
-              mind is fresh.
+              <strong>Swallow-the-frog</strong> — Do the thing you hate the most first, then the rest of the day is easy.
             </li>
             <li>
-              <strong>Code style</strong> — Readable &gt; clever. Strong typing
-              with TypeScript, component composition over inheritance, and lots
-              of comments explaining &quote;why&quote; not just
-              &quote;what&quote;.
+              <strong>Wish & Star</strong> — When people make a mistake also focus on what people do correctly. So give them a star. Then give them your wish.
             </li>
             <li>
-              <strong>Collaboration</strong> — Async-first communication, clear
-              PR descriptions, and genuine feedback without ego. I learn as much
-              from reviews as I give.
+              <strong>War teach us a lot about life.</strong> — I read a lot about war. The lessons one can learn from it is endless.
             </li>
             <li>
-              <strong>Outside work</strong> — Family time, hiking in the
-              Magaliesberg when possible, reading (tech + non-tech), and
-              occasionally tinkering with side projects just for fun.
+              <strong>That which survive...</strong> — The most important things we do are the things we leave behind.
             </li>
           </ul>
           <p className='text-(--text-tertiary) mt-10 text-center italic text-xl opacity-80'>
-            &quot;Good code is like a good braai: thoughtful prep, the right
-            heat, and enjoyed with good company.&quot;
+            &quot;Fear - Anger - Hate - Suffering&quot;
           </p>
         </div>
       </section>
