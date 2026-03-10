@@ -102,7 +102,7 @@ function NavItem({
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant='ghost' className={`gap-2 ${compStyling}`}>
+          <Button variant='ghost' className='gap-2'>
             {item.label} <ChevronDown size={14} />
           </Button>
         </DropdownMenuTrigger>

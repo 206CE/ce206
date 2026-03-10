@@ -4,6 +4,17 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+export interface Post {
+  slug: string;
+  content: string;
+  frontMatter: {
+    title: string;
+    date: string;
+    tags?: string[]; // The '?' makes it optional
+    description?: string;
+  };
+}
+
 const postsDirectory = path.join(process.cwd(), 'content');
 
 export async function getAllPosts() {

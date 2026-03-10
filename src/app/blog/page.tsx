@@ -1,9 +1,9 @@
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts, type Post } from '@/lib/posts';
 import Link from 'next/link';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 export default async function BlogIndex() {
-  const posts = await getAllPosts();
+  const posts = (await getAllPosts()) as Post[];
 
   return (
     <div className='max-w-5xl mx-auto px-6 py-16'>

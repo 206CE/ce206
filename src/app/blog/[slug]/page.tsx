@@ -1,4 +1,4 @@
-import { getPostBySlug, getAllPosts } from '@/lib/posts';
+import { getPostBySlug, getAllPosts, type Post } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import { Calendar, Tag, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -17,7 +17,7 @@ export default async function PostPage({ params }: Props) {
   // 2. Await the params before using slug
   const { slug } = await params;
 
-  const post = await getPostBySlug(slug);
+  const post = (await getPostBySlug(slug)) as Post | null;
   if (!post) notFound();
 
   return (
@@ -56,7 +56,7 @@ export default async function PostPage({ params }: Props) {
                   {post.frontMatter.tags.map((tag) => (
                     <span
                       key={tag}
-                      className='bg-[var(--bg-secondary)] border border-[var(--border)] px-2 py-0.5 rounded text-xs'
+                      className='bg-(--bg-secondary) border border-(--border) px-2 py-0.5 rounded text-xs'
                     >
                       {tag}
                     </span>
