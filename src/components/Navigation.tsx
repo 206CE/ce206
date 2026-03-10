@@ -1,21 +1,15 @@
-/* BAD - 1.0.0
-
-1. Lucide 
-2. Simplify
-
-*/
-
 'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { Button } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from './ui/dropdown-menu';
-import { Button } from './ui/button';
 
 interface NavItem {
   label: string;
@@ -23,36 +17,99 @@ interface NavItem {
   dropdown?: { label: string; href: string }[];
 }
 
-interface NavigationProps {
+export function Navigation({
+  items,
+}: {
   items: NavItem[];
-  compStyling?: string;
-}
-
-export function Navigation({ items, compStyling = '' }: NavigationProps) {
+}) {
   const [open, setOpen] = useState(false);
 
+  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [open]);
 
-  const commonLinkClass = `flex  ${compStyling}`;
+  return (
+    <nav className='relative'>
+      {/* Desktop Menu */}
+      <div className='hidden md:flex items-center gap-4'>
+        {items.map((item) => (
+          <span className='menu-item' key={item.label}>
+            <NavItem  item={item} />
+          </span>
+        ))}
+      </div>
 
-  const renderItem = (item: NavItem, closeOnClick = false) =>
-    item.dropdown ? (
-      <DropdownMenu key={item.label}>
+      {/* Mobile Toggle */}
+      <button
+        className=' md:hidden z-60 p-2 bg-(--bg-primary) border border-(--border) rounded-md cursor-pointer hover:text-(--text-secondary)'
+        onClick={() => setOpen(!open)}
+      >
+        {open ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile Sidebar */}
+      <div
+        className={`fixed inset-y-0 right-0 z-50 w-64 bg-(--bg-secondary) border-l border-(--border) p-6 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div className='flex flex-col gap-2 mt-5'>
+          {items.map((item) => (
+            <NavItem
+              key={item.label}
+              item={item}
+              onNav={() => setOpen(false)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Background Overlay */}
+      {open && (
+        <div
+          className='fixed inset-0 bg-black/50 z-40 md:hidden'
+          onClick={() => setOpen(false)}
+        />
+      )}
+    </nav>
+  );
+}
+
+// Internal Helper to keep the main nav clean
+function NavItem({
+  item,
+  onNav,
+}: {
+  item: NavItem;
+ 
+  onNav?: () => void;
+}) {
+  const defaultHref =
+    item.href ||
+    (item.label === 'Home'
+      ? '/'
+      : `/${item.label.toLowerCase().replace(/\s+/g, '-')}`);
+
+  if (item.dropdown) {
+    return (
+      <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button className={`cursor-pointer ${commonLinkClass}`} type='button'>
-            {item.label}
-            <FaChevronDown className='mt-2 ml-2 h-4 w-4' aria-hidden='true' />
+          <Button variant='ghost' className={`gap-2 ${compStyling}`}>
+            {item.label} <ChevronDown size={14} />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className='absolute z-10 w-max cursor-pointer'>
+        <DropdownMenuContent
+          align='end'
+          className='bg-(--bg-secondary) border-(--border)'
+        >
           {item.dropdown.map((drop) => (
-            <DropdownMenuItem asChild key={drop.label}>
+            <DropdownMenuItem key={drop.label} asChild>
               <Link
                 href={drop.href}
-                className={commonLinkClass}
-                onClick={closeOnClick ? () => setOpen(false) : undefined}
+                onClick={onNav}
+                className='w-full text-(--text-secondary)'
               >
                 {drop.label}
               </Link>
@@ -60,55 +117,16 @@ export function Navigation({ items, compStyling = '' }: NavigationProps) {
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
-    ) : (
-      <Link
-        key={item.label}
-        href={
-          item.href ||
-          `/${
-            item.label === 'Home'
-              ? ''
-              : item.label.toLowerCase().replace(/\s+/g, '-')
-          }`
-        }
-        className={commonLinkClass}
-        onClick={closeOnClick ? () => setOpen(false) : undefined}
-      >
-        {item.label}
-      </Link>
     );
+  }
 
   return (
-    <nav className='relative'>
-      {/* Desktop Menu */}
-      <div className='hidden  sm:text-md md:flex md:text-xl py-2 gap-1 items-center text-2xl font-extrabold z-10'>
-        {items.map((item) => renderItem(item))}
-      </div>
-
-      {/* Hamburger */}
-      <button
-        className={`md:hidden fixed top-1 right-1 z-10 p-2 cursor-pointer bg-(--bg-primary) ${commonLinkClass}`}
-        onClick={() => setOpen(!open)}
-        aria-label='Toggle menu'
-      >
-        {open ? <FaTimes size={20} /> : <FaBars size={20} />}
-      </button>
-
-      {/* Overlay */}
-      {open && (
-        <div className='fixed inset-0 z-40' onClick={() => setOpen(false)} />
-      )}
-
-      {/* Sidebar */}
-      <div
-        className={`fixed top-2 right-0 z-50 w-2/3 mr-2 p-2 h-full transform transition-transform duration-300 ease-in-out ${
-          open ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className='flex flex-col gap-2   '>
-          {items.map((item) => renderItem(item, true))}
-        </div>
-      </div>
-    </nav>
+    <Link
+      href={defaultHref}
+      onClick={onNav}
+      className='nav-link text-lg font-semibold text-(--text-primary) hover:text-blue-500 transition-colors'
+    >
+      {item.label}
+    </Link>
   );
 }

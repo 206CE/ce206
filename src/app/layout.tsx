@@ -85,7 +85,7 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
         <div>
-          <div className='flex items-center gap-3'>
+          <div className='flex items-center gap-3 p-1'>
             <Logo
               compStyling='text-(--primary) block'
               text='CE_206'
@@ -93,7 +93,6 @@ export default async function RootLayout({
               size={50}
             />
             <Navigation
-              compStyling=' btn-primary  font-extrabold justify-items'
               items={[
                 { label: 'HOME', href: '/' },
                 { label: 'SERVICES', href: '/services' },

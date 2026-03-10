@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
-import { User, Ellipsis, LoaderCircle } from 'lucide-react';
+import { User, Ellipsis } from 'lucide-react';
 import { Spinner } from './ui/spinner';
 
 export  function Profile() {

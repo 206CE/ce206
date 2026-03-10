@@ -47,24 +47,20 @@ WARNINGS:
 /about/culture 
 /about/career
 /blog                                               
-/utils auth0
+/utils auth0                        Test /dashboard protected path 
 
 /globals Typo-Hierarchy                             //Restructure
-/app favicon.ico (32svg)                            //Create
+/app favicon.ico (32svg)                           //Create
 /public/service-800.webp 
 /public/headshot-400.webp 
 /public/og-1200-630.png                             //Improve
 /app background.svg 
 
 <Responsive 320, 360>  
-    <Profile> <LoginButton> black background something small
+    <Navigation> Mobile Menu & <Profile> Swap places
     <ServiceList> Left aligned pictures etc.  
-    /career <TimeLine> takes alot of scrolling
-    <About navigation changes when inside, gets trapped   
-    <Contacts> Send button left aligned                       
-    <LoginButton> size slightly off
+    /career <TimeLine> takes alot of scrolling                        
 <Responsive 370, 380>                               
-    /blog Page heading not center
 <Responsive 390, 414, 480>  
 
 <Responsive 1280, 1366, 1440>    
@@ -86,9 +82,9 @@ WARNINGS:
         <About> content side by side
         /blog 4 columns
 
-Test /dashboard protected path
 
-<BUILD: Beta>    
+
+<BUILD: 0.6.10-Beta+004>    <BUGS: 3|17>
 
 WARNINGS:
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
