@@ -3,8 +3,8 @@
 import '@/styles/Typo-Hierarchy.css';
 import '@/styles/Form-Inputs.css';
 import '@/app/globals.css';
-import '@/app/styles/Typo-Hierarchy.css';
-import '@/app/styles/Form-Inputs.css';
+import '@/styles/Typo-Hierarchy.css';
+import '@/styles/Form-Inputs.css';
 
 /* auth0 */
 import { auth0 } from '@/lib/auth0';
