@@ -3,14 +3,15 @@
 import '@/styles/Typo-Hierarchy.css';
 import '@/styles/Form-Inputs.css';
 import '@/app/globals.css';
+import '@/styles/Typo-Hierarchy.css';
+import '@/styles/Form-Inputs.css';
 
-/* auth0 
+/* auth0 */
 import { auth0 } from '@/lib/auth0';
-import LoginButton from '@/components/LoginButton';
 import Profile from '@/components/Profile';
-*/
 
-/* SEO */ 
+
+/* SEO */
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -66,12 +67,53 @@ export const metadata: Metadata = {
 
 /* FONT (1) */
 import localFont from 'next/font/local';
-export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf', weight:'400',style:'normal',})
+export const myCustomFont = localFont({
+  src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf',
+  weight: '400',
+  style: 'normal',
+});
 
 import { Logo, Navigation, ContactInfo } from '@/components';
 import Social from '@/components/Social';
 import CopyRight from '@/components/CopyRight';
 
+const Items: { title: string; href: string; description: string }[] = [
+  {
+    title: 'Alert Dialog',
+    href: '/docs/primitives/alert-dialog',
+    description:
+      'A modal dialog that interrupts the user with important content and expects a response.',
+  },
+  {
+    title: 'Hover Card',
+    href: '/docs/primitives/hover-card',
+    description:
+      'For sighted users to preview content available behind a link.',
+  },
+  {
+    title: 'Progress',
+    href: '/docs/primitives/progress',
+    description:
+      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
+  },
+  {
+    title: 'Scroll-area',
+    href: '/docs/primitives/scroll-area',
+    description: 'Visually or semantically separates content.',
+  },
+  {
+    title: 'Tabs',
+    href: '/docs/primitives/tabs',
+    description:
+      'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
+  },
+  {
+    title: 'Tooltip',
+    href: '/docs/primitives/tooltip',
+    description:
+      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
+  },
+];
 
 export default async function RootLayout({
   children,
@@ -79,11 +121,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  {/*const session = await auth0.getSession();
-  const user = session?.user;*/}
+  const session = await auth0.getSession();
+  const user = session?.user;
+
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
+        <div>
         <div className='flex items-center gap-3'>
           <Logo
             compStyling='text-(--primary) block'
@@ -91,33 +135,28 @@ export default async function RootLayout({
             imgPath='/Logo_32.png'
             size={50}
           />
-          <div className=''>
-            <Navigation
-              compStyling='btn-primary'
-              items={[
-                { label: 'HOME', href: '/' },
-                { label: 'SERVICES', href: '/services' },
-                { label: 'ABOUT', href: '/about' },
-                { label: 'CONTACT', href: '/contact' },
-              ]}
-            />
-          </div>
-          {/**
-          <div className='p-4'>
-            {user ? (
-              <div className='flex'>
-                <Profile />
-              </div>
-            ) : (
-              <div className='fixed  top-1 right-11 btn-primary p-2'>
-                <LoginButton />
-              </div>
-            )}
-          </div> */}
+          <Navigation
+            compStyling=' btn-primary  font-extrabold justify-items'
+            items={[
+              { label: 'HOME', href: '/' },
+              { label: 'SERVICES', href: '/services' },
+              { label: 'ABOUT', href: '/about' },
+              { label: 'CONTACT', href: '/contact' },
+              { label: 'BLOG', href: '/blog' },
+            ]}
+          />
         </div>
+        <div className=''>
+
+          
+          <div className='fixed text-2xl p-1 justify-items top-11 right-1.5 btn-primary'>
+            <Profile />
+          </div>
+          <div><Profile /></div>
+        </div>
+            </div>
         {children}
         <footer className=' pt-4'>
-          {/*}
           <Social
             linkStyle='btn-primary'
             urls={[
@@ -132,7 +171,7 @@ export default async function RootLayout({
             cellphone='+27 079 497 2646'
             email='jacobotha206@gmail.com'
             address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
-          />*/}
+          />
           <CopyRight />
         </footer>
       </body>

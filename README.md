@@ -31,18 +31,18 @@ Building:
 /public hero-1920-1080.webp < 300KiB
 
 <Responsive 320, 360> 
+    <Contacts> Send successful toast? 
+    <ServiceList>
+
 <Responsive 370, 380> 
 <Responsive 390, 414, 480>
 
-<BUILD: Lighthouse 85%>
+
 
 WARNINGS:
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase.
 
-<SEO>
-<Auth0>                                             //Failed on Vercel
-<ContactInfo>  
-<SocialMedia>
+<BUILD: Alpha> <BUGS: 0|3>
 
 /about/culture 
 /about/career
@@ -68,20 +68,32 @@ WARNINGS:
 <Responsive 390, 414, 480>  
 
 <Responsive 1280, 1366, 1440>    
-    / cut off login/profile part
-    /services footer too big shows nothing
-    /about cuts off font on right side
-    Move content to right and realign
+
+<Profile> align top, instead of <Navigation> Mobile Menu
+<Navigation> slide in menu visible on edge of right side.
+<TimeLine> Update so projects, work and education form a single timeline.
 
 <Responsive 1536, 1920, 2560>                       
 
+/page too much open space at sides
+/culture can use 4 columns
+/blog can use 3 columns
+<Navigation> can spread and center bigger text
+<Profile> can display long words no more icon bigger
+    <ServiceList> 4 columns
+        <ServiceList> 5 columns
+        <Contact> max w setting
+        <About> content side by side
+        /blog 4 columns
+
 Test /dashboard protected path
 
-<BUILD: LightHouse 90%>    
+<BUILD: Beta>    
 
 WARNINGS:
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+
 
 <TCs>
 <TBadges>
@@ -97,7 +109,7 @@ WARNINGS:
 
 <Responsive 768, 800, 900, 1024>
 
-<BUILD: LightHouse 95%>
+<BUILD: Charlie>
 
 <SearchBar>
 <ThemeSwitch>
@@ -108,3 +120,5 @@ WARNINGS:
 /icons/graph32.svg
 /logosm.svg 
 /video-hero-1080-720.mp4 < 5MiB
+
+<BUILD: Delta>
