@@ -39,7 +39,7 @@ export function Navigation({
   return (
     <nav className='relative'>
       {/* Desktop Menu */}
-      <div className='hidden md:flex items-center gap-4'>
+      <div className='hidden md:flex items-center gap-4 text-4xl 2xl:text-7xl'>
         {items.map((item) => (
           <span className='nav-link' key={item.label}>
             <NavItem item={item} />
@@ -49,7 +49,7 @@ export function Navigation({
 
       {/* Mobile Toggle */}
       <button
-        className=' md:hidden z-60 p-2 bg-(--bg-primary) border border-(--border) rounded-md cursor-pointer hover:text-(--text-secondary)'
+        className=' fixed top-4 right-4 md:hidden z-60 p-2 bg-(--bg-primary) border border-(--border) rounded-md cursor-pointer hover:text-(--text-secondary)'
         onClick={() => setOpen(!open)}
       >
         {open ? <X size={24} /> : <Menu size={24} />}

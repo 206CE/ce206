@@ -1,11 +1,3 @@
-/** BAD - 1.0.0
-
-1. CSS Dependency
-2. Icons
-3. Responsive Grid
-
- */
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
@@ -32,7 +24,7 @@ export function ServiceList({
   heading,
   subheading,
   services,
-  itemStyle,
+  itemStyle = '',
   layout = 'grid',
   columns = 3,
 }: ServiceListProps) {
@@ -45,55 +37,90 @@ export function ServiceList({
     }[columns] || 'grid-cols-1';
 
   return (
-    <section className='p-5  text-(--text-primary)'>
-      <div className='text-center mb-5'>
-        {heading && <h1 className='text-3xl font-bold'>{heading}</h1>}
-        {subheading && (
-          <h2 className='text-lg text-(--text-secondary) mt-2'>{subheading}</h2>
-        )}
-      </div>
+    <section className='p-8 text-[var(--text-primary)]'>
+      {/* Heading Container */}
+      {(heading || subheading) && (
+        <div className='text-center mb-12'>
+          {heading && (
+            <h2 className='text-3xl md:text-4xl font-bold tracking-tight'>
+              {heading}
+            </h2>
+          )}
+          {subheading && (
+            <p className='text-lg text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto'>
+              {subheading}
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* Services Container */}
       <div
         className={`${
-          layout === 'grid' ? `grid ${gridCols}` : 'space-y-8'
-        } gap-8 max-w-7xl mx-auto `}
+          layout === 'grid' ? `grid ${gridCols}` : 'flex flex-col space-y-8'
+        } gap-8 max-w-7xl mx-auto`}
       >
         {services.map((service, idx) => (
-          <div
-            className={`p-6 border border-(--border) shadow-md hover:shadow-lg transition-shadow duration-300 bg-(--bg-secondary) ${itemStyle}`}
+          <article
             key={idx}
+            className={`
+              p-8 border border-[var(--border)] shadow-sm hover:shadow-xl 
+              transition-all duration-300 bg-[var(--bg-secondary)] rounded-xl
+              flex flex-col items-center text-center group
+              ${itemStyle}
+            `}
           >
-            {service.link && (
-              <Link className='justify-center' href={service.link}>
-                {service.icon && (
-                  <div className='mb-4 text-(--text-primary) text-3xl'>
-                    {service.icon}
-                  </div>
-                )}
-                {/* End Icon */}
-                {service.imgUrl && (
-                  <Image
-                    className=' mb-4'
-                    src={service.imgUrl}
-                    alt={service.description}
-                    height={service.imgSize || 50}
-                    width={service.imgSize || 50}
-                  />
-                )}
-                {/* End Image */}
-                {service.title && (
-                  <h3 className='text-xl font-semibold mb-2'>{service.title}</h3>
-                )}
-                {service.description && (
-                  <p className='text-(--text-secondary) mb-4'>
-                    {service.description}
-                  </p>
-                )}
+            {/* Wrapper for Link logic */}
+            {service.link ? (
+              <Link
+                href={service.link}
+                className='flex flex-col items-center w-full'
+              >
+                <ServiceContent service={service} />
               </Link>
+            ) : (
+              <ServiceContent service={service} />
             )}
-          </div>
+          </article>
         ))}
-        {/*End Map */}
       </div>
     </section>
+  );
+}
+
+// Sub-component to keep code clean and handle centering
+function ServiceContent({ service }: { service: ServiceItem }) {
+  return (
+    <>
+      {service.icon && (
+        <div className='mb-6 text-[var(--text-primary)] group-hover:scale-110 transition-transform duration-300'>
+          {service.icon}
+        </div>
+      )}
+
+      {service.imgUrl && (
+        <div className='relative mb-6 flex justify-center'>
+          <Image
+            src={service.imgUrl}
+            alt={service.title}
+            height={service.imgSize || 60}
+            width={service.imgSize || 60}
+            className='object-contain'
+          />
+        </div>
+      )}
+
+      {service.title && (
+        <h3 className='text-xl font-bold mb-3 group-hover:text-blue-500 transition-colors'>
+          {service.title}
+        </h3>
+      )}
+
+      {service.description && (
+        <p className='text-[var(--text-secondary)] text-sm leading-relaxed max-w-xs'>
+          {service.description}
+        </p>
+      )}
+    </>
   );
 }

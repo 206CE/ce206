@@ -14,58 +14,69 @@ import {
 import Link from 'next/link';
 import { User, Ellipsis } from 'lucide-react';
 import { Spinner } from './ui/spinner';
+import { useState, useEffect } from 'react';
 
-export  function Profile() {
-
+export function Profile() {
+  const [open, setOpen] = useState(false);
   const { user, isLoading } = useUser();
-  if (isLoading) {
-    return (
-      <div className='loading-state'>
-        <div className='loading-text'><Spinner fontSize={20}/></div>
-      </div>
-    );
-  }
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  if (isLoading) return <Spinner fontSize={20} />;
 
   return (
-    <div className=''>
+    <div className='cursor-pointer nav-item fixed top-6 right-16'>
       {user ? (
-        <div className=''>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Ellipsis className=' z-10 cursor-pointer' />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className='w-40' align='end'>
-              <DropdownMenuGroup>
-                <DropdownMenuLabel className='text-(--text-tertiary)'>
-                  {user.name}
-                </DropdownMenuLabel>
-                <DropdownMenuItem>
-                  <Link href='/dashboard'>Dashboard</Link>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
+        <DropdownMenu open={open} onOpenChange={setOpen}>
+          <DropdownMenuTrigger asChild>
+            <button className=''>
+              <Ellipsis className=' cursor-pointer' />
+            </button>
+          </DropdownMenuTrigger>
 
-              <DropdownMenuGroup>
-                <DropdownMenuItem>
-                  <Link href='/auth/logout' className=''>
-                    Log Out
-                  </Link>
-                  <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-      {/* Sidebar */}
-      
-          {/*<p className='text-body'>{user.email}</p>*/}
-        </div>
+          <DropdownMenuContent className='w-48' align='end'>
+            <DropdownMenuLabel className='font-normal'>
+              <div className='flex flex-col space-y-1'>
+                <p className='text-sm font-medium leading-none'>{user.name}</p>
+                <p className='text-xs leading-none text-muted-foreground'>
+                  {user.email}
+                </p>
+              </div>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuItem asChild>
+                <Link href='/dashboard' className='w-full'>
+                  Dashboard
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <a href='/api/auth/logout' className='w-full text-red-600'>
+                Log Out
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       ) : (
-        <div className=''>
-          <a href='/auth/login' className=''>
-            <User className='' size={20} />
-          </a>
-        </div>
+        <a href='/api/auth/login' aria-label='Login'>
+          <User size={20} />
+        </a>
+      )}
+
+      {/* Manual Overlay (Only if you want a custom mobile look) */}
+      {open && (
+        <div className='fixed inset-0 bg-black/20 backdrop-blur-sm z-30 md:hidden' />
       )}
     </div>
   );

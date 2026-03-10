@@ -36,12 +36,12 @@ const Hero: React.FC<HeroProps> = ({
   itemFormat,
 }) => {
   return (
-    <section className='p-5 bg-(--bg-secondary) m-10 border-(--border) border-2'>
+    <section className='p-4 bg-(--bg-secondary) m-3 border-(--border) border-2'>
       <div className='flex-col items-center'>
         {/* Optional image display */}
         <div className='flex justify-center'>
           {imageSrc && (
-            <div className='p-10'>
+            <div className='p-3'>
               <Image
                 src={imageSrc}
                 alt={imageAlt ?? 'Alternate Text'}
@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({
           {(ctas ?? []).map((cta, idx) => (
             <li
               key={idx}
-              className={`px-6 py-2  text-(--text-primary) ${itemFormat}`}
+              className={`px-3 py-2  text-(--text-primary) ${itemFormat}`}
             >
               <Link
                 href={cta.href}

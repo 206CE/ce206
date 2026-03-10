@@ -1,4 +1,5 @@
 import { Coffee, Code, BookOpen, Heart, Globe, Sun } from 'lucide-react'; // or heroicons, etc.
+import { BackNav } from '@/components/BackNav';
 
 export const metadata = {
   title: 'Culture & Values | Jaco Botha',
@@ -57,7 +58,9 @@ export default function CulturePage() {
           </p>
         </div>
       </section>
-
+      <div className='font-extrabold text-4xl fixed top-4 right-4'>
+        <BackNav />
+      </div>
       {/* Core Values Grid */}
       <section className='pb-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>

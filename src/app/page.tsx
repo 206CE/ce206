@@ -3,7 +3,7 @@ import Hero from '@/components/Hero';
 
 export default function Home() {
   return (
-    <div className='sm:text-hook text-md'>
+    <div className=''>
       <main className=''>
         <Hero
           title='CE_206'

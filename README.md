@@ -56,20 +56,15 @@ WARNINGS:
 /public/og-1200-630.png                             //Improve
 /app background.svg 
 
-<Responsive 320, 360>  
-    <Navigation> Mobile Menu & <Profile> Swap places
-    <ServiceList> Left aligned pictures etc.  
-    /career <TimeLine> takes alot of scrolling                        
-<Responsive 370, 380>                               
-<Responsive 390, 414, 480>  
+<Responsive 320, 360, 370, 380>  
+                    
+<Responsive 390, 414, 480, 640 (sm)>  
 
-<Responsive 1280, 1366, 1440>    
+<Responsive 768 (md), 800, 900, 1024 (lg)
 
-<Profile> align top, instead of <Navigation> Mobile Menu
-<Navigation> slide in menu visible on edge of right side.
-<TimeLine> Update so projects, work and education form a single timeline.
+<Responsive 1280 (xl), 1366, 1440, 1536 (2xl) >
 
-<Responsive 1536, 1920, 2560>                       
+<Responsive 1920, 2560>                       
 
 /page too much open space at sides
 /culture can use 4 columns
@@ -84,7 +79,7 @@ WARNINGS:
 
 
 
-<BUILD: 0.6.10-Beta+004>    <BUGS: 3|17>
+<BUILD: 0.6.10-Beta+006>    <BUGS: 3|17>
 
 WARNINGS:
     metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
@@ -103,7 +98,7 @@ WARNINGS:
 
 /globals Form-Input.css
 
-<Responsive 768, 800, 900, 1024>
+
 
 <BUILD: Charlie>
 

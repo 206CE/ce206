@@ -8,17 +8,18 @@
 
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
-import { IoIosArrowBack } from 'react-icons/io';
+import { StepBack } from 'lucide-react';
 
 export function BackNav() {
   const router = useRouter();
 
   return (
     <Button
+    
       onClick={() => router.back()}
-      className={'nav-link mx-10 cursor-pointer'}
+      className='text-2xl nav-link cursor-pointer '
     >
-      <IoIosArrowBack className='' />
+      <StepBack  />
     </Button>
   );
 }

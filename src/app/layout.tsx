@@ -89,7 +89,7 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
         <div>
-          <div className='flex items-center gap-3 p-1'>
+          <div className='flex items-center gap-3 pt-2'>
             <Logo
               compStyling='text-(--primary) block'
               text='CE_206'
@@ -105,7 +105,7 @@ export default async function RootLayout({
                 { label: 'BLOG', href: '/blog' },
               ]}
             />
-            <div className='text-2xl p-2 font-extrabold btn-primary'>
+            <div className='text-2xl p-2 font-extrabold'>
               <Profile />
             </div>
           </div>
@@ -113,7 +113,7 @@ export default async function RootLayout({
         {children}
         <footer className=' pt-4'>
           <Social
-            linkStyle='btn-primary'
+            linkStyle='hover:text-(--text-secondary)'
             urls={[
               'https://www.linkedin.com/in/jaco-botha-886b7b95/',
               'https://www.facebook.com/jaco.botha.12139',
@@ -122,11 +122,13 @@ export default async function RootLayout({
               'https://x.com/206Roaches',
             ]}
           />
-          <ContactInfo
-            cellphone='+27 079 497 2646'
-            email='jacobotha206@gmail.com'
-            address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
-          />
+          <div className='text-sm'>
+            <ContactInfo
+              cellphone='+27 079 497 2646'
+              email='jacobotha206@gmail.com'
+              address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
+            />
+          </div>
           <CopyRight />
         </footer>
       </body>
