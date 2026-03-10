@@ -1,100 +1,135 @@
-/** GOOD - 1.0.0
-
-1.  Shadcn Components
-2.  Next 16 useAction
-3.  CSS Dependency
-
- */
 'use client';
 
-import { useState } from 'react';
+import { useActionState, useRef, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { toast } from 'sonner';
+import { Loader2, Send } from 'lucide-react';
 
-export default function Contacts() {
-  const [result, setResult] = useState('');
+// The Action Function (Next.js 16 Style)
+async function submitContactForm(prevState: any, formData: FormData) {
+  const access_key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
+  if (!access_key) {
+    return {
+      success: false,
+      message: 'Configuration Error: Access Key missing.',
+    };
+  }
 
-  const onSubmit = async (e:React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setResult('Sending....');
-    const formData = new FormData(e.currentTarget);
-    
-    const access_key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-    
-    if (access_key) {
-    formData.append('access_key', access_key);
-    } else {
-      console.error('Access key is missing in environment variables!');
-    }
+  formData.append('access_key', access_key);
+
+  try {
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData,
     });
 
     const data = await response.json();
-    if (data.success) {
-      setResult('Form Submitted Successfully');
-      e.currentTarget.reset();
-    } else {
-      setResult('Error');
-    }
-  };
 
+    if (data.success) {
+      return {
+        success: true,
+        message: "Message sent successfully! I'll be in touch soon.",
+      };
+    } else {
+      return {
+        success: false,
+        message: data.message || 'Something went wrong. Please try again.',
+      };
+    }
+  } catch (error) {
+    return {
+      success: false,
+      message: 'Network error. Please check your connection.',
+    };
+  }
+}
+
+export default function Contacts() {
+  // useActionState handles the loading state (isPending) and the result automatically
+const [state, formAction, isPending] = useActionState(submitContactForm, null);
+const formRef = useRef<HTMLFormElement>(null);
+
+useEffect(() => {
+  if (state?.success) {
+    formRef.current?.reset();
+    toast.success(state.message);
+  }
+}, [state]);
 
   return (
-    <section className='py-8 lg:py-16 px-4 mx-auto'>
-      <h2 className='mb-4 text-4xl tracking-tight font-extrabold text-center text-(--text-primary)'>
-        Contact Us
-      </h2>
-      <p className='mb-8 lg:mb-16 text-center text-(--text-secondary) sm:text-xl'>
-        Please contact us...
-      </p>
-      <form className='' onSubmit={onSubmit}>
-        <fieldset>
-          <label
-            className='block m-2 text-md font-medium text-(--text-secondary)'
-            htmlFor='name'
-          >
-            Name:
-          </label>
-          <input
-            className='shadow-md bg-(bg-secondary) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
-            type='text'
+    <section className='py-8 lg:py-16 px-4 mx-auto max-w-2xl'>
+      <div className='text-center mb-8 lg:mb-12'>
+        <h2 className='text-4xl tracking-tight font-extrabold text-(--text-primary)'>
+          Contact Us
+        </h2>
+        <p className='mt-4 text-(--text-secondary) sm:text-xl'>
+          Have a question? Drop a message below and I&apos;ll get back to you.
+        </p>
+      </div>
+
+      <form action={formAction} ref={formRef} className='space-y-6'>
+        <div className='space-y-2'>
+          <Label htmlFor='name' className='text-(--text-secondary)'>
+            Name
+          </Label>
+          <Input
+            name='name' // Important: name matches FormData keys
             id='name'
             required
             placeholder='John Smith'
-            autoComplete='off'
+            className='bg-(--bg-secondary) border-(--border) text-(--text-primary)'
           />
-          <label
-            className='block m-2 text-md font-medium text-(--text-secondary)'
-            htmlFor='email'
-          >
-            Email:
-          </label>
-          <input
-            className='shadow-md bg-(--bg-secondary) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
-            type='email'
+        </div>
+
+        <div className='space-y-2'>
+          <Label htmlFor='email' className='text-(--text-secondary)'>
+            Email
+          </Label>
+          <Input
+            name='email'
             id='email'
+            type='email'
             required
             placeholder='username@domain.com'
-            autoComplete='off'
+            className='bg-(--bg-secondary) border-(--border) text-(--text-primary)'
           />
-          <label
-            className='block m-2 text-md font-medium text-(--text-secondary)'
-            htmlFor='message'
-          >
-            Message:
-          </label>
-          <textarea
-            className='shadow-md bg-(--bg-secondary) text-(--text-secondary) text-md block w-full p-2.5 mb-3'
+        </div>
+
+        <div className='space-y-2'>
+          <Label htmlFor='message' className='text-(--text-secondary)'>
+            Message
+          </Label>
+          <Textarea
+            name='message'
             id='message'
             required
-            rows={3}
-            placeholder='This is your message...'
+            rows={4}
+            placeholder='How can I help you?'
+            className='bg-(--bg-secondary) border-(--border) text-(--text-primary)'
           />
-        </fieldset>
-        <button className=' btn-primary cursor-pointer' type='submit'>
-          Send
-        </button>
+        </div>
+
+        <Button
+          type='submit'
+          disabled={isPending}
+          className='w-full btn-primary transition-all'
+        >
+          {isPending ? (
+            <>
+              <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+              Sending...
+            </>
+          ) : (
+            <>
+              <Send className='mr-2 h-4 w-4' />
+              Send Message
+            </>
+          )}
+        </Button>
       </form>
     </section>
   );
