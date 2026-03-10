@@ -1,15 +1,11 @@
 /* CSS */
-
-import '@/styles/Typo-Hierarchy.css';
-import '@/styles/Form-Inputs.css';
 import '@/app/globals.css';
+
 import '@/styles/Typo-Hierarchy.css';
 import '@/styles/Form-Inputs.css';
 
 /* auth0 */
-import { auth0 } from '@/lib/auth0';
-import Profile from '@/components/Profile';
-
+import {Profile} from '@/components';
 
 /* SEO */
 import type { Metadata } from 'next';
@@ -73,47 +69,11 @@ export const myCustomFont = localFont({
   style: 'normal',
 });
 
-import { Logo, Navigation, ContactInfo } from '@/components';
-import Social from '@/components/Social';
-import CopyRight from '@/components/CopyRight';
+/* HEADER */
+import { Logo, Navigation } from '@/components';
 
-const Items: { title: string; href: string; description: string }[] = [
-  {
-    title: 'Alert Dialog',
-    href: '/docs/primitives/alert-dialog',
-    description:
-      'A modal dialog that interrupts the user with important content and expects a response.',
-  },
-  {
-    title: 'Hover Card',
-    href: '/docs/primitives/hover-card',
-    description:
-      'For sighted users to preview content available behind a link.',
-  },
-  {
-    title: 'Progress',
-    href: '/docs/primitives/progress',
-    description:
-      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
-  },
-  {
-    title: 'Scroll-area',
-    href: '/docs/primitives/scroll-area',
-    description: 'Visually or semantically separates content.',
-  },
-  {
-    title: 'Tabs',
-    href: '/docs/primitives/tabs',
-    description:
-      'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
-  },
-  {
-    title: 'Tooltip',
-    href: '/docs/primitives/tooltip',
-    description:
-      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
-  },
-];
+/* FOOTER*/
+import {Social, ContactInfo, CopyRight} from '@/components';
 
 export default async function RootLayout({
   children,
@@ -121,40 +81,32 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await auth0.getSession();
-  const user = session?.user;
-
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
         <div>
-        <div className='flex items-center gap-3'>
-          <Logo
-            compStyling='text-(--primary) block'
-            text='CE_206'
-            imgPath='/Logo_32.png'
-            size={50}
-          />
-          <Navigation
-            compStyling=' btn-primary  font-extrabold justify-items'
-            items={[
-              { label: 'HOME', href: '/' },
-              { label: 'SERVICES', href: '/services' },
-              { label: 'ABOUT', href: '/about' },
-              { label: 'CONTACT', href: '/contact' },
-              { label: 'BLOG', href: '/blog' },
-            ]}
-          />
-        </div>
-        <div className=''>
-
-          
-          <div className='fixed text-2xl p-1 justify-items top-11 right-1.5 btn-primary'>
-            <Profile />
-          </div>
-          <div><Profile /></div>
-        </div>
+          <div className='flex items-center gap-3'>
+            <Logo
+              compStyling='text-(--primary) block'
+              text='CE_206'
+              imgPath='/Logo_32.png'
+              size={50}
+            />
+            <Navigation
+              compStyling=' btn-primary  font-extrabold justify-items'
+              items={[
+                { label: 'HOME', href: '/' },
+                { label: 'SERVICES', href: '/services' },
+                { label: 'ABOUT', href: '/about' },
+                { label: 'CONTACT', href: '/contact' },
+                { label: 'BLOG', href: '/blog' },
+              ]}
+            />
+            <div className='text-2xl p-2 font-extrabold btn-primary'>
+              <Profile />
             </div>
+          </div>
+        </div>
         {children}
         <footer className=' pt-4'>
           <Social

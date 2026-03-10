@@ -46,7 +46,7 @@ function getIcon(url: string) {
   return iconMap.web;
 }
 
-export default function Social({ urls, linkStyle }: SocialProps) {
+export  function Social({ urls, linkStyle }: SocialProps) {
   return (
     <div className='flex flex-wrap justify-center gap-4 items-center pb-3'>
       {urls.map((url) => (

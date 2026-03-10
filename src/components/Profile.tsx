@@ -15,7 +15,7 @@ import Link from 'next/link';
 import { User, Ellipsis, LoaderCircle } from 'lucide-react';
 import { Spinner } from './ui/spinner';
 
-export default function Profile() {
+export  function Profile() {
 
   const { user, isLoading } = useUser();
   if (isLoading) {
