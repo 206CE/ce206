@@ -1,3 +1,7 @@
+/**
+ * 1. Remove some styling
+ * 
+ */
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -37,8 +41,8 @@ export function Navigation({
       {/* Desktop Menu */}
       <div className='hidden md:flex items-center gap-4'>
         {items.map((item) => (
-          <span className='menu-item' key={item.label}>
-            <NavItem  item={item} />
+          <span className='nav-link' key={item.label}>
+            <NavItem item={item} />
           </span>
         ))}
       </div>
@@ -57,11 +61,13 @@ export function Navigation({
       >
         <div className='flex flex-col gap-2 mt-5'>
           {items.map((item) => (
-            <NavItem
-              key={item.label}
-              item={item}
-              onNav={() => setOpen(false)}
-            />
+            <span key={item.label} className='menu-item'>
+              <NavItem
+                
+                item={item}
+                onNav={() => setOpen(false)}
+              />
+            </span>
           ))}
         </div>
       </div>
@@ -124,7 +130,7 @@ function NavItem({
     <Link
       href={defaultHref}
       onClick={onNav}
-      className='nav-link text-lg font-semibold text-(--text-primary) hover:text-blue-500 transition-colors'
+      className=' text-lg font-semibold text-(--text-primary) hover:text-blue-500 transition-colors'
     >
       {item.label}
     </Link>

@@ -1,3 +1,7 @@
+/**
+ * 1. Remove SEO or make smaller
+ */
+
 /* CSS */
 import '@/app/globals.css';
 

@@ -1,6 +1,6 @@
 import { TimeLine } from '@/components/TimeLine';
 import { Briefcase, Calendar, GraduationCap, MapPin, Code } from 'lucide-react';
-
+import {BackNav} from '@/components/BackNav';
 const workExperience = [
   {
     year: '2025',
@@ -172,10 +172,13 @@ export default function CareerPage() {
   return (
     <div className='min-h-screen'>
       <header className='pt-16 pb-10 text-center'>
-        <h1 className='text-4xl md:text-5xl font-bold text-[var(--text-primary)]'>
+        <h1 className='text-4xl md:text-5xl font-bold text-(--text-primary)'>
           Professional History
         </h1>
       </header>
+      <div className='font-extrabold text-4xl fixed top-4 right-4'>
+        <BackNav />
+      </div>
       <div className='grid-cols-3'>
         {/* 1. Work Timeline */}
         <TimeLine

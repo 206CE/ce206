@@ -116,7 +116,7 @@ useEffect(() => {
         <Button
           type='submit'
           disabled={isPending}
-          className='w-full btn-primary transition-all'
+          className='w-full btn-primary transition-all cursor-pointer'
         >
           {isPending ? (
             <>

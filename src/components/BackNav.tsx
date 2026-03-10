@@ -10,13 +10,13 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { IoIosArrowBack } from 'react-icons/io';
 
-export default function BackButton() {
+export function BackNav() {
   const router = useRouter();
 
   return (
     <Button
       onClick={() => router.back()}
-      className={'btn mx-10 cursor-pointer'}
+      className={'nav-link mx-10 cursor-pointer'}
     >
       <IoIosArrowBack className='' />
     </Button>

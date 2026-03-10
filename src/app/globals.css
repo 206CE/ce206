@@ -54,11 +54,13 @@
 
 /* ==========================================================================
    3. Navigation & Menu Components
-   ========================================================================== */
+   ========================================================================== 
+   > Implement nav-link::after and nav-link-active
+   */
 
 @layer components {
   .nav-link {
-    @apply px-4 py-2.5 rounded-md text-(--text-primary) hover:text-(--text-secondary) hover:bg-white/5 relative  font-medium;
+    @apply  px-2 py-2.5 rounded-md text-(--text-primary) hover:text-(--text-secondary) hover:bg-white/5 relative  font-medium;
   }
 
   .nav-link::after {
