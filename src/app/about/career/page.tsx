@@ -1,5 +1,6 @@
-import { TimeLine } from '@/components/TimeLine';
-import { BackNav } from '@/components/BackNav';
+import { TimeLine } from '@/components';
+import { BackNav } from '@/components';
+
 const Experience = [
   // --- 2026 ---
   {
@@ -203,9 +204,6 @@ const Experience = [
       'Complted college with Math, Science, Biology, IT, Afrikaans, English',
   },
 ];
-
-
-
 
 export default function CareerPage() {
   return (

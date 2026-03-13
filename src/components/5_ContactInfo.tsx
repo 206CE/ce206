@@ -1,5 +1,6 @@
-/** GOOD - 1.0.0
-
+/** GOOD
+ * 
+ * CSS: btn-secondary, text-microcopy
  */
 
 'use client'; // Must be lowercase
@@ -22,7 +23,7 @@ export function ContactInfo({ cellphone, email, address }: ContactInfoProps) {
   const maskData = (data: string) => (isPrivate ? '••••••••••••' : data);
 
   return (
-    <address className='not-italic flex flex-wrap justify-center text-(--text-secondary) font-semibold m-5 gap-4'>
+    <address className='text-microcopy not-italic flex flex-wrap justify-center  font-semibold m-5 gap-4'>
       {cellphone && (
         <div className='flex flex-row items-center space-x-2'>
           <Phone size={18} className='text-blue-500' />
@@ -54,7 +55,7 @@ export function ContactInfo({ cellphone, email, address }: ContactInfoProps) {
         <Button
           type='button'
           onClick={togglePrivacy}
-          className='text-xs text-blue-400 underline hover:text-blue-600 transition'
+          className='btn-secondary'
         >
           Show Info
         </Button>

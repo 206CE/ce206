@@ -1,7 +1,14 @@
-export { Logo } from './Logo';
-export { Navigation } from './Navigation';
-export { Profile } from './Profile';
-
-export { Social } from './Social';
-export { ContactInfo } from './ContactInfo';
-export { CopyRight } from './CopyRight';
+export { Logo } from './1_Logo';
+export { Navigation } from './2_Navigation';
+export { Profile } from './3_Profile';
+export { Social } from './4_Social';
+export { ContactInfo } from './5_ContactInfo';
+export { CopyRight } from './6_CopyRight';
+export { Hero } from './7_Hero';
+export { ServiceList } from './8_ServiceList';
+export { About } from './9_About';
+export { Team } from './10_Team';
+export { TimeLine } from './11_TimeLine';
+export { BackNav } from './12_BackNav';
+export { Icongrid } from './13_Icongrid';
+export { Contacts } from './14_Contacts';

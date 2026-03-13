@@ -1,3 +1,7 @@
+/**
+ * CSS: cards, text-card-primary, text-card-secondary , form-label, text-body, --border, --bg-secondary, --text-tertiary, --text-secondary, 
+ */
+
 import {
   Briefcase,
   GraduationCap,
@@ -15,8 +19,8 @@ const TYPE_ICONS: Record<string, LucideIcon> = {
 
 export function TimeLine({ title, data }: { title: string; data: any[] }) {
   return (
-    <section className='pb-24 px-6 md:px-12 lg:px-24 max-w-4xl mx-auto'>
-      <h2 className='text-3xl font-bold mb-16 text-center text-(--text-primary)'>
+    <section className='py-20 p-6 md:px-12 lg:px-24 max-w-4xl mx-auto'>
+      <h2 className='text-primary'>
         {title}
       </h2>
 
@@ -48,28 +52,28 @@ export function TimeLine({ title, data }: { title: string; data: any[] }) {
 
               {/* Card */}
               <div
-                className={`w-full md:w-5/12 bg-(--bg-secondary) shadow-md p-7 border border-(--border) transition-all hover:shadow-xl rounded-lg ${
+                className={`cards w-full md:w-5/12 bg-(--bg-secondary)  p-3 border border-(--border) transition-all hover:shadow-xl ${
                   index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
                 }`}
               >
                 <div className='flex flex-col mb-2'>
-                  <span className='text-[10px] uppercase tracking-widest text-blue-500 font-bold mb-1'>
-                    {entry.type}
-                  </span>
-                  <h3 className='text-xl font-bold text-(--text-primary)'>
+
+                  <h3 className='text-card-primary'>
                     {entry.role}
                   </h3>
                 </div>
 
-                <p className='text-[var(--text-secondary)] font-medium mb-2 text-sm'>
+                <p className='text-card-secondary'>
                   {entry.company}
+</p><p>
                   {entry.location && (
-                    <span className='inline-flex items-center gap-1 ml-3 text-xs text-[var(--text-tertiary)]'>
-                      <MapPin className='h-3 w-3' /> {entry.location}
+                    <span className='flex mt-2 form-label'>
+                      <MapPin className='h-3 w-3' /> 
+                      {entry.location}
                     </span>
                   )}
                 </p>
-                <p className='text-[var(--text-secondary)] text-sm leading-relaxed'>
+                <p className='text-body'>
                   {entry.description}
                 </p>
               </div>

@@ -1,6 +1,6 @@
+import { Team } from '@/components';
 import { Navigation } from '@/components';
-import About from '@/components/About';
-import { Team } from '@/components/Team';
+import { About } from '@/components';
 
 export const metadata = {
   title: 'About Us',
@@ -9,17 +9,15 @@ export const metadata = {
 export default function AboutP() {
   return (
     <section>
-      <section>
+      <section className='flex flex-col items-center justify-center'>
         <Team
           heading='CE_206'
           subheading='We are more'
-          listStyle='text-(--primary) text-2xl flex flex-col items-center justify-center'
-          cardStyle='group flex flex-col items-center text-center p-6 bg-(--bg-secondary) rounded-brand shadow-2xl border-(--border) border-4'
           members={[
             {
               id: 1,
               name: 'Jaco Botha',
-              role: 'Plebian',
+              role: 'Computer Enthusiast',
               bio: 'From theory to practice, to leading to learning.',
               imgUrl: '/about/jaco_botha_400_400.webp',
               size: 200,
@@ -35,7 +33,7 @@ export default function AboutP() {
           ]}
         />
       </section>
-  
+
       <section>
         <About
           companyName='CE_206'

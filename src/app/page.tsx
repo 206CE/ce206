@@ -1,22 +1,19 @@
-import Hero from '@/components/Hero';
-
+import { Hero } from "@/components";
 
 export default function Home() {
   return (
     <div className=''>
-      <main className=''>
+
+      <main className=' '>
         <Hero
           title='CE_206'
           tagline='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
-          itemFormat='btn-primary'
-          listformat='items-center'
-          imageSrc='/Logo_256.webp'
-          imageAlt='Company Logo'
-          imageSize={256}
+          imgSrc='/Logo_256.webp'
+          imgAlt='Company Logo'
+          imgSize={256}
         />
       </main>
-
     </div>
   );
 }

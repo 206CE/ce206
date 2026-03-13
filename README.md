@@ -17,7 +17,7 @@ Building:
 /
 <Hero>                                              
 /services
-<ServiceList>                                       //Responsiveness failed
+<ServiceList>                                       
 /about
 <Team>
 <About>

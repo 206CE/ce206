@@ -1,7 +1,10 @@
-/**
- * 1. Remove some styling
+/** 1.0.0
  * 
+ * CSS: nav-link, menu-item, --bg-secondary, --border, --text-secondary
+ * 
+ * 1. Test Dropdown Functionality
  */
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -39,7 +42,7 @@ export function Navigation({
   return (
     <nav className='relative'>
       {/* Desktop Menu */}
-      <div className='hidden md:flex items-center gap-4 text-4xl 2xl:text-7xl'>
+      <div className='hidden md:flex items-center gap-4 '>
         {items.map((item) => (
           <span className='nav-link' key={item.label}>
             <NavItem item={item} />
@@ -49,7 +52,7 @@ export function Navigation({
 
       {/* Mobile Toggle */}
       <button
-        className=' fixed top-4 right-4 md:hidden z-60 p-2 bg-(--bg-primary) border border-(--border) rounded-md cursor-pointer hover:text-(--text-secondary)'
+        className=' fixed top-2 right-2 md:hidden z-60 p-2  cursor-pointer '
         onClick={() => setOpen(!open)}
       >
         {open ? <X size={24} /> : <Menu size={24} />}
@@ -57,7 +60,7 @@ export function Navigation({
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-64 bg-(--bg-secondary) border-l border-(--border) p-6 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed inset-y-0 right-0 z-50 w-64 bg-(--bg-secondary) border-l border-(--border) p-6 transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className='flex flex-col gap-2 mt-5'>
           {items.map((item) => (
@@ -75,7 +78,7 @@ export function Navigation({
       {/* Background Overlay */}
       {open && (
         <div
-          className='fixed inset-0 bg-black/50 z-40 md:hidden'
+          className='fixed inset-0 bg-black/50 z-40 '
           onClick={() => setOpen(false)}
         />
       )}
@@ -130,7 +133,7 @@ function NavItem({
     <Link
       href={defaultHref}
       onClick={onNav}
-      className=' text-lg font-semibold text-(--text-primary) hover:text-blue-500 transition-colors'
+      className='transition-colors'
     >
       {item.label}
     </Link>

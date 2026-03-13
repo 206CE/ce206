@@ -1,7 +1,9 @@
-/** GOOD - 1.0.0
-
-1. Remove CSS Dependencies
-
+/** GOOD
+ * 
+ * CSS: btn-secondary
+ * 
+ * Improve Icons
+ * 
  */
 
 'use client';
@@ -46,7 +48,7 @@ function getIcon(url: string) {
   return iconMap.web;
 }
 
-export  function Social({ urls, linkStyle }: SocialProps) {
+export  function Social({ urls}: SocialProps) {
   return (
     <div className='flex flex-wrap justify-center gap-4 items-center pb-3'>
       {urls.map((url) => (
@@ -55,7 +57,7 @@ export  function Social({ urls, linkStyle }: SocialProps) {
           href={url}
           target='_blank'
           rel='noopener noreferrer'
-          className={`${linkStyle} text-(--text-primary) hover:text-(--primary)`}
+          className='btn-secondary'
           area-label={iconMap}
         >
           {getIcon(url)}

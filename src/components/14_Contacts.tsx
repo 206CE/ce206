@@ -1,3 +1,7 @@
+/**
+ * CSS: text-primary, text-secondary, form-label, !cards, animate-spin
+ */
+
 'use client';
 
 import { useActionState, useRef, useEffect } from 'react';
@@ -7,6 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { Loader2, Send } from 'lucide-react';
+import { Toaster } from 'sonner';
 
 // The Action Function (Next.js 16 Style)
 async function submitContactForm(prevState: any, formData: FormData) {
@@ -48,7 +53,7 @@ async function submitContactForm(prevState: any, formData: FormData) {
   }
 }
 
-export default function Contacts() {
+export  function Contacts() {
   // useActionState handles the loading state (isPending) and the result automatically
 const [state, formAction, isPending] = useActionState(submitContactForm, null);
 const formRef = useRef<HTMLFormElement>(null);
@@ -63,17 +68,17 @@ useEffect(() => {
   return (
     <section className='py-8 lg:py-16 px-4 mx-auto max-w-2xl'>
       <div className='text-center mb-8 lg:mb-12'>
-        <h2 className='text-4xl tracking-tight font-extrabold text-(--text-primary)'>
+        <h2 className='text-primary'>
           Contact Us
         </h2>
-        <p className='mt-4 text-(--text-secondary) sm:text-xl'>
-          Have a question? Drop a message below and I&apos;ll get back to you.
+        <p className='text-secondary'>
+          Have a question? 
         </p>
       </div>
 
       <form action={formAction} ref={formRef} className='space-y-6'>
         <div className='space-y-2'>
-          <Label htmlFor='name' className='text-(--text-secondary)'>
+          <Label htmlFor='name' className='form-label'>
             Name
           </Label>
           <Input
@@ -86,7 +91,7 @@ useEffect(() => {
         </div>
 
         <div className='space-y-2'>
-          <Label htmlFor='email' className='text-(--text-secondary)'>
+          <Label htmlFor='email' className='form-label'>
             Email
           </Label>
           <Input
@@ -100,7 +105,7 @@ useEffect(() => {
         </div>
 
         <div className='space-y-2'>
-          <Label htmlFor='message' className='text-(--text-secondary)'>
+          <Label htmlFor='message' className='form-label'>
             Message
           </Label>
           <Textarea
@@ -112,7 +117,7 @@ useEffect(() => {
             className='bg-(--bg-secondary) border-(--border) text-(--text-primary)'
           />
         </div>
-
+        <Toaster className='cards' richColors  />
         <Button
           type='submit'
           disabled={isPending}

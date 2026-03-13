@@ -1,7 +1,7 @@
-/** GOOD - 0.1.0.0
-
-1. Lucide
-
+/**
+ * CSS: btn-secondary
+ * 
+ * Goes behind cards when they scale.
  */
 
 'use client';
@@ -17,7 +17,7 @@ export function BackNav() {
     <Button
     
       onClick={() => router.back()}
-      className='text-2xl nav-link cursor-pointer '
+      className='btn-secondary'
     >
       <StepBack  />
     </Button>

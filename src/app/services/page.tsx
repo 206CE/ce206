@@ -1,4 +1,4 @@
-import { ServiceList } from "@/components/ServiceList";
+import { ServiceList } from "@/components";
 
 export const metadata = {
   title: 'The services we offer',
@@ -11,7 +11,6 @@ export default function Services() {
         <ServiceList
           heading='Our Service Offerings'
           subheading='Services Simplified'
-          itemStyle=''
           services={[
             {
               title: 'Website Development',

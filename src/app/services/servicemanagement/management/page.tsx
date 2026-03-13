@@ -1,4 +1,4 @@
-import {ServiceList} from '@/components/ServiceList';
+import {ServiceList} from '@/components/8_ServiceList';
 import Container from '../../../../components/Container';
 
 

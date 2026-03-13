@@ -1,4 +1,4 @@
-import {ServiceList} from '@/components/ServiceList';
+import {ServiceList} from '@/components/8_ServiceList';
 
 export default function ServiceManagement() {
   return (
@@ -6,7 +6,6 @@ export default function ServiceManagement() {
       <ServiceList
         heading='What we do...'
         subheading="We find value others don't see."
-        itemStyle='card'
         services={[
           {
             title: 'Focus on value',

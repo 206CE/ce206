@@ -1,3 +1,8 @@
+/**
+ * 
+ * CSS: text-primary, text-secondary, cards, text-card-primary,
+ */
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
@@ -15,7 +20,6 @@ type ServiceListProps = {
   heading?: string;
   subheading?: string;
   services: ServiceItem[];
-  itemStyle?: string;
   layout?: 'grid' | 'list';
   columns?: number;
 };
@@ -24,10 +28,10 @@ export function ServiceList({
   heading,
   subheading,
   services,
-  itemStyle = '',
   layout = 'grid',
   columns = 3,
 }: ServiceListProps) {
+
   const gridCols =
     {
       1: 'grid-cols-1',
@@ -37,17 +41,17 @@ export function ServiceList({
     }[columns] || 'grid-cols-1';
 
   return (
-    <section className='p-8 text-[var(--text-primary)]'>
+    <section className='p-8 '>
       {/* Heading Container */}
       {(heading || subheading) && (
         <div className='text-center mb-12'>
           {heading && (
-            <h2 className='text-3xl md:text-4xl font-bold tracking-tight'>
+            <h2 className='text-primary'>
               {heading}
             </h2>
           )}
           {subheading && (
-            <p className='text-lg text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto'>
+            <p className='text-secondary'>
               {subheading}
             </p>
           )}
@@ -61,15 +65,7 @@ export function ServiceList({
         } gap-8 max-w-7xl mx-auto`}
       >
         {services.map((service, idx) => (
-          <article
-            key={idx}
-            className={`
-              p-8 border border-[var(--border)] shadow-sm hover:shadow-xl 
-              transition-all duration-300 bg-[var(--bg-secondary)] rounded-xl
-              flex flex-col items-center text-center group
-              ${itemStyle}
-            `}
-          >
+          <article key={idx} className='cards'>
             {/* Wrapper for Link logic */}
             {service.link ? (
               <Link
@@ -93,7 +89,7 @@ function ServiceContent({ service }: { service: ServiceItem }) {
   return (
     <>
       {service.icon && (
-        <div className='mb-6 text-[var(--text-primary)] group-hover:scale-110 transition-transform duration-300'>
+        <div className='mb-6  group-hover:scale-110 transition-transform duration-300'>
           {service.icon}
         </div>
       )}
@@ -111,13 +107,13 @@ function ServiceContent({ service }: { service: ServiceItem }) {
       )}
 
       {service.title && (
-        <h3 className='text-xl font-bold mb-3 group-hover:text-blue-500 transition-colors'>
+        <h3 className='text-card-primary'>
           {service.title}
         </h3>
       )}
 
       {service.description && (
-        <p className='text-[var(--text-secondary)] text-sm leading-relaxed max-w-xs'>
+        <p className='text-card-secondary'>
           {service.description}
         </p>
       )}

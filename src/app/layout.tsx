@@ -5,11 +5,8 @@
 /* CSS */
 import '@/app/globals.css';
 
-import '@/styles/Typo-Hierarchy.css';
-import '@/styles/Form-Inputs.css';
-
 /* auth0 */
-import {Profile} from '@/components';
+import { Profile } from '@/components';
 
 /* SEO */
 import type { Metadata } from 'next';
@@ -77,35 +74,33 @@ export const myCustomFont = localFont({
 import { Logo, Navigation } from '@/components';
 
 /* FOOTER*/
-import {Social, ContactInfo, CopyRight} from '@/components';
+import { Social, ContactInfo, CopyRight } from '@/components';
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang='en'>
       <body className={` ${myCustomFont.className} antialiased`}>
         <div>
-          <div className='flex items-center gap-3 pt-2'>
-            <Logo
-              compStyling='text-(--primary) block'
-              text='CE_206'
-              imgPath='/Logo_32.png'
-              size={50}
-            />
-            <Navigation
-              items={[
-                { label: 'HOME', href: '/' },
-                { label: 'SERVICES', href: '/services' },
-                { label: 'ABOUT', href: '/about' },
-                { label: 'CONTACT', href: '/contact' },
-                { label: 'BLOG', href: '/blog' },
-              ]}
-            />
-            <div className='text-2xl p-2 font-extrabold'>
+          <div className='flex   gap-3 pt-2'>
+            <div className='text-(--text-primary) text-2xl'>
+              <Logo text='CE_206' imgPath='/Logo_32.png' size={50} />
+            </div>
+            <div className=''>
+              <Navigation
+                items={[
+                  { label: 'HOME', href: '/' },
+                  { label: 'SERVICES', href: '/services' },
+                  { label: 'ABOUT', href: '/about' },
+                  { label: 'CONTACT', href: '/contact' },
+                  { label: 'BLOG', href: '/blog' },
+                ]}
+              />
+            </div>
+            <div className=''>
               <Profile />
             </div>
           </div>
@@ -113,7 +108,6 @@ export default async function RootLayout({
         {children}
         <footer className=' pt-4'>
           <Social
-            linkStyle='hover:text-(--text-secondary)'
             urls={[
               'https://www.linkedin.com/in/jaco-botha-886b7b95/',
               'https://www.facebook.com/jaco.botha.12139',
@@ -122,7 +116,7 @@ export default async function RootLayout({
               'https://x.com/206Roaches',
             ]}
           />
-          <div className='text-sm'>
+          <div className=''>
             <ContactInfo
               cellphone='+27 079 497 2646'
               email='jacobotha206@gmail.com'

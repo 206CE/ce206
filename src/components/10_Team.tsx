@@ -1,12 +1,8 @@
-/** GOOD - 1.0.0
- * 
-
-1. Expand person properties to solve multiple problems
-2. CSS Dependencies
-
+/** 
+ * CSS: text-primary, text-secondary, text-microcopy, text-lead, text-body 
  */
 
-import React from 'react';
+
 import Image from 'next/image';
 
 interface TeamMember {
@@ -21,46 +17,42 @@ interface TeamMember {
 interface TeamMemberProps {
   heading: string;
   subheading?: string;
-  listStyle?: string;
-  cardStyle?: string;
   members: TeamMember[];
 }
 
 export  function Team({
   heading,
   subheading,
-  listStyle,
-  cardStyle,
   members,
 }: TeamMemberProps) {
   return (
-    <section className='p-2'>
+    <section className='p-5'>
       <div className='text-center mb-group space-y-4 p-2'>
-        <h2 className='text-5xl text-(--primary)'>{heading}</h2>
+        <h2 className='text-primary'>{heading}</h2>
         {subheading && (
-          <h4 className='uppercase text-2xl text-(--secondary)'>
+          <h4 className='text-secondary'>
             {subheading}
           </h4>
         )}
       </div>
-      <div className={`${listStyle}`}>
+      <div>
         {members.map((member, index) => (
-          <div key={index} className={`${cardStyle}`}>
+          <div key={index} className='cards'>
             {member.imgUrl && (
               <Image
-                className=' rounded-xl'
+                className=''
                 src={member.imgUrl}
                 alt={`portrait of ${member.name}`}
                 height={member.size}
                 width={member.size}
               />
             )}
-            <h5 className='mt-2 text-2xl font-bold'>{member.name}</h5>
+            <h5 className='text-microcopy'>{member.name}</h5>
             {member.role && (
-              <p className='text-lg font-semibold mb-3'>{member.role}</p>
+              <p className='text-lead'>{member.role}</p>
             )}
             {member.bio && (
-              <p className='text-sm text-(--tertiary) text-balance'>
+              <p className='text-body'>
                 {member.bio}
               </p>
             )}

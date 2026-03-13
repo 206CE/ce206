@@ -1,5 +1,5 @@
 
-import {ServiceList} from '@/components/ServiceList';
+import {ServiceList} from '@/components/8_ServiceList';
 
 
 export default function WebDev() {
@@ -8,7 +8,6 @@ export default function WebDev() {
       <ServiceList
         heading='Inside our websites are...'
         subheading='Our sites use'
-        itemStyle='card'
         services={[
           {
             title: 'Node 24',
@@ -41,7 +40,6 @@ export default function WebDev() {
       <ServiceList
         heading='Our Previous Work...'
         subheading='These are the sites we are currently building'
-        itemStyle='card'
         services={[
           {
             title: 'Aurora',
