@@ -1,13 +1,11 @@
-import { ServiceList } from "@/components/8_ServiceList";
+import { CardList } from "@/components";
 
 export default function Philosophy() {
   return (
     <div>
-      <ServiceList
-        heading='Our Philosophy'
-        subheading='If we cant create it, we dont understand it - Richard Fynneman'
-        layout='grid'
-        services={[
+      <CardList
+
+        items={[
           {
             title: 'Ontology',
             description: 'What is real? (Does it matter?)',

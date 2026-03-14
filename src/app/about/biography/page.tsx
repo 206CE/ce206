@@ -1,25 +1,25 @@
-import { Team } from "@/components/10_Team";
+import { CardList } from "@/components";
 
 const cards = [
   {
     id: 1,
-    name: 'Jaco Botha',
-    subName: 'CEO',
+    title: 'Jaco Botha',
+    subtitle: 'CEO',
     description: [
       '7+ Years Teaching',
       '7+ Years IT Operations',
       '1+ Years Solution Architect',
     ],
-    imageUrl: '/My_Pic.jpg',
-    imageAlt: 'Jaco Botha smilling',
-    imageSize: 500,
+    imgUrl: '/about/jaco_botha_400_400.webp',
+    imgAlt: 'Jaco Botha smilling',
+    imgSize: 200,
   },
 ];
 
 export default function Biography() {
   return (
     <section className=''>
-      <Team heading="The Team" subheading="The more the better" members={cards}/>
+      <CardList  items={cards}/>
 
       <h2 className='text-4xl pb-4 text-center'>
         The Narrative of Emergent Energy

@@ -17,16 +17,14 @@ export type ServiceItem = {
 };
 
 type ServiceListProps = {
-  heading?: string;
-  subheading?: string;
+
   services: ServiceItem[];
   layout?: 'grid' | 'list';
   columns?: number;
 };
 
 export function ServiceList({
-  heading,
-  subheading,
+
   services,
   layout = 'grid',
   columns = 3,
@@ -42,22 +40,6 @@ export function ServiceList({
 
   return (
     <section className='p-8 '>
-      {/* Heading Container */}
-      {(heading || subheading) && (
-        <div className='text-center mb-12'>
-          {heading && (
-            <h2 className='text-primary'>
-              {heading}
-            </h2>
-          )}
-          {subheading && (
-            <p className='text-secondary'>
-              {subheading}
-            </p>
-          )}
-        </div>
-      )}
-
       {/* Services Container */}
       <div
         className={`${

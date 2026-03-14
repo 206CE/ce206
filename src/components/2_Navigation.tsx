@@ -1,7 +1,7 @@
 /** 1.0.0
- * 
- * CSS: nav-link, menu-item, --bg-secondary, --border, --text-secondary
- * 
+ *
+ * CSS: nav-link, nav-item, --bg-secondary, --border, --text-secondary
+ *
  * 1. Test Dropdown Functionality
  */
 
@@ -24,11 +24,7 @@ interface NavItem {
   dropdown?: { label: string; href: string }[];
 }
 
-export function Navigation({
-  items,
-}: {
-  items: NavItem[];
-}) {
+export function Navigation({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false);
 
   // Prevent scrolling when mobile menu is open
@@ -52,7 +48,7 @@ export function Navigation({
 
       {/* Mobile Toggle */}
       <button
-        className=' fixed top-2 right-2 md:hidden z-60 p-2  cursor-pointer '
+        className=' nav-item fixed top-2 right-2 md:hidden z-60 p-2  cursor-pointer '
         onClick={() => setOpen(!open)}
       >
         {open ? <X size={24} /> : <Menu size={24} />}
@@ -64,12 +60,8 @@ export function Navigation({
       >
         <div className='flex flex-col gap-2 mt-5'>
           {items.map((item) => (
-            <span key={item.label} className='menu-item'>
-              <NavItem
-                
-                item={item}
-                onNav={() => setOpen(false)}
-              />
+            <span key={item.label} className='nav-item'>
+              <NavItem item={item} onNav={() => setOpen(false)} />
             </span>
           ))}
         </div>
@@ -92,7 +84,7 @@ function NavItem({
   onNav,
 }: {
   item: NavItem;
- 
+
   onNav?: () => void;
 }) {
   const defaultHref =
@@ -130,11 +122,7 @@ function NavItem({
   }
 
   return (
-    <Link
-      href={defaultHref}
-      onClick={onNav}
-      className='transition-colors'
-    >
+    <Link href={defaultHref} onClick={onNav} className='transition-colors'>
       {item.label}
     </Link>
   );

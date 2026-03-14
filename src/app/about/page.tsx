@@ -1,40 +1,40 @@
-import { Team } from '@/components';
-import { Navigation } from '@/components';
-import { About } from '@/components';
+import { About, Section, CardList, Navigation } from '@/components';
 
 export const metadata = {
   title: 'About Us',
 };
 
+const people = [
+  {
+    id: 1,
+    title: 'Jaco Botha',
+    subtitle: 'Computer Enthusiast',
+    description: 'From theory to practice, to leading to learning.',
+    imgUrl: '/about/jaco_botha_400_400.webp',
+    imgSize: 200,
+  },
+];
 export default function AboutP() {
   return (
-    <section>
-      <section className='flex flex-col items-center justify-center'>
-        <Team
-          heading='CE_206'
-          subheading='We are more'
-          members={[
-            {
-              id: 1,
-              name: 'Jaco Botha',
-              role: 'Computer Enthusiast',
-              bio: 'From theory to practice, to leading to learning.',
-              imgUrl: '/about/jaco_botha_400_400.webp',
-              size: 200,
-            },
-          ]}
-        />
-      </section>
-      <section className='flex justify-center'>
+    <section className=''>
+      
         <Navigation
           items={[
             { label: 'CAREER', href: '/about/career' },
             { label: 'CULTURE', href: '/about/culture' },
+            {label: 'PHILOSOPHY', href:'/about/philosophy'},
+            {label: 'BIOGRAPHY', href:'/about/biography'},
           ]}
         />
-      </section>
+      <Section
+        className='flex flex-col items-center'
+        title='CE_206'
+        subtitle='Who we are'
+      >
+        <CardList className='mb-4 max-w-1/3' items={people} />
+      </Section>
 
-      <section>
+      <Section>
         <About
           companyName='CE_206'
           tagline='One number, many forms.'
@@ -47,7 +47,7 @@ export default function AboutP() {
             'Improvement of services improve quality of life.',
           ]}
         />
-      </section>
+      </Section>
     </section>
   );
 }

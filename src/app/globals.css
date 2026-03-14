@@ -1,190 +1,145 @@
 @import 'tailwindcss';
 
 /* ==========================================================================
-   1. Basic Color Pallet
-   ================================================*/
-
+   1. Variables & Design Tokens
+   ========================================================================== */
 :root {
-  --bg-primary: #0a0a10;
-  --bg-secondary: #12121d;
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0c;
   --bg-tertiary: #141523;
 
-  --text-primary: #ffd166;
+  --sun-core: #ffd166;
+  --sun-flare: #ff6b35;
+  --sun-corona: rgba(255, 107, 53, 0.15);
+  
   --text-secondary: #4f83ca;
-  --text-tertiary: #ff6b35;
-
-  --border: rgba(255, 255, 255, 0.171);
-
+  --border: rgba(255, 209, 102, 0.05);
+  --selection-bg: rgba(255, 107, 53, 0.3);
 }
 
 /* ==========================================================================
-   2. Global Styles and Background
-   ================================================*/
-
+   2. Base Styles
+   ========================================================================== */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+
+  ::-webkit-scrollbar { @apply w-1.5; }
+  ::-webkit-scrollbar-track { @apply bg-(--bg-primary); }
+  ::-webkit-scrollbar-thumb { @apply bg-white/10 rounded-full hover:bg-(--sun-core)/50; }
+
   body {
-    @apply text-(--text-primary) min-h-screen;
-    background-image: url('/background.svg');
-    background-size: cover;
-    background-attachment: fixed;
+    @apply text-(--sun-core) min-h-screen bg-(--bg-primary) relative overflow-x-hidden;
+  }
 
-    :focus-visible {
-      @apply outline-none ring-2 ring-(--secondary) ring-offset-2 ring-offset-(--bg-primary);
-    }
+  body::before {
+    content: '';
+    @apply fixed inset-0 -z-50 pointer-events-none;
+    background-image: 
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: center center;
+    mask-image: radial-gradient(circle at center, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black 10%, transparent 70%);
+  }
 
-    a,
-    button,
-    select,
-    input,
-    textarea {
-      @apply transition-all duration-300 ease-out;
-    }
+  body::after {
+    content: '';
+    /* Standard CSS Animation instead of @apply */
+    animation: solar-breathe 10s ease-in-out infinite;
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+           w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px]
+           bg-radial from-(--sun-flare)/20 via-(--sun-corona) to-transparent 
+           blur-[120px] rounded-full -z-40 pointer-events-none;
+  }
 
-    h1,
-    h2,
-    h3 {
-      @apply font-bold tracking-tight text-(--text-primary);
-    }
-
-    strong {
-      @apply font-semibold text-(--primary);
-    }
-
-    textarea,
-    select {
-      @apply bg-(--bg-secondary) border border-(--border) text-gray-200 placeholder-gray-500 rounded-lg px-4 py-2.5 outline-none transition-all;
-    }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-(--sun-core) leading-tight;
   }
 }
 
 /* ==========================================================================
-   3. Navigation & Menu Components
+   3. Interactive Components
    ========================================================================== */
-
 @layer components {
-  /* <Navigation> Desktop*/
   .nav-link {
-    @apply text-2xl px-2 py-2.5 rounded-md text-(--text-primary) hover:text-(--text-secondary) bg-white/5 font-medium cursor-pointer;
+    @apply inline-block text-2xl px-3 py-2 text-(--sun-core) 
+           hover:text-(--sun-flare) hover:bg-white/5 font-medium 
+           transition-all duration-300 hover:scale-105 cursor-pointer;
   }
 
-  /* <Navigation> Mobile Menu*/
-  .menu-item {
-    @apply px-4 py-2.5 text-lg text-(--text-primary) hover:bg-white/10 hover:text-(--text-secondary) rounded-md flex items-center gap-3;
-  }
-}
-
-/* ==========================================================================
-   4. Buttons (Primary / Secondary / Ghost / etc.)
-   ========================================================================== */
-
-@layer components {
-  /* <Hero> Cta's <Profile>*/
   .btn-primary {
-    @apply bg-linear-to-r from-(--primary) to-(--tertiary) text-black font-bold px-6 py-3 rounded-lg shadow-lg shadow-(--primary)/30 hover:shadow-(--primary)/50 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer;
-  }
-  /* <Social> <ContactInfo> */
-  .btn-secondary {
-    @apply border border-(--secondary) text-(--secondary) px-6 py-3 rounded-lg hover:bg-(--secondary)/10 hover:shadow-[0_0_20px_rgba(79,131,202,0.4)] transition-all duration-300 cursor-pointer hover:scale-105;
-  }
-
-  .btn-ghost {
-    @apply text-gray-300 hover:text-white px-6 py-3 rounded-lg hover:bg-white/5 transition-all duration-300;
+    @apply relative overflow-hidden inline-flex items-center justify-center
+           border border-(--sun-core) text-(--sun-core) 
+           px-8 py-3 font-bold tracking-widest uppercase text-xs
+           transition-all duration-500 z-10 cursor-pointer;
   }
 
-  /* <ServiceList> <Contacts> */
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 bg-(--sun-core) -z-10 
+           translate-y-full transition-transform duration-500 ease-out;
+  }
+
+  .btn-primary:hover {
+    @apply text-(--bg-primary) shadow-[0_0_30px_rgba(255,209,102,0.4)] scale-105;
+  }
+
+  .btn-primary:hover::after { @apply translate-y-0; }
+
   .cards {
-    @apply p-8 border-(--border) border-2 shadow-sm hover:shadow-xl transition-transform duration-500 hover:scale-105 bg-(--bg-secondary) flex flex-col items-center text-center cursor-pointer;
+    @apply relative h-full flex flex-col p-8 
+           bg-white/[0.01] backdrop-blur-sm
+           border border-white/5 rounded-3xl
+           transition-all duration-700 ease-out
+           hover:bg-(--sun-core)/5
+           hover:border-(--sun-core)/30
+           hover:shadow-[0_0_50px_rgba(255,209,102,0.1)]
+           cursor-pointer;
   }
-}
 
-/* ==========================================================================
-  6. Typography Definitions
-   ========================================================================== */
+  .cards::before {
+    content: '';
+    @apply absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700
+           bg-radial from-(--sun-flare)/10 to-transparent pointer-events-none;
+  }
 
-@layer components {
-  /* <Hero> <ServiceList> <About> <Team> <Contacts> */
+  .cards:hover::before { @apply opacity-100; }
+
   .text-primary {
-    @apply flex justify-center text-4xl lg:text-6xl font-extrabold bg-linear-to-r pb-2 from-(--text-primary) via-(--text-tertiary) to-(--text-secondary) bg-clip-text text-transparent md:text-7xl   tracking-tighter leading-none mb-6;
-  }
-  /* <Hero> <ServiceList> <About> <Team> <Contacts> */
-  .text-secondary {
-    @apply text-3xl md:text-5xl font-bold text-(--text-secondary) tracking-tight;
-  }
-  /*<About> <Team>*/
-  .text-lead {
-    @apply text-xl text-gray-300 leading-relaxed mb-4;
-  }
-  /*<About> <Team>*/
-  .text-body {
-    @apply text-base text-gray-400 leading-normal;
-  }
-  /* <ContactInfo> <Team> */
-  .text-microcopy {
-    @apply text-sm italic text-gray-500;
-  }
-
-  .text-quote {
-    @apply p-4 border-l-4 border-(--secondary) bg-white/5 text-(--text-secondary) font-medium;
-  }
-  /* <ServiceList> */
-  .text-text-card-primary {
-    @apply text-2xl font-semibold mb-3 text-(--text-primary) group-hover:text-(--secondary) transition-colors;
-  }
-  .text-card-secondary {
-    @apply text-(--text-secondary) leading-relaxed;
-  }
-  .text-error {
-    @apply text-red-400 dark:text-red-500;
-  }
-  .text-success {
-    @apply text-green-400 dark:text-green-500;
+    @apply bg-linear-to-b from-(--sun-core) to-(--sun-flare)
+           bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
+           text-4xl md:text-6xl font-black tracking-tighter;
   }
 }
 
 /* ==========================================================================
-  6. Input Definitions
+   4. Utilities
    ========================================================================== */
-
-@layer components {
-  .form-label {
-    @apply text-xs font-black uppercase tracking-[0.2em] text-(--tertiary) mb-2 block;
-  }
-
-  .form-input {
-    @apply w-full bg-(--bg-tertiary) border border-(--border) rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 transition-all duration-200;
-  }
-
-  .form-input:focus {
-    @apply border-(--secondary) ring-2 ring-(--secondary)/40 shadow-[0_0_20px_rgba(79,131,202,0.3)];
-  }
-
-  .form-input-error {
-    @apply border-red-500 focus:border-red-500 focus:ring-red-500/40;
-  }
-
-  .form-helper {
-    @apply mt-1.5 text-xs text-gray-400;
-  }
-
-  .form-error-msg {
-    @apply mt-1.5 text-xs text-red-400;
-  }
-}
-
-/* ==========================================================================
-   5. Utility Classes & Animations
-   ========================================================================== */
-
 @layer utilities {
-  .animate-skeleton {
-    @apply bg-linear-to-r from-gray-800 via-gray-700 to-gray-800 bg-[length:200%_100%] animate-[pulse_1.5s_ease-in-out_infinite];
-  }
-
-  .input-focus {
-    @apply focus:ring-2 focus:ring-(--secondary) focus:border-(--secondary) focus:shadow-[0_0_15px_rgba(79,131,202,0.5)];
+  .reveal {
+    @apply opacity-0 translate-y-5;
+    animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
 
+/* Keyframes - Standard CSS */
+@keyframes solar-breathe {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
+}
 
+@keyframes reveal-up {
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @custom-variant dark (&:is(.dark *));

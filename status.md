@@ -1,109 +1,82 @@
 LOGO:
 /app 
-    icon.ico (32png) 
-    apple-icon.ico (180png) 
-    icon512.ico (512png)
-B   favicon.ico (32svg)
+icon.ico (32png) 
+apple-icon.ico (180png) 
+icon512.ico (512png)
+*favicon.ico (32svg)
 
 LAYOUT:
-/public 
-    background.svg
-B    graph32.svg
-B    logosm.svg
+/public/background.svg
+*/public/icons/graph32.svg
+*/public/logosm.svg
   
-./layout                                       
-B    <Font>    
-    <Logo>                                   
-    <Navigation>
-    <ContactInfo>                               
-    <Copyright>                                
-B    <TCs>
-B    <TBadges>
-B    <Loading>
+/layout.tsx <Logo> <Navigation> <ContactInfo> <Copyright> 
+/layout.tsx *<TCs> *<TBadges> 
+
+LOADING:
+?
 
 HOME:
-/public
-B    hero-1920-1080.webp < 300KiB
-B    video-hero-1080-720.mp4 < 5MiB                 
-./page    
-B    <Section>                                         
-    <Hero>
+*/public/hero-1920-1080.webp < 300KiB
+*/public/video-hero-1080-720.mp4 < 5MiB                 
+/page.tsx <Section>                                         
+    
                                                                            
 OFFERINGS:
-    /public
-        service-800.webp
-    /services 
-        <ServiceList>                              
-        /...
-            page.tsx...
-        /pricing
-            page.tsx
+/public/service-800.webp
+/services <Section> <CardList>                              
+*/services/[]/page.tsx
+*/services/pricing/page.tsx
 
 ABOUT:
-    /public
-        headshot-400.webp
-    /about  
-        <Team>
-        <About>                                    
-        /culture
-            <Icongrid>
-B           <Naritive>
-        /career
-            <TimeLine>
+/public/people/[]headshot-400.webp
+/about <Team> <About>                                    
+/about/culture <Icongrid> <Naritive>
+/about/career <TimeLine>
             
                              
-*SEO:
-    /public
-B        og-1200-630.png
-    ./layout
-B        <SEO>
-
+SEO:
+*/public/og-1200-630.png
+/layout.tsx 
+/lib/metadata.ts
+/manifest.ts
+/sitemap.ts
+        
 EMAIL:
-    /contact                 
-        <Contacts>                               
-    .env.local
-        NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+/contact <Contacts>                               
+./.env.local [NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY]
 
 BLOG:    
-    /blog
-        page.tsx         
-        /[slug]
-            page.tsx
-    ../content
-        posts.md
-    /lib
-        posts.ts
+/blog/page.tsx         
+/blog/[slug]/page.tsx
+./content/posts.md
+/lib/posts.ts
 
-*AUTH0:
-    ./src
-B        proxy.ts
-    /lib
-B        auth0.ts
-    ./layout
-B        <Profile>
-
-
+AUTH0:
+./proxy.ts
+/lib/auth0.ts
+/layout.tsx <Profile>
 
 *MONITORING:
-<Monitor>
+?
 
 *ANALYZING
-<Analizing>
+?
 
 *SEARCH:
-<SearchBar>                                     
+?
 
 *THEME:
-<ThemeSwitch>                                   
+?
 
 *LANGUAGE:
-<Language>                                       
+?
 
 *AI:
-<AIChat>                                        
+?
 
 *SHOPING:
-<Cart>                                               
+?
 
 
 <Responsive 320, 360, 370, 380>               
