@@ -14,3 +14,5 @@ export { Icongrid } from '../../.resources/13_Icongrid';
 export { Contacts } from './14_Contacts';
 export {Section} from './Section';
 export {CardList} from './CardList';
+export {ThemeProvider} from './theme-provider';
+export {ThemeToggle} from './ThemeToggle';

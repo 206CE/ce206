@@ -24,7 +24,7 @@ export const myCustomFont = localFont({
 });
 
 /* HEADER */
-import { Logo, Navigation } from '@/components';
+import { Logo, Navigation, ThemeProvider, ThemeToggle } from '@/components';
 
 /* FOOTER*/
 import { Social, ContactInfo, CopyRight } from '@/components';
@@ -35,65 +35,70 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body className={` ${myCustomFont.className} antialiased`}>
-        <div className='bg-scan' />
-        <div>
-          <div className='flex   gap-3 pt-2'>
-            <div
-              className='bg-linear-to-b from-(--sun-core) to-(--sun-flare)
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <div className='bg-scan' />
+          <div>
+            <div className='flex  items-center gap-3 pt-2 pl-2'>
+              <div
+                className='bg-linear-to-b from-(--sun-core) to-(--sun-flare)
            bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
            text-2xl  font-black tracking-tighter'
-            >
-              <Logo text='CE_206' imgPath='/new_logo.svg' size={45} />
-            </div>
-            <div className=''>
-              <Navigation
-                items={[
-                  { label: 'HOME', href: '/' },
-                  { label: 'SERVICES', href: '/services' },
-                  {
-                    label: 'ABOUT',
-                    dropdown: [
-                      { label: 'COMPANY', href: '/about/company' },
-                      { label: 'CAREER', href: '/about/career' },
-                      { label: 'CULTURE', href: '/about/culture'},
-                      {label:'PHILOSOPY', href: '/about/philosophy'},
-                      {label:'BIOGRAPHY', href:'/about/biography'},
-                    ],
-                  },
-                  { label: 'CONTACT', href: '/contact' },
-                  { label: 'BLOG', href: '/blog' },
-                ]}
-              />
-            </div>
-            {/*}
+              >
+                <Logo text='CE_206' imgPath='/new_logo.svg' size={45} />
+              </div>
+              <div className=''>
+                <Navigation
+                  items={[
+                    { label: 'HOME', href: '/' },
+                    { label: 'SERVICES', href: '/services' },
+                    {
+                      label: 'ABOUT',
+                      dropdown: [
+                        { label: 'COMPANY', href: '/about/company' },
+                        { label: 'CAREER', href: '/about/career' },
+                        { label: 'CULTURE', href: '/about/culture' },
+                        { label: 'PHILOSOPY', href: '/about/philosophy' },
+                        { label: 'BIOGRAPHY', href: '/about/biography' },
+                      ],
+                    },
+                    { label: 'CONTACT', href: '/contact' },
+                    { label: 'BLOG', href: '/blog' },
+                  ]}
+                />
+              </div>
+              {/*}
             <div className=''>
               <Profile />
             </div>
             */}
+            <div className='nav-link cursor-pointer'>
+              <ThemeToggle />
+            </div>
+            </div>
           </div>
-        </div>
-        {children}
-        <footer className=' pt-4'>
-          <Social
-            urls={[
-              'https://www.linkedin.com/in/jaco-botha-886b7b95/',
-              'https://www.facebook.com/jaco.botha.12139',
-              'https://github.com/206CE',
-              'https://discord.com/users/1337346807100866580',
-              'https://x.com/206Roaches',
-            ]}
-          />
-          <div className=''>
-            <ContactInfo
-              cellphone='+27 079 497 2646'
-              email='jacobotha206@gmail.com'
-              address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
+          {children}
+          <footer className=' pt-4'>
+            <Social
+              urls={[
+                'https://www.linkedin.com/in/jaco-botha-886b7b95/',
+                'https://www.facebook.com/jaco.botha.12139',
+                'https://github.com/206CE',
+                'https://discord.com/users/1337346807100866580',
+                'https://x.com/206Roaches',
+              ]}
             />
-          </div>
-          <CopyRight />
-        </footer>
+            <div className=''>
+              <ContactInfo
+                cellphone='+27 079 497 2646'
+                email='jacobotha206@gmail.com'
+                address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
+              />
+            </div>
+            <CopyRight />
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

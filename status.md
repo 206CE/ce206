@@ -70,7 +70,8 @@ AUTH0:
 ?
 
 *THEME:
-?
+globals.css update for dark and light themes
+
 
 *LANGUAGE:
 ?

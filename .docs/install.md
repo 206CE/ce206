@@ -24,3 +24,6 @@ npm install next@latest react@latest react-dom@latest eslint-config-next@latest
 npx next upgrade
 
 npm install --save-dev --save-exact prettier
+
+
+npm install next-themes lucide-react
