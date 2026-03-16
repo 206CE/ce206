@@ -1,14 +1,14 @@
 BUGS:
 
-320
+320 | 3
 
 layout.tsx
-- <Social> btn-secondary 
+- <Navigation> nav-item text size 20px not 18px?
 
 /services/page.tsx
 
 /services/webdev/page.tsx
-- <CardList> Links to projects
+- <CardList> Links to projects - aurora still broken
 
 /services/servicemanagement/page.tsx
 
@@ -16,15 +16,19 @@ layout.tsx
 - ADD Information etc.
 
 /about/page.tsx
-- <Navigation> issues mobile menu show local Navigation and not global
 
 /about/career/page.tsx
-- <TimeLine> spacing between dialogs and icons must change
 
 /about/culture/page.tsx
-- <Section> Spacing wrong
-- Icons spacing center
-- Icons spacing between title and subtitle small
-- Add <Section>
+
+/about/philosophy/page.tsx
+
+/about/biography/page.tsx
+
+/contact/page.tsx
+
+/blog/page.tsx
+
+/blog/[slug]/page.tsx
 
 

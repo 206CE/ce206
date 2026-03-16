@@ -10,7 +10,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -97,9 +96,9 @@ function NavItem({
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant='ghost' className='gap-2'>
-            {item.label} <ChevronDown size={14} />
-          </Button>
+          <button className='flex nav-link'>
+            {item.label} <ChevronDown size={25} />
+          </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align='end'
@@ -110,7 +109,7 @@ function NavItem({
               <Link
                 href={drop.href}
                 onClick={onNav}
-                className='w-full text-(--text-secondary)'
+                className='nav-item'
               >
                 {drop.label}
               </Link>

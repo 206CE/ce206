@@ -45,14 +45,23 @@ export default async function RootLayout({
            bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
            text-2xl  font-black tracking-tighter'
             >
-              <Logo text='CE_206' imgPath='/Logo_180.png' size={45} />
+              <Logo text='CE_206' imgPath='/new_logo.svg' size={45} />
             </div>
             <div className=''>
               <Navigation
                 items={[
                   { label: 'HOME', href: '/' },
                   { label: 'SERVICES', href: '/services' },
-                  { label: 'ABOUT', href: '/about' },
+                  {
+                    label: 'ABOUT',
+                    dropdown: [
+                      { label: 'COMPANY', href: '/about/company' },
+                      { label: 'CAREER', href: '/about/career' },
+                      { label: 'CULTURE', href: '/about/culture'},
+                      {label:'PHILOSOPY', href: '/about/philosophy'},
+                      {label:'BIOGRAPHY', href:'/about/biography'},
+                    ],
+                  },
                   { label: 'CONTACT', href: '/contact' },
                   { label: 'BLOG', href: '/blog' },
                 ]}

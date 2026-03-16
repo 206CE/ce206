@@ -41,7 +41,7 @@ export function TimeLine({ title, data }: { title: string; data: any[] }) {
               }`}
             >
               {/* Dynamic Icon/Date bubble */}
-              <div className='flex items-center justify-center w-20 h-20 rounded-full bg-(--bg-secondary) border-4 border-(--border) shadow-lg z-10 '>
+              <div className='flex items-center justify-center w-20 h-20 rounded-full bg-(--bg-secondary) border-4 border-(--border) shadow-lg z-40 '>
                 <div className='flex flex-col items-center justify-center'>
                   <Icon className='h-6 w-6 text-(--text-tertiary) mb-1' />
                   <span className='text-[10px] font-bold text-(--text-secondary) block px-2 leading-tight text-center'>
@@ -52,7 +52,7 @@ export function TimeLine({ title, data }: { title: string; data: any[] }) {
 
               {/* Card */}
               <div
-                className={`cards w-full md:w-5/12 bg-(--bg-secondary)  p-3 border border-(--border) transition-all hover:shadow-xl ${
+                className={`cards w-full md:w-5/12 bg-(--bg-secondary)  p-3 border border-(--border) transition-all hover:shadow-xl z-10 ${
                   index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
                 }`}
               >

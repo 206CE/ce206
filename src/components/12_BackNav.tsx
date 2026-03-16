@@ -10,14 +10,18 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { StepBack } from 'lucide-react';
 
-export function BackNav() {
+interface Styling {
+  className?:string;
+}
+
+export function BackNav( {className=''}:Styling) {
   const router = useRouter();
 
   return (
     <Button
     
       onClick={() => router.back()}
-      className='btn-secondary'
+      className={`btn-secondary ${className}`}
     >
       <StepBack  />
     </Button>

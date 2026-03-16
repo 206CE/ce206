@@ -48,14 +48,14 @@ const sites = [
   {
     title: 'Play2Heal',
     description: 'Professional play therapist in Potchefstroom.',
-    href: '/',
+    href: 'https://cust-play2heal.vercel.app/',
     imgUrl: '/services/Customers/Play2Heal-Logo-596.webp',
   },
   {
     title: 'Per-Gratiam',
     description:
       'Counseling and Addiction specialist that really want to help.',
-    href: '/',
+    href: 'https://cust-pergratiam.vercel.app/',
     imgUrl: '/services/Customers/PerGratiam-Logo-364.webp',
   },
 ];
@@ -67,7 +67,7 @@ export default function WebDev() {
         title='Web/App Development'
         subtitle='Cause its important to get things done by the push of a button'
       >
-        <BackNav />
+        <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black'/>
         <CardList
           className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
           items={webdevinfo}

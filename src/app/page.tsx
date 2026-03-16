@@ -13,11 +13,11 @@ export default function Home() {
         >
           <Image
             className='mx-auto'
-            src='/new_logo.svg'
+            src='/hero-352_197.webp'
             alt='Logo of ce206 company'
-            width={256}
-            height={256}
-            preload
+            width={1900}
+            height={1900}
+            priority
           />
 
           <Link className='btn-primary' href='/contact'>

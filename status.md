@@ -17,7 +17,7 @@ LOADING:
 ?
 
 HOME:
-*/public/hero-1920-1080.webp < 300KiB
+/public/hero-1920-1080.webp < 300KiB
 */public/video-hero-1080-720.mp4 < 5MiB                 
 /page.tsx <Section>                                         
     
@@ -30,9 +30,12 @@ OFFERINGS:
 
 ABOUT:
 /public/people/[]headshot-400.webp
-/about <Team> <About>                                    
-/about/culture <Icongrid> <Naritive>
+/about/company/ <CardsList> <About>
 /about/career <TimeLine>
+/about/culture <CardsList> 
+/about/biography
+/about/philosophy
+                      
             
                              
 SEO:

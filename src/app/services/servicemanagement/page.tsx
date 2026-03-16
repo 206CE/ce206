@@ -61,7 +61,7 @@ export default function ServiceManagement() {
         title='We Improve your service delivery'
         subtitle='The modern economy is service centered.'
       >
-        <BackNav />
+        <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black' />
         <CardList
           className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
           items={serviceManagement}

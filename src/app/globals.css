@@ -11,7 +11,7 @@
   --sun-core: #ffd166;
   --sun-flare: #ff6b35;
   --sun-corona: rgba(255, 107, 53, 0.15);
-  
+
   --text-secondary: #4f83ca;
   --border: rgba(255, 209, 102, 0.05);
   --selection-bg: rgba(255, 107, 53, 0.3);
@@ -26,9 +26,15 @@
     scrollbar-gutter: stable;
   }
 
-  ::-webkit-scrollbar { @apply w-1.5; }
-  ::-webkit-scrollbar-track { @apply bg-(--bg-primary); }
-  ::-webkit-scrollbar-thumb { @apply bg-white/10 rounded-full hover:bg-(--sun-core)/50; }
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-(--sun-core)/50;
+  }
 
   body {
     @apply text-(--sun-core) min-h-screen bg-(--bg-primary) relative overflow-x-hidden;
@@ -37,13 +43,17 @@
   body::before {
     content: '';
     @apply fixed inset-0 -z-50 pointer-events-none;
-    background-image: 
+    background-image:
       linear-gradient(var(--border) 1px, transparent 1px),
       linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 60px 60px;
     background-position: center center;
     mask-image: radial-gradient(circle at center, black 10%, transparent 70%);
-    -webkit-mask-image: radial-gradient(circle at center, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      black 10%,
+      transparent 70%
+    );
   }
 
   body::after {
@@ -56,7 +66,12 @@
            blur-[120px] rounded-full -z-40 pointer-events-none;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold tracking-tight text-(--sun-core) leading-tight;
   }
 }
@@ -66,9 +81,21 @@
    ========================================================================== */
 @layer components {
   .nav-link {
-    @apply inline-block text-2xl px-3 py-2 text-(--sun-core) 
-           hover:text-(--sun-flare) hover:bg-white/5 font-medium 
-           transition-all duration-300 hover:scale-105 cursor-pointer;
+    @apply inline-block text-xl px-3 py-2 text-(--sun-core) 
+            font-medium transition-all duration-300  cursor-pointer;
+  }
+
+  .nav-link:hover {
+    @apply text-(--sun-flare) bg-white/5 scale-105;
+  }
+
+  .nav-item {
+    @apply inline-block text-lg px-3 py-2 text-(--sun-core) 
+            font-medium transition-all duration-300  cursor-pointer;
+  }
+
+  .nav-item:hover {
+    @apply text-(--sun-flare) bg-white/5 scale-105;
   }
 
   .btn-primary {
@@ -88,13 +115,18 @@
     @apply text-(--bg-primary) shadow-[0_0_30px_rgba(255,209,102,0.4)] scale-105;
   }
 
-  .btn-primary:hover::after { @apply translate-y-0; }
-
- /* <Social> <ContactInfo> */
-  .btn-secondary {
-    @apply border border-(--secondary) text-(--secondary) px-6 py-3 rounded-lg hover:bg-(--secondary)/10 hover:shadow-[0_0_20px_rgba(79,131,202,0.4)] transition-all duration-300 cursor-pointer hover:scale-105;
+  .btn-primary:hover::after {
+    @apply translate-y-0;
   }
 
+  .btn-secondary {
+    @apply border border-(--text-secondary) text-(--text-secondary) px-6 py-3  transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-secondary:hover {
+    @apply hover:bg-(--text-secondary)/10 hover:shadow-[0_0_20px_rgba(79,131,202,0.4)]
+hover:scale-105;
+  }
 
   .cards {
     @apply relative h-full flex flex-col p-8 
@@ -113,8 +145,9 @@
            bg-radial from-(--sun-flare)/10 to-transparent pointer-events-none;
   }
 
-  .cards:hover::before { @apply opacity-100; }
-
+  .cards:hover::before {
+    @apply opacity-100;
+  }
 }
 
 /* ==========================================================================
@@ -124,7 +157,7 @@
 @layer components {
   /* <Hero> <ServiceList> <About> <Team> <Contacts> */
   .text-primary {
-@apply bg-linear-to-b from-(--sun-core) to-(--sun-flare)
+    @apply bg-linear-to-b from-(--sun-core) to-(--sun-flare)
            bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
            text-4xl md:text-6xl font-black tracking-tighter;
   }
@@ -193,7 +226,6 @@
   }
 }
 
-
 /* ==========================================================================
    4. Utilities
    ========================================================================== */
@@ -206,7 +238,8 @@
 
 /* Keyframes - Standard CSS */
 @keyframes solar-breathe {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.7;
   }
@@ -217,7 +250,10 @@
 }
 
 @keyframes reveal-up {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @custom-variant dark (&:is(.dark *));

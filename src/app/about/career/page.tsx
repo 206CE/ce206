@@ -208,7 +208,7 @@ export default function CareerPage() {
   return (
     <section>
       <span className='fixed top-10 right-10 font-extrabold'>
-        <BackNav />
+        <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black' />
       </span>
       <div>
         <TimeLine title='Timeline' data={Experience} />
