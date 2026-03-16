@@ -15,7 +15,7 @@ export function Section({className = '', title, subtitle, children}:SectionProps
       <section
         className={`flex-col text-center p-4 m-3 border-(--border) border-2 ${className}`}
       >
-        <h1 className='text-primary'>{title}</h1>
+        <h1 className='text-primary mb-5'>{title}</h1>
         <h2 className='text-secondary mb-5'>{subtitle}</h2>
         {children}
       </section>

@@ -1,5 +1,4 @@
-import { TimeLine } from '@/components';
-import { BackNav } from '@/components';
+import { TimeLine, BackNav } from '@/components';
 
 const Experience = [
   // --- 2026 ---
@@ -201,7 +200,7 @@ const Experience = [
     role: 'National Senior Certificate',
     company: 'HighSchool Three Rivers',
     description:
-      'Complted college with Math, Science, Biology, IT, Afrikaans, English',
+      'Completed college with Math, Science, Biology, IT, Afrikaans, English',
   },
 ];
 

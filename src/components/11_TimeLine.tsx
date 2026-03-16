@@ -36,12 +36,12 @@ export function TimeLine({ title, data }: { title: string; data: any[] }) {
           return (
             <div
               key={index}
-              className={`relative -mb-15 flex flex-col md:flex-row items-start md:items-center gap-8 ${
+              className={`relative  flex flex-col  gap-2 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
             >
               {/* Dynamic Icon/Date bubble */}
-              <div className='flex items-center justify-center w-20 h-20 rounded-full bg-(--bg-secondary) border-4 border-(--border) shadow-lg z-10 md:absolute md:left-1/2 md:-translate-x-1/2'>
+              <div className='flex items-center justify-center w-20 h-20 rounded-full bg-(--bg-secondary) border-4 border-(--border) shadow-lg z-10 '>
                 <div className='flex flex-col items-center justify-center'>
                   <Icon className='h-6 w-6 text-(--text-tertiary) mb-1' />
                   <span className='text-[10px] font-bold text-(--text-secondary) block px-2 leading-tight text-center'>

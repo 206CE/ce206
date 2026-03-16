@@ -17,21 +17,20 @@ const people = [
 export default function AboutP() {
   return (
     <section className=''>
-      
-        <Navigation
-          items={[
-            { label: 'CAREER', href: '/about/career' },
-            { label: 'CULTURE', href: '/about/culture' },
-            {label: 'PHILOSOPHY', href:'/about/philosophy'},
-            {label: 'BIOGRAPHY', href:'/about/biography'},
-          ]}
-        />
+      <Navigation
+        items={[
+          { label: 'CAREER', href: '/about/career' },
+          { label: 'CULTURE', href: '/about/culture' },
+          { label: 'PHILOSOPHY', href: '/about/philosophy' },
+          { label: 'BIOGRAPHY', href: '/about/biography' },
+        ]}
+      />
       <Section
         className='flex flex-col items-center'
         title='CE_206'
         subtitle='Who we are'
       >
-        <CardList className='mb-4 max-w-1/3' items={people} />
+        <CardList className='mb-4 ' items={people} />
       </Section>
 
       <Section>

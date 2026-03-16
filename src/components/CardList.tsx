@@ -1,5 +1,5 @@
 /** * Simplified Card List (No internal grid)
- * CSS: cards, text-primary, text-secondary, text-body
+ * CSS: cards, text-primary, text-secondary, text-card-secondary
  */
 
 import Image from 'next/image';
@@ -50,7 +50,7 @@ export function CardList({ className='', items }: CardListProps) {
             <h3 className='text-primary font-bold text-xl'>{item.title}</h3>
 
             {item.subtitle && (
-              <p className='text-secondary text-sm font-medium mb-2 uppercase tracking-wide'>
+              <p className='text-card-primary  font-medium mb-2 tracking-wide'>
                 {item.subtitle}
               </p>
             )}
@@ -58,7 +58,7 @@ export function CardList({ className='', items }: CardListProps) {
 
               {/* Description Logic */}
             {item.description && (
-              <div className='text-body mt-2 w-full'>
+              <div className='text-card-secondary mt-2 w-full'>
                 {Array.isArray(item.description) ? (
                   <ul className='space-y-2 text-left inline-block mx-auto'>
                     {item.description.map((line, i) => (
