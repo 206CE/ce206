@@ -1,4 +1,3 @@
-import { Hero } from '@/components';
 import { Section } from '@/components';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +13,7 @@ export default function Home() {
         >
           <Image
             className='mx-auto'
-            src='/Logo_256.webp'
+            src='/new_logo.svg'
             alt='Logo of ce206 company'
             width={256}
             height={256}

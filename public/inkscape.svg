@@ -2,14 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="800.00006"
+   width="800"
    height="800"
-   viewBox="0 0 211.66668 211.66667"
+   viewBox="0 0 211.66666 211.66667"
    version="1.1"
    id="svg1"
    inkscape:export-filename="new_logo.svg"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
+   inkscape:version="1.4.3 (fcd0343856, 2026-01-01)"
+   sodipodi:docname="inkscape.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -24,16 +26,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm">
-    <inkscape:page
-       x="-2.425456e-28"
-       y="0"
-       width="211.66667"
-       height="211.66667"
-       id="page2"
-       margin="0"
-       bleed="0" />
-  </sodipodi:namedview>
+     inkscape:document-units="mm"
+     inkscape:zoom="0.54803752"
+     inkscape:cx="378.62371"
+     inkscape:cy="371.32494"
+     inkscape:window-width="1366"
+     inkscape:window-height="644"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <linearGradient
@@ -48,6 +50,13 @@
          offset="1"
          id="stop1854" />
     </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath10">
+      <g
+         inkscape:label="Clip"
+         id="use10" />
+    </clipPath>
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1852"
@@ -63,8 +72,7 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(4.0270894e-5)">
+     id="layer1">
     <path
        sodipodi:type="star"
        style="fill:#f5c71a;fill-opacity:1;stroke:url(#radialGradient1854);stroke-width:0.264583"
@@ -84,7 +92,10 @@
        inkscape:transform-center-y="0.3886821"
        transform="matrix(0.71628272,0,0,0.71094818,64.959468,61.912796)"
        inkscape:label="path11"
-       inkscape:highlight-color="#ffd166" />
+       inkscape:highlight-color="#ffd166"
+       inkscape:export-filename="Logo_2500.png"
+       inkscape:export-xdpi="299.99997"
+       inkscape:export-ydpi="299.99997" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'Ubuntu Sans';-inkscape-font-specification:'Ubuntu Sans, @wght=800,wdth=94.3';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wdth' 94.3, 'wght' 800;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.23738;stroke-opacity:1"

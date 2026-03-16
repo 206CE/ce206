@@ -1,18 +1,20 @@
 /**
- * 1. Remove SEO or make smaller
+ *
  */
 
 /* CSS */
 import '@/app/globals.css';
 
-/* auth0 */
+/* auth0 
 import { Profile } from '@/components';
+*/
 
 /* SEO */
 import { siteMetadata, siteViewport } from '@/lib/metadata';
 
 export const metadata = siteMetadata;
 export const viewport = siteViewport;
+
 /* FONT (1) */
 import localFont from 'next/font/local';
 export const myCustomFont = localFont({
@@ -38,7 +40,11 @@ export default async function RootLayout({
         <div className='bg-scan' />
         <div>
           <div className='flex   gap-3 pt-2'>
-            <div className='text-(--text-primary) text-2xl'>
+            <div
+              className='bg-linear-to-b from-(--sun-core) to-(--sun-flare)
+           bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
+           text-2xl  font-black tracking-tighter'
+            >
               <Logo text='CE_206' imgPath='/Logo_180.png' size={45} />
             </div>
             <div className=''>

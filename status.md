@@ -3,7 +3,7 @@ LOGO:
 icon.ico (32png) 
 apple-icon.ico (180png) 
 icon512.ico (512png)
-*favicon.ico (32svg)
+favicon.ico (32svg)
 
 LAYOUT:
 /public/background.svg
@@ -11,7 +11,7 @@ LAYOUT:
 */public/logosm.svg
   
 /layout.tsx <Logo> <Navigation> <ContactInfo> <Copyright> 
-/layout.tsx *<TCs> *<TBadges> 
+*/layout.tsx <TCs> <TBadges> 
 
 LOADING:
 ?
