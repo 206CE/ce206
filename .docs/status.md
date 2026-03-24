@@ -10,7 +10,7 @@ LAYOUT:
 */public/icons/graph32.svg
 */public/logosm.svg
   
-/layout.tsx <Logo> <Navigation> <ContactInfo> <Copyright> 
+/layout.tsx <Logo> <Navigation> <ContactInfo> <Copyright> <CtaBar>
 */layout.tsx <TCs> <TBadges> 
 
 LOADING:
@@ -29,7 +29,7 @@ OFFERINGS:
 */services/pricing/page.tsx
 
 ABOUT:
-/public/people/[]headshot-400.webp
+/public/people/headshot-400.webp[]
 /about/company/ <CardsList> <About>
 /about/career <TimeLine>
 /about/culture <CardsList> 

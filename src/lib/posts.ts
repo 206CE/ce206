@@ -15,7 +15,7 @@ export interface Post {
   };
 }
 
-const postsDirectory = path.join(process.cwd(), 'content');
+const postsDirectory = path.join(process.cwd(), '/src/app/blog/content');
 
 export async function getAllPosts() {
   const fileNames = await fs.readdir(postsDirectory);

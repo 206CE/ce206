@@ -22,10 +22,9 @@ export default function AboutP() {
         className='flex flex-col items-center'
         title='CE_206'
         subtitle='Who we are'
-      ><BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black'/>
-        <CardList className='mb-4 ' items={people} />
+      ><BackNav className=' fixed top-15 right-4 z-10 bg-black'/>
+        <CardList className='' items={people} />
       </Section>
-
       <Section>
         <About
           companyName='CE_206'

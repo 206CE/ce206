@@ -2,21 +2,48 @@
 
 /* ==========================================================================
    1. Variables & Design Tokens
-   ========================================================================== */
-:root {
-  --bg-primary: #050505;
+   ========================================================================== --bg-primary: #050505;
   --bg-secondary: #0a0a0c;
   --bg-tertiary: #141523;
 
-  --sun-core: #ffd166;
-  --sun-flare: #ff6b35;
-  --sun-corona: rgba(255, 107, 53, 0.15);
+  --text-primary: #ffd166;
+  --text-secondary: #ff6b35;
+  --text-tertiary: rgba(255, 107, 53, 0.15);
 
   --text-secondary: #4f83ca;
   --border: rgba(255, 209, 102, 0.05);
   --selection-bg: rgba(255, 107, 53, 0.3);
+  */
+:root {
+  --bg-primary: #f9d382;
+  --bg-secondary: #d48166;
+  --bg-tertiary: #9caf88;
+
+  --text-primary: #111111;
+  --text-secondary: #ff6b35;
+  --text-tertiary: rgba(255, 107, 53, 0.15);
+
+  --text-secondary: #4f83ca;
+  --border: #aaaaaa;
+  --selection-bg: rgba(255, 107, 53, 0.3);
 }
 
+[data-theme='dark'] {
+  /* --- DARK THEME (Solar/Your original) --- */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0c;
+  --bg-tertiary: #141523;
+
+  --text-primary: #ffd166;
+  --text-secondary: #ff6b35;
+  --text-tertiary: rgba(255, 107, 53, 0.15);
+
+  --text-secondary: #4f83ca;
+  --border: rgba(255, 209, 102, 0.05);
+  --selection-bg: rgba(255, 107, 53, 0.3);
+
+  --glow-color: var(--text-secondary);
+}
 /* ==========================================================================
    2. Base Styles
    ========================================================================== */
@@ -33,11 +60,11 @@
     @apply bg-(--bg-primary);
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-white/10 rounded-full hover:bg-(--sun-core)/50;
+    @apply bg-white/10 rounded-full hover:bg-(--text-primary)/50;
   }
 
   body {
-    @apply text-(--sun-core) min-h-screen bg-(--bg-primary) relative overflow-x-hidden;
+    @apply text-(--text-primary) min-h-screen bg-(--bg-primary) relative overflow-x-hidden;
   }
 
   body::before {
@@ -62,7 +89,7 @@
     animation: solar-breathe 10s ease-in-out infinite;
     @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
            w-[80vw] h-[80vw] max-w-250 max-h-250
-           bg-radial from-(--sun-flare)/20 via-(--sun-corona) to-transparent 
+           bg-radial from-(--text-secondary)/20 via-(--text-tertiary) to-transparent 
            blur-[120px] rounded-full -z-40 pointer-events-none;
   }
 
@@ -72,7 +99,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight text-(--sun-core) leading-tight;
+    @apply font-bold tracking-tight text-(--text-primary) leading-tight;
   }
 }
 
@@ -81,33 +108,33 @@
    ========================================================================== */
 @layer components {
   .nav-link {
-    @apply inline-block text-xl px-3 py-2 text-(--sun-core) 
+    @apply inline-block text-xl px-3 py-2 text-(--text-primary) 
             font-medium transition-all duration-300  cursor-pointer;
   }
 
   .nav-link:hover {
-    @apply text-(--sun-flare) bg-white/5 scale-105;
+    @apply text-(--text-secondary) bg-white/5 scale-105;
   }
 
   .nav-item {
-    @apply inline-block text-lg px-3 py-2 text-(--sun-core) 
+    @apply inline-block text-lg px-3 py-2 text-(--text-primary) 
             font-medium transition-all duration-300  cursor-pointer;
   }
 
   .nav-item:hover {
-    @apply text-(--sun-flare) bg-white/5 scale-105;
+    @apply text-(--text-secondary) bg-white/5 scale-105;
   }
 
   .btn-primary {
     @apply relative overflow-hidden inline-flex items-center justify-center
-           border border-(--sun-core) text-(--sun-core) 
+           border border-(--text-primary) text-(--text-primary) 
            px-8 py-3 font-bold tracking-widest uppercase text-xs
            transition-all duration-500 z-10 cursor-pointer;
   }
 
   .btn-primary::after {
     content: '';
-    @apply absolute inset-0 bg-(--sun-core) -z-10 
+    @apply absolute inset-0 bg-(--text-primary) -z-10 
            translate-y-full transition-transform duration-500 ease-out;
   }
 
@@ -131,18 +158,17 @@ hover:scale-105;
   .cards {
     @apply relative h-full flex flex-col p-8 
            bg-white/1 backdrop-blur-sm
-           border border-white/5 rounded-3xl
+           border border-white/5 
            transition-all duration-700 ease-out
-           hover:bg-(--sun-core)/5
-           hover:border-(--sun-core)/30
+           hover:bg-(--text-primary)/5
+           hover:border-(--text-primary)/30
            hover:shadow-[0_0_50px_rgba(255,209,102,0.1)]
            cursor-pointer;
   }
 
   .cards::before {
     content: '';
-    @apply absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700
-           bg-radial from-(--sun-flare)/10 to-transparent pointer-events-none;
+    @apply absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 bg-radial from-(--text-secondary)/10 to-transparent pointer-events-none;
   }
 
   .cards:hover::before {
@@ -157,7 +183,7 @@ hover:scale-105;
 @layer components {
   /* <Hero> <ServiceList> <About> <Team> <Contacts> */
   .text-primary {
-    @apply bg-linear-to-b from-(--sun-core) to-(--sun-flare)
+    @apply bg-linear-to-b from-(--text-primary) to-(--text-secondary)
            bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
            text-4xl md:text-6xl font-black tracking-tighter;
   }

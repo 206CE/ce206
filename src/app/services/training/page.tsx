@@ -1,8 +1,13 @@
 import { BackNav, CardList, Section } from '@/components';
 
 const training = [
-  { title: 'Improve what you have' },
-  { title: 'Keep your workers accountable' },
+  {
+    title: 'School Subjects',
+    subtitle: 'We specialize in the Sciences',
+    description: ['Science', 'Technology', 'Mathematics'],
+  },
+  { title: 'Computer Skills', subtitle: 'Mentorships', description: '' },
+  { title: 'Social Engineering' },
 ];
 
 export default function Training() {
@@ -10,7 +15,7 @@ export default function Training() {
     <section>
       <Section
         title='Training'
-        subtitle='Improvement can be made by the right skills'
+        subtitle='If we are to survive we are to adapt.'
       >
         <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black' />
         <CardList

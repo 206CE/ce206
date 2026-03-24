@@ -10,9 +10,9 @@
 layout                                          /Complete /1
 
 /                                               /Complete /2
-<Hero>                                          /Complete /1/4/6      --*<Section>                               
+<Hero>                                          /Complete /1/4/6      <Section>                               
 /services                                       /Complete 
-<ServiceList>                                   /Complete /4/6
+<CardList>                                   /Complete /4/6
 /about                                          /Complete 
 <Team>                                          /Complete /6
 <About>                                         /Complete /6

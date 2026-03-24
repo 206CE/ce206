@@ -96,20 +96,20 @@ function NavItem({
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className='flex nav-link'>
-            {item.label} <ChevronDown size={25} />
+          <button className='flex  text-start items-start  text-[18px]'>
+            {item.label} <ChevronDown size={24} />
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          align='end'
-          className='bg-(--bg-secondary) border-(--border)'
+        
+          className='bg-(--bg-secondary)'
         >
           {item.dropdown.map((drop) => (
             <DropdownMenuItem key={drop.label} asChild>
               <Link
                 href={drop.href}
                 onClick={onNav}
-                className='nav-item'
+                className='block nav-item'
               >
                 {drop.label}
               </Link>

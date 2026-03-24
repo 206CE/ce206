@@ -8,28 +8,26 @@ import Link from 'next/link';
 interface LogoProps {
   text: string;
   imgPath?: string;
-  size: number;
+  imgSize: number;
   href?: string;
 }
 
 export function Logo({
   text,
   imgPath = '@/src/app/icon.ico',
-  size,
+  imgSize,
   href = '/',
 }: LogoProps) {
   return (
-    <div
-      className=''
-    >
+    <div className=''>
       <Link href={href || ''}>
         <div className='flex items-center gap-2 mr-4'>
           <Image
             src={imgPath}
             alt={text}
-            width={size}
-            height={size}
-            style={{ width: size, height: size }}
+            width={imgSize}
+            height={imgSize}
+            style={{ width: imgSize, height: imgSize }}
             priority
           />
           <span className='sm:hidden lg:block'>{text}</span>

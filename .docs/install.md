@@ -27,3 +27,8 @@ npm install --save-dev --save-exact prettier
 
 
 npm install next-themes lucide-react
+
+npm cache clean --force
+
+docker compose -p penpot -f docker-compose.yaml up -d
+docker compose -p penpot -f docker-compose.yaml down

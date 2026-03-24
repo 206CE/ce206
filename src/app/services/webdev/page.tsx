@@ -1,4 +1,4 @@
-import { BackNav, CardList, Section } from '@/components';
+import { BackNav, CardList, Section, TwoColumnSplit } from '@/components';
 import {
   SiNodedotjs,
   SiReact,
@@ -29,7 +29,7 @@ const webdevinfo = [
     href: 'https://nextjs.org/',
   },
   {
-    title: 'Tailwind-merge 3',
+    title: 'Tailwindcss 4',
     icon: <SiTailwindcss />,
     description:
       "In 2026, tailwind-merge is the unsung hero of the modern frontend stack. While Tailwind CSS is great, it has one major flaw: it doesn't understand CSS specificity logic when you combine strings. For better styling.",
@@ -42,7 +42,7 @@ const sites = [
     title: 'Aurora',
     description:
       'Aurora is a family tax consultancy firm that specializes in personal tax.',
-    href: '/',
+    href: 'https://cust-aurora.vercel.app/',
     imgUrl: '/services/Customers/Aurora-Logo-203-213.webp',
   },
   {
@@ -58,16 +58,59 @@ const sites = [
     href: 'https://cust-pergratiam.vercel.app/',
     imgUrl: '/services/Customers/PerGratiam-Logo-364.webp',
   },
+  {
+    title: 'Hobby-Site',
+    description: 'I built this site to demonstrate different styling.',
+    href: 'https://hobby-site-coral.vercel.app/',
+    imgUrl: '/Logo_256.webp',
+  },
 ];
 
 export default function WebDev() {
   return (
     <section>
       <Section
-        title='Web/App Development'
-        subtitle='Cause its important to get things done by the push of a button'
+        title='How we aproach a website'
+        subtitle='The compexity is astounding.'
       >
-        <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black'/>
+        <TwoColumnSplit
+          imgSrc='/'
+          title='Phase 1: Planning'
+          subtitle='The following needs to be done, cause who says you need a website? Right?'
+          description={[
+            'Situation Analisis: Company porfolio',
+            'Branding: Def. Personality, Voice',
+            'Change Enablement, Audiance Alignment, Hosting, Costs, Competetor Analisis',
+          ]}
+        />
+        <TwoColumnSplit
+          imgSrc='/'
+          title='Phase 2: Basic'
+          subtitle='Basic site'
+          description={[
+            'Home page with Hero section',
+            'Services page with Services',
+            'About page with Company details',
+            'Contacts page to email company',
+          ]}
+        />
+        <TwoColumnSplit
+          imgSrc='/'
+          title='Phase 3: Intermediate'
+          subtitle='Smart Site'
+          description={[
+            '+4 pages',
+            'Own Blog with CMS for owner',
+            'Monitoring',
+            'Analitics',
+
+          ]} containerClassName='h-full'
+           textColumnClassName=' ' 
+          imageColumnClassName='max-w-0'      />
+      </Section>
+
+      <Section title='To build our sites' subtitle='The Tools we use:'>
+        <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black' />
         <CardList
           className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
           items={webdevinfo}

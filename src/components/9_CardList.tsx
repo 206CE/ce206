@@ -64,7 +64,7 @@ export function CardList({ className='', items }: CardListProps) {
                     {item.description.map((line, i) => (
                       <li key={i} className='flex items-start gap-2'>
                         {/* Custom Solar Bullet */}
-                        <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-(--sun-flare) shadow-[0_0_8px_var(--sun-flare)]' />
+                        <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-(--text-secondary) shadow-[0_0_8px_var(--text-secondary)]' />
                         <span>{line}</span>
                       </li>
                     ))}

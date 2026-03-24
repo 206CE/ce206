@@ -26,8 +26,8 @@ export default async function PostPage({ params }: Props) {
     <>
       <Section title={post.frontMatter.title}>
         <article>
-          <div className='flex gap-2'>
-            <Calendar className='h-4 w-4' />
+          <div className='flex gap-4'>
+            <Calendar className=' h-4 w-4' />
             <time dateTime={post.frontMatter.date}>
               {new Date(post.frontMatter.date).toLocaleDateString('en-US', {
                 month: 'long',
@@ -38,7 +38,7 @@ export default async function PostPage({ params }: Props) {
           </div>
           <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black' />
           {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-            <div className='flex items-center gap-1 text-sm'>
+            <div className='flex items-center gap-4 text-sm'>
               <Tag className='h-4 w-4' />
               <div className='flex gap-1 flex-wrap'>
                 {post.frontMatter.tags.map((tag) => (
@@ -52,11 +52,11 @@ export default async function PostPage({ params }: Props) {
               </div>
             </div>
           )}
-        
-            <div
-              className='text-body'
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+
+          <div
+            className='mt-3 text-body'
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </article>
       </Section>
     </>

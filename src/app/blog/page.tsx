@@ -1,16 +1,17 @@
 import { getAllPosts, type Post } from '@/lib/posts';
 import Link from 'next/link';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Section } from '@/components';
 
 export default async function BlogIndex() {
   const posts = (await getAllPosts()) as Post[];
 
   return (
-    <Section title='Writing & Insights' subtitle='Thoughts on Next.js full stack development'>
+    <Section
+      title='Writing & Insights'
+      subtitle='Thoughts on Next.js full stack development'
+    >
       <div className='max-w-5xl mx-auto px-6 py-16'>
-
-
         {/* Posts Grid */}
         <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-2'>
           {posts.map((post) => (
@@ -28,7 +29,6 @@ export default async function BlogIndex() {
 
               <h2 className='text-card-primary'>
                 <Link href={`/blog/${post.slug}`}>
-      
                   {post.frontMatter.title}
                 </Link>
               </h2>

@@ -1,5 +1,10 @@
-import { BackNav } from "@/components/12_BackNav"
+import { BackNav } from '@/components/12_BackNav';
 
 export default function Dashboard() {
-    return <div><BackNav />Dashboard</div>
+  return (
+    <div>
+      <BackNav />
+      Dashboard
+    </div>
+  );
 }

@@ -13,7 +13,7 @@ export default function Home() {
         >
           <Image
             className='mx-auto'
-            src='/hero-352_197.webp'
+            src='/hero-1920-1080.webp'
             alt='Logo of ce206 company'
             width={1900}
             height={1900}

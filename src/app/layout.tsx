@@ -4,7 +4,7 @@
 
 /* CSS */
 import '@/app/globals.css';
-
+import { ThemeProvider } from 'next-themes';
 /* auth0 
 import { Profile } from '@/components';
 */
@@ -24,10 +24,10 @@ export const myCustomFont = localFont({
 });
 
 /* HEADER */
-import { Logo, Navigation, ThemeProvider, ThemeToggle } from '@/components';
+import { Logo, Navigation, ThemeToggle } from '@/components';
 
 /* FOOTER*/
-import { Social, ContactInfo, CopyRight } from '@/components';
+import { Social, ContactInfo, CopyRight, CtaBar } from '@/components';
 
 export default async function RootLayout({
   children,
@@ -37,16 +37,16 @@ export default async function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={` ${myCustomFont.className} antialiased`}>
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+        <ThemeProvider
+          attribute='data-theme'
+          defaultTheme='dark'
+          enableSystem={false}
+        >
           <div className='bg-scan' />
-          <div>
+          <div className='bg-(--bg-primary) border-(--border) border-b-2'>
             <div className='flex  items-center gap-3 pt-2 pl-2'>
-              <div
-                className='bg-linear-to-b from-(--sun-core) to-(--sun-flare)
-           bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
-           text-2xl  font-black tracking-tighter'
-              >
-                <Logo text='CE_206' imgPath='/new_logo.svg' size={45} />
+              <div className='nav-link'>
+                <Logo text='CE_206' imgPath='/new_logo.svg' imgSize={45} />
               </div>
               <div className=''>
                 <Navigation
@@ -59,7 +59,7 @@ export default async function RootLayout({
                         { label: 'COMPANY', href: '/about/company' },
                         { label: 'CAREER', href: '/about/career' },
                         { label: 'CULTURE', href: '/about/culture' },
-                        { label: 'PHILOSOPY', href: '/about/philosophy' },
+                        { label: 'PHILOSOPHY', href: '/about/philosophy' },
                         { label: 'BIOGRAPHY', href: '/about/biography' },
                       ],
                     },
@@ -73,13 +73,30 @@ export default async function RootLayout({
               <Profile />
             </div>
             */}
-            <div className='nav-link cursor-pointer'>
-              <ThemeToggle />
-            </div>
+              <div className='nav-link cursor-pointer'>
+                <ThemeToggle />
+              </div>
             </div>
           </div>
           {children}
-          <footer className=' pt-4'>
+          <footer className=' pt-4 pb-20'>
+            <CtaBar
+              className=''
+              title='Please choose an option of how you would like to proceed.'
+              CtaItems={[
+                { id: '1', title: 'Contact Us', href: '/contact' },
+                {
+                  id: '2',
+                  title: 'More about me...',
+                  href: '/about/biography',
+                },
+                {
+                  id: '3',
+                  title: 'Share your own opinion',
+                  href: '/about/philosophy',
+                },
+              ]}
+            />
             <Social
               urls={[
                 'https://www.linkedin.com/in/jaco-botha-886b7b95/',

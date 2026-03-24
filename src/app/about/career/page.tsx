@@ -208,9 +208,9 @@ export default function CareerPage() {
   return (
     <section>
       <span className='fixed top-10 right-10 font-extrabold'>
-        <BackNav className='mb-2 fixed top-15 right-4 z-10 bg-black' />
+        <BackNav className=' fixed top-15 right-4 z-50 bg-black' />
       </span>
-      <div>
+      <div className=''>
         <TimeLine title='Timeline' data={Experience} />
       </div>
     </section>
