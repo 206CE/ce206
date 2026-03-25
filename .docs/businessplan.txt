@@ -6,16 +6,80 @@ Rules:
 
 3. Have to put in the time.
 
-
 Planning:
 
 1. Funding my business
 
-2. 
+2. nich > More scalable 
+    - Alpha: 4 page, SEO, Email, Integration R 3000
+        Font, Interaction, Style <Logo> <Navigation> <Social> <CopyRight> <ContactInfo> <Section> <CardList> <Team> <About> <Contacts>  
+    - Beta: 8 page, Blog, Analitics, Monitoring, Dashboard R 6000
+    - Charlie: 12 page, 
 
-3.
+3.  1 What services?
+        1 Interested in the work
+        2 Scalability Customer/code  base
+        3 Outsource Skills
 
 4. Company formation
+
+1. Type of entity
+2. Form entity
+
+1. Admin tasks
+    1. Sole Proprioter (Business type)
+    2. Business Requirements
+    3. Business Address
+    4. Sepperate Bank Account
+    5. Software & Services (Office Suite) Branded email  domain, accounting quickbooks wave 
+    6. Card Processing stripe, wave, paypal
+    7. Payroll service pay yourself 
+    8. Contracts - Legal forms.
+    9. Insurance profesional liability ensurance.
+
+Contracts:
+    - What, When, Who, If then, all then, 
+    - Functionality: Maintenance. 
+    - Independent Contractor Agreement + StatementOfWork
+        Common provisions: Identify, ifs, warrantees, testing, 
+            Deliverables, when, obligations, payment terms, updates, obligations after delivery.
+    - Local chamber of comerce, nola.com, 
+
+2. Marketing Items
+    1. Website: Storefront, html5up.com, 
+    2. Branded email, validation, 
+    3. Phone number, business google voice, free voice over 
+    4. Business Cards, 
+    5. Review Profiles: Facebook, Yelp, Google My Business 
+    6. Flush out LinkedIn Profile tests on linkedin
+    7. 
+
+
+3. Continuius learner
+    1. Read 45min, Successful people, 
+        Profit First, 
+        How to win friends and influence people, 
+        The milionare next door, 
+        Small time operator, 
+        The innovators, 
+        The everything store. 
+    2. Get customers short terms
+        Need customers today.
+        Things to do shortterm is costly
+        1. People you know.
+            - Aurora
+            - Per-Gratiam
+            - Play2Heal
+            - Bright Spark
+
+        2. Lead websites upwork and fiver, funpack  
+        3. Leverage linkedin - Make it clear, examples of work.
+        4. Leverage websites craigslist, add me to services in Potchefstroom, Make a nice add.
+        5. Networking - Meeting with people who work with you. Graphic designers, BNI - Chapters.
+    3. Customers long term.
+        Brand Build
+
+    4. Sell yourself: Find their problems and tell them how you can solve it. 
 
 Digital Presence
 

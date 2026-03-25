@@ -1,9 +1,17 @@
 LOGO:
+<Logo>
 /app 
 icon.ico (32png) 
 apple-icon.ico (180png) 
 icon512.ico (512png)
 favicon.ico (32svg)
+
+/1 Color Pallet
+/2 Base Styles: body, background, 
+/3 Interactive nav-link, nav-item, btn-primary, btn-secondary, cards
+/4 Typography text-primary, text-secondary, text-lead, text-body, text-quote, text-card-primary, text-card-secondary, text-error, text-success
+/5 Input Defs. form-label, form-input
+/6 2x animations
 
 LAYOUT:
 /public/background.svg
@@ -19,9 +27,7 @@ LOADING:
 HOME:
 /public/hero-1920-1080.webp < 300KiB
 */public/video-hero-1080-720.mp4 < 5MiB                 
-/page.tsx <Section>                                         
-    
-                                                                           
+/page.tsx <Section>                           
 OFFERINGS:
 /public/service-800.webp
 /services <Section> <CardList>                              
@@ -35,9 +41,7 @@ ABOUT:
 /about/culture <CardsList> 
 /about/biography
 /about/philosophy
-                      
-            
-                             
+                        
 SEO:
 */public/og-1200-630.png
 /layout.tsx 
@@ -72,7 +76,6 @@ AUTH0:
 *THEME:
 globals.css update for dark and light themes
 
-
 *LANGUAGE:
 ?
 
@@ -81,7 +84,6 @@ globals.css update for dark and light themes
 
 *SHOPING:
 ?
-
 
 <Responsive 320, 360, 370, 380>               
 <Responsive 390, 414, 480, 640 (sm)>           

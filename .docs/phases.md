@@ -7,7 +7,7 @@
 <ContactInfo>   .btn-secondary .text-microcopy  
 <Section>       .text-primary .text-secondary
 
-layout                                          /Complete /1
+layout                                          \1 Base 
 
 /                                               /Complete /2
 <Hero>                                          /Complete /1/4/6      <Section>                               
