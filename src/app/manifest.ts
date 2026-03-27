@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/x-icon',
       },
       {
-        src: '/Logo_512.png',
+        src: '/Logo_32.png',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable', // Allows Android to crop the icon into different shapes
