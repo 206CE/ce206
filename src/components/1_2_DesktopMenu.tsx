@@ -1,6 +1,12 @@
 'use client'; // Required for hover/state logic
 import Link from 'next/link';
 
+interface NavItem {
+  label: string;
+  href: string;
+  children?: NavItem[];
+}
+
 export function DesktopMenu({ items = [] }: { items: NavItem[] }) {
   return (
     <nav className='relative hidden md:flex items-center gap-6'>
