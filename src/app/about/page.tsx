@@ -1,39 +1,32 @@
-import { About, Section, CardList, Navigation } from '@/components';
+import About from '@/components/About';
+import { Team } from '@/components/Team';
 
 export const metadata = {
   title: 'About Us',
 };
 
-const people = [
-  {
-    id: 1,
-    title: 'Jaco Botha',
-    subtitle: 'Computer Enthusiast',
-    description: 'From theory to practice, to leading to learning.',
-    imgUrl: '/about/jaco_botha_400_400.webp',
-    imgSize: 200,
-  },
-];
 export default function AboutP() {
   return (
-    <section className=''>
-      <Navigation
-        items={[
-          { label: 'CAREER', href: '/about/career' },
-          { label: 'CULTURE', href: '/about/culture' },
-          { label: 'PHILOSOPHY', href: '/about/philosophy' },
-          { label: 'BIOGRAPHY', href: '/about/biography' },
-        ]}
-      />
-      <Section
-        className='flex flex-col items-center'
-        title='CE_206'
-        subtitle='Who we are'
-      >
-        <CardList className='mb-4 ' items={people} />
-      </Section>
-
-      <Section>
+    <section>
+      <section>
+        <Team
+          heading='CE_206'
+          subheading='We are more'
+          listStyle='text-(--primary) text-2xl flex flex-col items-center justify-center'
+          cardStyle='group flex flex-col items-center text-center p-6 bg-(--bg-secondary) rounded-brand shadow-2xl border-(--border) border-4'
+          members={[
+            {
+              id: 1,
+              name: 'Jaco Botha',
+              role: 'Plebian',
+              bio: 'From theory to practice, to leading to learning.',
+              imgUrl: '/about/jaco_botha_400_400.webp',
+              size: 200,
+            },
+          ]}
+        />
+      </section>
+      <section>
         <About
           companyName='CE_206'
           tagline='One number, many forms.'
@@ -46,7 +39,7 @@ export default function AboutP() {
             'Improvement of services improve quality of life.',
           ]}
         />
-      </Section>
+      </section>
     </section>
   );
 }

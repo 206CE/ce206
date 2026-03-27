@@ -1,10 +1,20 @@
+# Download and install nvm:
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# in lieu of restarting the shell
 
 \. "$HOME/.nvm/nvm.sh"
 
+# Download and install Node.js:
+
 nvm install 24
 
+# Verify the Node.js version:
+
 node -v # Should print "v24.13.1".
+
+# Verify npm version:
 
 npm -v # Should print "11.8.0".
 
@@ -24,11 +34,3 @@ npm install next@latest react@latest react-dom@latest eslint-config-next@latest
 npx next upgrade
 
 npm install --save-dev --save-exact prettier
-
-
-npm install next-themes lucide-react
-
-npm cache clean --force
-
-docker compose -p penpot -f docker-compose.yaml up -d
-docker compose -p penpot -f docker-compose.yaml down

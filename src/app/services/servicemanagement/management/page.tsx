@@ -1,13 +1,14 @@
-import { CardList } from "@/components";
-
+import {ServiceList} from '@/components/ServiceList';
+import Container from '../../../../components/Container';
 
 
 export default function ServiceManagement() {
   return (
-
-      <CardList
-
-        items={[
+    <Container as={'section'} className=''>
+      <ServiceList
+        heading='Services available:'
+        subheading='How I can improve your business...'
+        services={[
           {
             title: 'Operational & Support Services',
             description:
@@ -26,5 +27,18 @@ export default function ServiceManagement() {
         ]}
       />
 
+      {/*<section className="text-(--text-primary)">
+        <h1 className="text-(--text-primary)">Security</h1>
+        <h2>Level of importance of security:</h2>
+        <ol>
+          <li>Physiological</li>
+          <li>Food&Water</li>
+          <li>Safety</li>
+          <li>Love&Belonging</li>
+          <li>Esteem</li>
+          <li>Self Actualization</li>
+        </ol>
+      </section>*/}
+    </Container>
   );
 }

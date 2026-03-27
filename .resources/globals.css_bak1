@@ -31,7 +31,7 @@
   --secondary-hover: #43B5D8;
   
   /* Star specific colors */
-  --text-primary: #FFF9E6;
+  --sun-core: #FFF9E6;
   --sun-inner-glow: rgba(249, 199, 79, 0.6);
   --sun-outer-glow: rgba(76, 201, 240, 0.2);
 }
@@ -66,7 +66,7 @@ body {
   background: white;
   border-radius: 50%;
   box-shadow: 
-    0 0 20px var(--text-primary),
+    0 0 20px var(--sun-core),
     0 0 40px var(--sun-inner-glow),
     0 0 60px var(--sun-outer-glow);
   transition: all 0.5s ease;
@@ -75,7 +75,7 @@ body {
 .logo-container:hover {
   transform: scale(1.05);
   box-shadow: 
-    0 0 30px var(--text-primary),
+    0 0 30px var(--sun-core),
     0 0 60px var(--sun-inner-glow),
     0 0 90px var(--sun-outer-glow);
   filter: brightness(1.1);

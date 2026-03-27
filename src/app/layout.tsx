@@ -1,119 +1,140 @@
-/**
- *
- */
-
 /* CSS */
+
+import '@/styles/Typo-Hierarchy.css';
+import '@/styles/Form-Inputs.css';
 import '@/app/globals.css';
-import { ThemeProvider } from 'next-themes';
+
 /* auth0 
-import { Profile } from '@/components';
+import { auth0 } from '@/lib/auth0';
+import LoginButton from '@/components/LoginButton';
+import Profile from '@/components/Profile';
 */
 
-/* SEO */
-import { siteMetadata, siteViewport } from '@/lib/metadata';
+/* SEO */ 
+import type { Metadata } from 'next';
 
-export const metadata = siteMetadata;
-export const viewport = siteViewport;
+export const metadata: Metadata = {
+  title: '206_CE Services - Best Websites in Potchefstroom',
+  description:
+    'We cultivate and enhance your business and your people to improve performance on all levels.',
+  keywords: [
+    'Websites',
+    'web development',
+    'next.js',
+    'South Africa',
+    'seo',
+    'tutoring',
+    'services',
+    'service management',
+  ],
+  authors: [{ name: 'Jaco Botha' }],
+  openGraph: {
+    title: '206_CE Services',
+    description:
+      'We make your company digitally efficient, become our partner.',
+    url: 'https://ce206.vercel.app/',
+    siteName: '206_CE',
+    images: [
+      {
+        url: '/public/og_1200_630.webp',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_ZA',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '206_CE',
+    description:
+      'We improve services, digital presence and increase employee production.',
+    images: '/public/og_1200_630.webp',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 
 /* FONT (1) */
 import localFont from 'next/font/local';
-export const myCustomFont = localFont({
-  src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf',
-  weight: '400',
-  style: 'normal',
-});
+export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiowide-Regular.ttf', weight:'400',style:'normal',})
 
-/* HEADER */
-import {
-  Logo,
-  DesktopMenu,
-  MobileMenu,
-  ThemeToggle,
-  Profile,
-} from '@/components';
+import { Logo, Navigation, ContactInfo } from '@/components';
+import Social from '@/components/Social';
+import CopyRight from '@/components/CopyRight';
 
-/* FOOTER*/
-import { Social, CopyRight } from '@/components';
-
-const navItems = [
-  { label: 'HOME', href: '/' },
-  {
-    label: 'SERVICES',
-    children: [
-      { label: 'Software Development', href: '/services/webdev' },
-      {
-        label: 'Service Management',
-        href: '/services/servicemanagement',
-      },
-      { label: 'Training', href: '/services/training' },
-    ],
-  },
-  {
-    label: 'ABOUT',
-    children: [
-      { label: 'COMPANY', href: '/about/company' },
-      { label: 'CAREER', href: '/about/career' },
-      { label: 'CULTURE', href: '/about/culture' },
-      { label: 'PHILOSOPHY', href: '/about/philosophy' },
-      { label: 'BIOGRAPHY', href: '/about/biography' },
-    ],
-  },
-  { label: 'CONTACT', href: '/contact' },
-  { label: 'BLOG', href: '/blog' },
-];
-
-const Ctas = [
-  { id: '1', title: 'Contact Us', href: '/contact' },
-  {
-    id: '2',
-    title: 'About me...',
-    href: '/about/biography',
-  },
-  {
-    id: '3',
-    title: 'Share your own opinion',
-    href: '/about/philosophy',
-  },
-];
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang='en' suppressHydrationWarning>
-      <body className={` ${myCustomFont.className} antialiased`}>
-        <ThemeProvider
-          attribute='data-theme'
-          defaultTheme='dark'
-          enableSystem={false}
-        >
-          <div className='mb-20' />
-          <div className='fixed left-0 top-0  bg-(--bg-primary) border-(--border) border-b-2 w-full '>
-            <div className=' flex w-full justify-between items-center gap-3 pt-2 pl-2 '>
-              <Logo text='CE_206' imgPath='/new_logo.svg' imgSize={45} />
-              <DesktopMenu items={navItems} />
-              <MobileMenu items={navItems} />
-              <Profile />
 
-              <ThemeToggle />
-            </div>
-          </div>
-          {children}
-          <footer className=' pt-4'>
-            <Social
-              urls={[
-                'https://www.linkedin.com/in/jaco-botha-886b7b95/',
-                'https://www.facebook.com/jaco.botha.12139',
-                'https://github.com/206CE',
-                'https://discord.com/users/1337346807100866580',
-                'https://x.com/206Roaches',
+  {/*const session = await auth0.getSession();
+  const user = session?.user;*/}
+  return (
+    <html lang='en'>
+      <body className={` ${myCustomFont.className} antialiased`}>
+        <div className='flex items-center gap-3'>
+          <Logo
+            compStyling='text-(--primary) block'
+            text='CE_206'
+            imgPath='/Logo_32.png'
+            size={50}
+          />
+          <div className=''>
+            <Navigation
+              compStyling='btn-primary'
+              items={[
+                { label: 'HOME', href: '/' },
+                { label: 'SERVICES', href: '/services' },
+                { label: 'ABOUT', href: '/about' },
+                { label: 'CONTACT', href: '/contact' },
               ]}
             />
-            <CopyRight />
-          </footer>
-        </ThemeProvider>
+          </div>
+          {/**
+          <div className='p-4'>
+            {user ? (
+              <div className='flex'>
+                <Profile />
+              </div>
+            ) : (
+              <>
+                <LoginButton />
+              </>
+            )}
+          </div> */}
+        </div>
+        {children}
+        <footer className=' pt-4'>
+          {/*}
+          <Social
+            linkStyle='btn-primary'
+            urls={[
+              'https://www.linkedin.com/in/jaco-botha-886b7b95/',
+              'https://www.facebook.com/jaco.botha.12139',
+              'https://github.com/206CE',
+              'https://discord.com/users/1337346807100866580',
+              'https://x.com/206Roaches',
+            ]}
+          />
+          <ContactInfo
+            cellphone='+27 079 497 2646'
+            email='jacobotha206@gmail.com'
+            address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
+          />*/}
+          <CopyRight />
+        </footer>
       </body>
     </html>
   );

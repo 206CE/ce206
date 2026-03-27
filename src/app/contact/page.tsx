@@ -1,8 +1,8 @@
-import { Contacts } from '@/components';
+import Contacts from '@/components/Contacts';
 
 export const metadata = {
   title: 'Send us an email now',
-};
+}
 
 export default function Contact() {
   return (
