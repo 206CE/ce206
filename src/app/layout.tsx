@@ -1,14 +1,8 @@
 /* CSS */
 
-import '@/styles/Typo-Hierarchy.css';
-import '@/styles/Form-Inputs.css';
 import '@/app/globals.css';
 
-/* auth0 
-import { auth0 } from '@/lib/auth0';
-import LoginButton from '@/components/LoginButton';
-import Profile from '@/components/Profile';
-*/
+
 
 /* SEO */ 
 import type { Metadata } from 'next';
@@ -93,7 +87,7 @@ export default async function RootLayout({
           />
           <div className=''>
             <Navigation
-              compStyling='btn-primary'
+              compStyling='nav-link'
               items={[
                 { label: 'HOME', href: '/' },
                 { label: 'SERVICES', href: '/services' },
@@ -102,18 +96,7 @@ export default async function RootLayout({
               ]}
             />
           </div>
-          {/**
-          <div className='p-4'>
-            {user ? (
-              <div className='flex'>
-                <Profile />
-              </div>
-            ) : (
-              <>
-                <LoginButton />
-              </>
-            )}
-          </div> */}
+
         </div>
         {children}
         <footer className=' pt-4'>
