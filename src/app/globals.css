@@ -23,18 +23,6 @@
   body {
     @apply text-(--text-primary) min-h-screen;
     background-color: var(--bg-primary);
-
-    :focus-visible {
-      @apply outline-none ring-2 ring-(--secondary) ring-offset-2 ring-offset-(--bg-primary);
-    }
-
-    a,
-    button,
-    select,
-    input,
-    textarea {
-      @apply transition-all duration-300 ease-out;
-    }
   }
 }
 /* ==========================================================================
