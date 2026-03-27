@@ -24,10 +24,57 @@ export const myCustomFont = localFont({
 });
 
 /* HEADER */
-import { Logo, Navigation, ThemeToggle } from '@/components';
+import {
+  Logo,
+  DesktopMenu,
+  MobileMenu,
+  ThemeToggle,
+  Profile,
+} from '@/components';
 
 /* FOOTER*/
-import { Social, ContactInfo, CopyRight, CtaBar } from '@/components';
+import { Social, CopyRight } from '@/components';
+
+const navItems = [
+  { label: 'HOME', href: '/' },
+  {
+    label: 'SERVICES',
+    children: [
+      { label: 'Software Development', href: '/services/webdev' },
+      {
+        label: 'Service Management',
+        href: '/services/servicemanagement',
+      },
+      { label: 'Training', href: '/services/training' },
+    ],
+  },
+  {
+    label: 'ABOUT',
+    children: [
+      { label: 'COMPANY', href: '/about/company' },
+      { label: 'CAREER', href: '/about/career' },
+      { label: 'CULTURE', href: '/about/culture' },
+      { label: 'PHILOSOPHY', href: '/about/philosophy' },
+      { label: 'BIOGRAPHY', href: '/about/biography' },
+    ],
+  },
+  { label: 'CONTACT', href: '/contact' },
+  { label: 'BLOG', href: '/blog' },
+];
+
+const Ctas = [
+  { id: '1', title: 'Contact Us', href: '/contact' },
+  {
+    id: '2',
+    title: 'About me...',
+    href: '/about/biography',
+  },
+  {
+    id: '3',
+    title: 'Share your own opinion',
+    href: '/about/philosophy',
+  },
+];
 
 export default async function RootLayout({
   children,
@@ -42,61 +89,19 @@ export default async function RootLayout({
           defaultTheme='dark'
           enableSystem={false}
         >
-          <div className='bg-scan' />
-          <div className='bg-(--bg-primary) border-(--border) border-b-2'>
-            <div className='flex  items-center gap-3 pt-2 pl-2'>
-              <div className='nav-link'>
-                <Logo text='CE_206' imgPath='/new_logo.svg' imgSize={45} />
-              </div>
-              <div className=''>
-                <Navigation
-                  items={[
-                    { label: 'HOME', href: '/' },
-                    { label: 'SERVICES', href: '/services' },
-                    {
-                      label: 'ABOUT',
-                      dropdown: [
-                        { label: 'COMPANY', href: '/about/company' },
-                        { label: 'CAREER', href: '/about/career' },
-                        { label: 'CULTURE', href: '/about/culture' },
-                        { label: 'PHILOSOPHY', href: '/about/philosophy' },
-                        { label: 'BIOGRAPHY', href: '/about/biography' },
-                      ],
-                    },
-                    { label: 'CONTACT', href: '/contact' },
-                    { label: 'BLOG', href: '/blog' },
-                  ]}
-                />
-              </div>
-              {/*}
-            <div className=''>
+          <div className='mb-20' />
+          <div className='fixed left-0 top-0  bg-(--bg-primary) border-(--border) border-b-2 w-full '>
+            <div className=' flex w-full justify-between items-center gap-3 pt-2 pl-2 '>
+              <Logo text='CE_206' imgPath='/new_logo.svg' imgSize={45} />
+              <DesktopMenu items={navItems} />
+              <MobileMenu items={navItems} />
               <Profile />
-            </div>
-            */}
-              <div className='nav-link cursor-pointer'>
-                <ThemeToggle />
-              </div>
+
+              <ThemeToggle />
             </div>
           </div>
           {children}
-          <footer className=' pt-4 pb-20'>
-            <CtaBar
-              className=''
-              title='Please choose an option of how you would like to proceed.'
-              CtaItems={[
-                { id: '1', title: 'Contact Us', href: '/contact' },
-                {
-                  id: '2',
-                  title: 'More about me...',
-                  href: '/about/biography',
-                },
-                {
-                  id: '3',
-                  title: 'Share your own opinion',
-                  href: '/about/philosophy',
-                },
-              ]}
-            />
+          <footer className=' pt-4'>
             <Social
               urls={[
                 'https://www.linkedin.com/in/jaco-botha-886b7b95/',
@@ -106,13 +111,6 @@ export default async function RootLayout({
                 'https://x.com/206Roaches',
               ]}
             />
-            <div className=''>
-              <ContactInfo
-                cellphone='+27 079 497 2646'
-                email='jacobotha206@gmail.com'
-                address='19 Carpie Diem, Baillie Park, Potchefstroom, 2531'
-              />
-            </div>
             <CopyRight />
           </footer>
         </ThemeProvider>

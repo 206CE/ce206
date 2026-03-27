@@ -74,13 +74,15 @@ export default function WebDev() {
         subtitle='The compexity is astounding.'
       >
         <TwoColumnSplit
-          imgSrc='/'
+          imgSrc='/services/Web_Development_800.webp'
+          imgSize={400}
+          imageColumnClassName='flex w-4/5 fill object-cover w-full h-full'
           title='Phase 1: Planning'
           subtitle='The following needs to be done, cause who says you need a website? Right?'
           description={[
             'Situation Analisis: Company porfolio',
             'Branding: Def. Personality, Voice',
-            'Change Enablement, Audiance Alignment, Hosting, Costs, Competetor Analisis',
+            'Change Enablement, Audience Alignment, Hosting, Costs, Competetor Analisis',
           ]}
         />
         <TwoColumnSplit
@@ -93,6 +95,7 @@ export default function WebDev() {
             'About page with Company details',
             'Contacts page to email company',
           ]}
+          reverseLayout
         />
         <TwoColumnSplit
           imgSrc='/'
@@ -104,9 +107,7 @@ export default function WebDev() {
             'Monitoring',
             'Analitics',
 
-          ]} containerClassName='h-full'
-           textColumnClassName=' ' 
-          imageColumnClassName='max-w-0'      />
+          ]}       />
       </Section>
 
       <Section title='To build our sites' subtitle='The Tools we use:'>

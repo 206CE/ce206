@@ -2,8 +2,8 @@
  * CSS: NONE
  */
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 interface LogoProps {
   text: string;
@@ -14,14 +14,14 @@ interface LogoProps {
 
 export function Logo({
   text,
-  imgPath = '@/src/app/icon.ico',
+  imgPath = "@/src/app/icon.ico",
   imgSize,
-  href = '/',
+  href = "/",
 }: LogoProps) {
   return (
-    <div className=''>
-      <Link href={href || ''}>
-        <div className='flex items-center gap-2 mr-4'>
+    <div className="">
+      <Link href={href || ""}>
+        <div className="flex items-center gap-2 mr-4">
           <Image
             src={imgPath}
             alt={text}
@@ -30,7 +30,7 @@ export function Logo({
             style={{ width: imgSize, height: imgSize }}
             priority
           />
-          <span className='sm:hidden lg:block'>{text}</span>
+          <span className="sm:hidden lg:block">{text}</span>
         </div>
       </Link>
     </div>

@@ -18,13 +18,13 @@ export function CtaBar({ className = '', title = '', CtaItems }: CtaBar) {
   return (
     <>
       <div
-        className={`md:flex fixed hidden items-center justify-between bottom-0 left-0 z-50 w-full bg-(--bg-primary) p-3 border-(--border) border-4 ${className}`}
+        className={`fixed md:hidden  bottom-0 left-0 z-50 w-full  p-3 border-(--border) border-4 ${className}`}
       >
         <div>{title}</div>
         {CtaItems?.map((CtaItem, id) => (
           <ul key={id}>
             <Link className='btn-primary' href={CtaItem.href || '/'}>
-              <div className='flex'>
+              <div className='fixed'>
                 {CtaItem.icon}
                 {CtaItem.title}
               </div>

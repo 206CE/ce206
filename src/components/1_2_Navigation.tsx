@@ -1,24 +1,16 @@
-/** 1.0.0
- *
- * CSS: nav-link, nav-item, --bg-secondary, --border, --text-secondary
- *
- * 1. Test Dropdown Functionality
- */
+"use client";
 
-'use client';
-
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuItem,
-} from './ui/dropdown-menu';
+  DropdownMenuItem } from '@/components/ui/dropdown-menu';
 
 interface NavItem {
-  label: string;
+  label?: string;
   href?: string;
   dropdown?: { label: string; href: string }[];
 }
@@ -28,18 +20,21 @@ export function Navigation({ items }: { items: NavItem[] }) {
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [open]);
 
   return (
-    <nav className='relative'>
+    <nav className="relative">
       {/* Desktop Menu */}
-      <div className='hidden md:flex items-center gap-4 '>
+      <div className="hidden md:flex items-center gap-4 ">
         {items.map((item) => (
-          <span className='nav-link' key={item.label}>
+          <span
+            className="nav-link"
+            key={item.label}
+          >
             <NavItem item={item} />
           </span>
         ))}
@@ -47,7 +42,7 @@ export function Navigation({ items }: { items: NavItem[] }) {
 
       {/* Mobile Toggle */}
       <button
-        className=' nav-item fixed top-2 right-2 md:hidden z-60 p-2  cursor-pointer '
+        className=" nav-item fixed top-2 right-2 md:hidden z-60 p-2  cursor-pointer "
         onClick={() => setOpen(!open)}
       >
         {open ? <X size={24} /> : <Menu size={24} />}
@@ -55,12 +50,18 @@ export function Navigation({ items }: { items: NavItem[] }) {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-64 bg-(--bg-secondary) border-l border-(--border) p-6 transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed inset-y-0 right-0 z-50 w-64 bg-(--bg-secondary) border-l border-border p-6 transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className='flex flex-col gap-2 mt-5'>
+        <div className="flex flex-col gap-2 mt-5">
           {items.map((item) => (
-            <span key={item.label} className='nav-item'>
-              <NavItem item={item} onNav={() => setOpen(false)} />
+            <span
+              key={item.label}
+              className="nav-item"
+            >
+              <NavItem
+                item={item}
+                onNav={() => setOpen(false)}
+              />
             </span>
           ))}
         </div>
@@ -69,7 +70,7 @@ export function Navigation({ items }: { items: NavItem[] }) {
       {/* Background Overlay */}
       {open && (
         <div
-          className='fixed inset-0 bg-black/50 z-40 '
+          className="fixed inset-0 bg-black/50 z-40 "
           onClick={() => setOpen(false)}
         />
       )}
@@ -88,28 +89,25 @@ function NavItem({
 }) {
   const defaultHref =
     item.href ||
-    (item.label === 'Home'
-      ? '/'
-      : `/${item.label.toLowerCase().replace(/\s+/g, '-')}`);
+    (item.label === "Home"
+      ? "/"
+      : `/${item.label?.toLowerCase().replace(/\s+/g, "-") ?? ""}`);
 
   if (item.dropdown) {
     return (
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button className='flex  text-start items-start  text-[18px]'>
+        <DropdownMenuTrigger>
+          <Link className="flex  text-start items-start  text-[18px]">
             {item.label} <ChevronDown size={24} />
-          </button>
+          </Link>
         </DropdownMenuTrigger>
-        <DropdownMenuContent
-        
-          className='bg-(--bg-secondary)'
-        >
+        <DropdownMenuContent className="bg-(--bg-secondary)">
           {item.dropdown.map((drop) => (
-            <DropdownMenuItem key={drop.label} asChild>
+            <DropdownMenuItem key={drop.label}>
               <Link
                 href={drop.href}
                 onClick={onNav}
-                className='block nav-item'
+                className="block nav-item"
               >
                 {drop.label}
               </Link>
@@ -121,7 +119,11 @@ function NavItem({
   }
 
   return (
-    <Link href={defaultHref} onClick={onNav} className='transition-colors'>
+    <Link
+      href={defaultHref}
+      onClick={onNav}
+      className="transition-colors"
+    >
       {item.label}
     </Link>
   );

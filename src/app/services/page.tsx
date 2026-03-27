@@ -3,6 +3,7 @@ import { Section, CardList, TwoColumnSplit } from '@/components';
 export const metadata = {
   title: 'The services we offer',
 };
+
 const humanApproach = [
   {
     title: 'The Financial Wall',
@@ -53,27 +54,30 @@ const humanApproach = [
     ],
   },
 ];
+
 const servicelist = [
   {
     title: 'Website Development',
     subtitle: 'Digital Business Presence',
     description:
       'From basic to advanced websites custom built with added Content Management Systems that Users can update themselves.',
-    imgUrl: '/services/Web_Development_800.webp',
+    imgSrc: '/services/Web_Development_800.webp',
     imgSize: 200,
     href: '/services/webdev',
   },
   {
     title: 'Service Management',
+    subtitle: 'Everything is a service',
     description: 'We manage your services to retain clients.',
-    imgUrl: '/services/Service_Management_800.webp',
+    imgSrc: '/services/Service_Management_800.webp',
     imgSize: 200,
     href: '/services/servicemanagement',
   },
   {
     title: 'Training & Tutoring',
+    subtitle: 'Constant Improvement is a must.',
     description: 'We teach and train anyone who needs to excel',
-    imgUrl: '/services/Training_Learning_800.webp',
+    imgSrc: '/services/Training_Learning_800.webp',
     imgSize: 200,
     href: '/services/training',
   },

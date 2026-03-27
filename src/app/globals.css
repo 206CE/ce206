@@ -1,278 +1,292 @@
 @import 'tailwindcss';
 
 /* ==========================================================================
-   1. Variables & Design Tokens
-   ========================================================================== 
-  --bg-primary: #050505;
-  --bg-secondary: #0a0a0c;
-  --bg-tertiary: #141523;
+   1. Design Tokens & Themes
+   ========================================================================== */
 
-  --text-primary: #ffd166;
-  --text-secondary: #ff6b35;
-  --text-tertiary: rgba(255, 107, 53, 0.15);
-
-  --text-secondary: #4f83ca;
-  --border: rgba(255, 209, 102, 0.05);
-  --selection-bg: rgba(255, 107, 53, 0.3);
-  */
 :root {
-  --bg-primary: #f9d382;
-  --bg-secondary: #d48166;
+  /* Light theme - warm, earthy, relaxed */
+  --bg-primary: oklch(0.9521 0.0586 95.98);
+  --bg-secondary: oklch(0.7453 0.1504 38.76);
   --bg-tertiary: #9caf88;
 
   --text-primary: #111111;
   --text-secondary: #ff6b35;
-  --text-tertiary: rgba(255, 107, 53, 0.15);
+  --text-accent: #4f83ca;
 
-  --text-secondary: #4f83ca;
   --border: #aaaaaa;
-  --selection-bg: rgba(255, 107, 53, 0.3);
+  --border-soft: rgba(170, 170, 170, 0.3);
+
+  --selection-bg: rgba(255, 107, 53, 0.25);
+
+  /* Relaxed glow */
+  --glow-color: var(--text-secondary);
 }
 
 [data-theme='dark'] {
-  /* --- DARK THEME (Solar/Your original) --- */
-  --bg-primary: #050505;
+  /* Dark theme - deep solar night */
+  --bg-primary: #111111;
   --bg-secondary: #0a0a0c;
   --bg-tertiary: #141523;
 
-  --text-primary: #ffd166;
-  --text-secondary: #ff6b35;
-  --text-tertiary: rgba(255, 107, 53, 0.15);
+  --text-primary: oklch(0.9521 0.0586 95.98);
+  --text-secondary: oklch(0.7453 0.1504 38.76);
+  --text-accent: #4f83ca;
 
-  --text-secondary: #4f83ca;
-  --border: rgba(255, 209, 102, 0.05);
+  --border: rgba(255, 209, 102, 0.08);
+  --border-soft: rgba(255, 209, 102, 0.04);
+
   --selection-bg: rgba(255, 107, 53, 0.3);
 
   --glow-color: var(--text-secondary);
 }
+
 /* ==========================================================================
    2. Base Styles
    ========================================================================== */
+
 @layer base {
   html {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
   }
 
+  /* Soft, relaxed scrollbar */
   ::-webkit-scrollbar {
-    @apply w-1.5;
+    width: 6px;
   }
+
   ::-webkit-scrollbar-track {
-    @apply bg-(--bg-primary);
+    background: var(--bg-primary);
   }
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-white/10 rounded-full hover:bg-(--text-primary)/50;
+    background: rgba(255, 209, 102, 0.2);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
   }
 
   body {
-    @apply text-(--text-primary) min-h-screen bg-(--bg-primary) relative overflow-x-hidden;
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] 
+           min-h-screen overflow-x-hidden relative;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
+  /* Subtle grid texture - more relaxed */
   body::before {
     content: '';
     @apply fixed inset-0 -z-50 pointer-events-none;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    background-position: center center;
-    mask-image: radial-gradient(circle at center, black 10%, transparent 70%);
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      black 10%,
-      transparent 70%
-    );
+    background-image: 
+      linear-gradient(var(--border-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.6;
+    mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
   }
 
+  /* Soft breathing ambient glow */
   body::after {
     content: '';
-    /* Standard CSS Animation instead of @apply */
-    animation: solar-breathe 10s ease-in-out infinite;
-    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-           w-[80vw] h-[80vw] max-w-250 max-h-250
-           bg-radial from-(--text-secondary)/20 via-(--text-tertiary) to-transparent 
-           blur-[120px] rounded-full -z-40 pointer-events-none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    height: 85vw;
+    max-width: 900px;
+    max-height: 900px;
+    background: radial-gradient(
+      circle,
+      var(--text-secondary) 0%,
+      transparent 70%
+    );
+    opacity: 0.12;
+    filter: blur(140px);
+    z-index: -40;
+    pointer-events: none;
+    animation: solar-breathe 18s ease-in-out infinite;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold tracking-tight text-(--text-primary) leading-tight;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tighter leading-tight text-(--text-primary);
   }
 }
 
 /* ==========================================================================
-   3. Interactive Components
+   3. Components
    ========================================================================== */
+
 @layer components {
-  .nav-link {
-    @apply inline-block text-xl px-3 py-2 text-(--text-primary) 
-            font-medium transition-all duration-300  cursor-pointer;
-  }
-
-  .nav-link:hover {
-    @apply text-(--text-secondary) bg-white/5 scale-105;
-  }
-
+  /* Navigation - more relaxed hover */
+  .nav-link,
   .nav-item {
-    @apply inline-block text-lg px-3 py-2 text-(--text-primary) 
-            font-medium transition-all duration-300  cursor-pointer;
+    @apply inline-block px-4 py-2.5 text-lg font-medium 
+           text-(--text-primary) transition-all duration-300 ease-out;
   }
 
+  .nav-link:hover,
   .nav-item:hover {
-    @apply text-(--text-secondary) bg-white/5 scale-105;
+    @apply text-(--text-secondary) scale-[1.04];
+    letter-spacing: 0.025em;
   }
 
+  /* Primary Button - softer, more inviting */
   .btn-primary {
     @apply relative overflow-hidden inline-flex items-center justify-center
-           border border-(--text-primary) text-(--text-primary) 
-           px-8 py-3 font-bold tracking-widest uppercase text-xs
-           transition-all duration-500 z-10 cursor-pointer;
+           border border-(--text-primary) text-(--text-primary)
+           px-8 py-3.5 font-semibold tracking-wider text-sm uppercase
+           transition-all duration-500 ease-out cursor-pointer;
   }
 
   .btn-primary::after {
     content: '';
-    @apply absolute inset-0 bg-(--text-primary) -z-10 
+    @apply absolute inset-0 bg-(--text-primary) -z-10
            translate-y-full transition-transform duration-500 ease-out;
   }
 
   .btn-primary:hover {
-    @apply text-(--bg-primary) shadow-[0_0_30px_rgba(255,209,102,0.4)] scale-105;
+    @apply text-(--text-secondary) shadow-[0_0_40px_rgba(255,107,53,0.35)] scale-105;
   }
 
   .btn-primary:hover::after {
-    @apply translate-y-0;
+    transform: translateY(0);
   }
 
+  /* Secondary Button */
   .btn-secondary {
-    @apply border border-(--text-secondary) text-(--text-secondary) px-6 py-3  transition-all duration-300 cursor-pointer;
+    @apply border border-[var(--text-secondary)] text-[var(--text-secondary)]
+           px-7 py-3 font-medium transition-all duration-300 cursor-pointer;
   }
 
   .btn-secondary:hover {
-    @apply hover:bg-(--text-secondary)/10 hover:shadow-[0_0_20px_rgba(79,131,202,0.4)]
-hover:scale-105;
+    @apply bg-(--text-secondary)/10 
+           shadow-[0_0_25px_rgba(255,107,53,0.25)] 
+           scale-[1.03];
   }
 
+  /* Relaxed Cards */
   .cards {
-    @apply relative h-full flex flex-col p-8 
-           bg-white/1 backdrop-blur-sm
-           border border-white/5 
+    @apply relative flex flex-col p-8
+           bg-white/5 dark:bg-white/[0.015] backdrop-blur-md
+           border border-(--border)
            transition-all duration-700 ease-out
-           hover:bg-(--text-primary)/5
-           hover:border-(--text-primary)/30
-           hover:shadow-[0_0_50px_rgba(255,209,102,0.1)]
+           hover:-translate-y-1 hover:shadow-2xl
+           hover:border-(--text-primary)/20
            cursor-pointer;
   }
 
   .cards::before {
     content: '';
-    @apply absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 bg-radial from-(--text-secondary)/10 to-transparent pointer-events-none;
+    @apply absolute inset-0  opacity-0 transition-opacity duration-700
+           bg-linear-to-br from-(--text-secondary)/10 to-transparent;
   }
 
   .cards:hover::before {
-    @apply opacity-100;
+    opacity: 1;
   }
 }
 
 /* ==========================================================================
-  6. Typography Definitions
+   4. Typography
    ========================================================================== */
 
 @layer components {
-  /* <Hero> <ServiceList> <About> <Team> <Contacts> */
-  .text-primary {
-    @apply bg-linear-to-b from-(--text-primary) to-(--text-secondary)
-           bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,107,53,0.3)]
-           text-4xl md:text-6xl font-black tracking-tighter;
+  .text-title {
+    @apply text-(--text-primary) text-4xl md:text-6xl tracking-[-0.04em];
+           
   }
-  /* <Hero> <ServiceList> <About> <Team> <Contacts> */
-  .text-secondary {
-    @apply text-2xl md:text-5xl font-bold text-(--text-secondary) tracking-tight;
+
+  .text-subtitle {
+    @apply text-3xl md:text-5xl font-semibold tracking-tight text-(--text-secondary);
   }
-  /*<About> <Team>*/
+
   .text-lead {
-    @apply text-xl text-gray-300 leading-relaxed mb-4;
+    @apply text-2xl leading-relaxed text-(--text-primary)/90;
   }
-  /*<About> <Team>*/
+
   .text-body {
-    @apply text-base text-gray-400 leading-normal;
+    @apply text-lg leading-relaxed text-(--text-primary)/80;
   }
-  /* <ContactInfo> <Team> */
+
   .text-microcopy {
-    @apply text-sm italic text-gray-500;
+    @apply text-xs tracking-widest uppercase text-(--text-primary)/50 font-medium;
   }
 
   .text-quote {
-    @apply p-4 border-l-4 border-(--secondary) bg-white/5 text-(--text-secondary) font-medium;
+    @apply p-6 border-l-4 border-(--text-secondary)/60 
+           bg-white/5 dark:bg-white/2 text-(--text-secondary)/90;
   }
-  /* <ServiceList> */
+
   .text-text-card-primary {
-    @apply text-2xl font-semibold mb-3 text-(--text-primary) group-hover:text-(--secondary) transition-colors;
+    @apply text-2xl font-semibold text-[var(--text-primary)] 
+           group-hover:text-[var(--text-secondary)] transition-colors;
   }
+
   .text-card-secondary {
-    @apply text-(--text-secondary) leading-relaxed;
-  }
-  .text-error {
-    @apply text-red-400 dark:text-red-500;
-  }
-  .text-success {
-    @apply text-green-400 dark:text-green-500;
+    @apply text-[var(--text-primary)]/80 leading-relaxed;
   }
 }
 
 /* ==========================================================================
-  6. Input Definitions
+   5. Forms
    ========================================================================== */
 
 @layer components {
   .form-label {
-    @apply text-xs font-black uppercase tracking-[0.2em] text-(--tertiary) mb-2 block;
+    @apply block text-xs font-bold uppercase tracking-[0.125em] 
+           text-[var(--text-primary)]/70 mb-2;
   }
 
   .form-input {
-    @apply w-full bg-(--bg-tertiary) border border-(--border) rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 transition-all duration-200;
+    @apply w-full bg-[var(--bg-tertiary)] border border-[var(--border)]
+           rounded-2xl px-5 py-3.5 text-[var(--text-primary)]
+           placeholder:text-[var(--text-primary)]/40
+           transition-all duration-300 focus:outline-none;
   }
 
   .form-input:focus {
-    @apply border-(--secondary) ring-2 ring-(--secondary)/40 shadow-[0_0_20px_rgba(79,131,202,0.3)];
+    @apply border-[var(--text-secondary)] 
+           shadow-[0_0_0_4px_rgba(255,107,53,0.15)];
   }
 
   .form-input-error {
-    @apply border-red-500 focus:border-red-500 focus:ring-red-500/40;
+    @apply border-red-500 focus:border-red-500 focus:ring-red-500/30;
   }
 
-  .form-helper {
-    @apply mt-1.5 text-xs text-gray-400;
+  .form-helper,
+  .form-error-msg {
+    @apply mt-1.5 text-xs;
   }
 
   .form-error-msg {
-    @apply mt-1.5 text-xs text-red-400;
+    @apply text-red-400;
   }
 }
 
 /* ==========================================================================
-   4. Utilities
+   6. Utilities & Animations
    ========================================================================== */
+
 @layer utilities {
   .reveal {
-    @apply opacity-0 translate-y-5;
-    animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal-up 0.9s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   }
 }
 
-/* Keyframes - Standard CSS */
+/* Relaxed animations */
 @keyframes solar-breathe {
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.7;
+    opacity: 0.12;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.15);
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.18;
   }
 }
 
@@ -283,4 +297,5 @@ hover:scale-105;
   }
 }
 
+/* Dark variant helper */
 @custom-variant dark (&:is(.dark *));
