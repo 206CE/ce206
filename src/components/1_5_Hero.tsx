@@ -28,7 +28,7 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className={`${className}`}>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-4">
         {/* Optional image display */}
         <div className="flex justify-center">
           {imgSrc && (
@@ -44,6 +44,7 @@ export function Hero({
             </div>
           )}
         </div>
+
         <h1 className="text-title">{title}</h1>
 
         {subtitle && <h2 className="text-subtitle">{subtitle}</h2>}

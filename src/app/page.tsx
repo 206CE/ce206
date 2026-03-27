@@ -1,30 +1,20 @@
-import { Section } from '@/components';
-import Image from 'next/image';
-import Link from 'next/link';
+import {Hero} from '@/components';
+
 
 export default function Home() {
   return (
-    <div className=''>
-      <main className=' '>
-        <Section
-          className='flex-col text-center space-y-5'
+    <div className='sm:text-hook text-md'>
+      <main className=''>
+        <Hero
           title='CE_206'
           subtitle='Simplify Everything'
-        >
-          <Image
-            className='mx-auto'
-            src='/hero-1920-1080.webp'
-            alt='Logo of ce206 company'
-            width={1900}
-            height={1900}
-            priority
-          />
-
-          <Link className='btn-primary' href='/contact'>
-            Contact Us
-          </Link>
-        </Section>
+          ctas={[{ label: 'Contact', href: '/contact' }]}
+          imgSrc='/Logo_256.webp'
+          imgAlt='Company Logo'
+          imgSize={256}
+        />
       </main>
+
     </div>
   );
 }

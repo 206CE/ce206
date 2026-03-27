@@ -2,9 +2,9 @@
 import Link from 'next/link';
 
 interface NavItem {
-  label:string;
-  href:string;
-  
+  label: string;
+  href: string;
+  children?: NavItem[];
 }
 
 export function DesktopMenu({ items = [] }: { items: NavItem[] }) {

@@ -68,10 +68,10 @@ useEffect(() => {
   return (
     <section className='py-8 lg:py-16 px-4 mx-auto max-w-2xl'>
       <div className='text-center mb-8 lg:mb-12'>
-        <h2 className='text-primary'>
+        <h2 className='text-title'>
           Contact Us
         </h2>
-        <p className='text-secondary'>
+        <p className='text-subtitle'>
           Have a question? 
         </p>
       </div>
