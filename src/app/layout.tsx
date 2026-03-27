@@ -4,59 +4,11 @@ import '@/app/globals.css';
 
 
 
-/* SEO */ 
-import type { Metadata } from 'next';
+/* SEO */
+import { siteMetadata, siteViewport } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: '206_CE Services - Best Websites in Potchefstroom',
-  description:
-    'We cultivate and enhance your business and your people to improve performance on all levels.',
-  keywords: [
-    'Websites',
-    'web development',
-    'next.js',
-    'South Africa',
-    'seo',
-    'tutoring',
-    'services',
-    'service management',
-  ],
-  authors: [{ name: 'Jaco Botha' }],
-  openGraph: {
-    title: '206_CE Services',
-    description:
-      'We make your company digitally efficient, become our partner.',
-    url: 'https://ce206.vercel.app/',
-    siteName: '206_CE',
-    images: [
-      {
-        url: '/public/og_1200_630.webp',
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: 'en_ZA',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: '206_CE',
-    description:
-      'We improve services, digital presence and increase employee production.',
-    images: '/public/og_1200_630.webp',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-};
+export const metadata = siteMetadata;
+export const viewport = siteViewport;
 
 /* FONT (1) */
 import localFont from 'next/font/local';
