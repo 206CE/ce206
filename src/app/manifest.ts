@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Digital efficiency and web development services.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0a0a10', // Match your --bg-primary
-    theme_color: '#ffd166', // Match your --primary
+    background_color: 'oklch(0.97 0 360)', // Match your --bg-primary
+    theme_color: 'oklch(0.55 0 360)', // Match your --primary
     icons: [
       {
         src: '/favicon.ico',
