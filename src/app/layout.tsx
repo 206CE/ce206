@@ -19,7 +19,7 @@ export const myCustomFont = localFont({src: '../../public/fonts/Audiowide/Audiow
 
 import { Logo, DesktopMenu, MobileMenu, CopyRight } from '@/components';
 
-const NavItems = [
+const NavItem = [
   
     { label: 'HOME', href: '/' },
     { label: 'SERVICES', href: '/services' },
@@ -46,8 +46,8 @@ export default async function RootLayout({
             imgSize={30}
           />
           <div className=''>
-            <DesktopMenu items={NavItems} />
-            <MobileMenu items={NavItems} />
+            <DesktopMenu items={NavItem} />
+            <MobileMenu items={NavItem} />
           </div>
 
         </div>
