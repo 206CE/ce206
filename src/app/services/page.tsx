@@ -1,45 +1,45 @@
-import { ServiceList } from "@/components/ServiceList";
+import { Section, CardList } from '@/components';
 
 export const metadata = {
   title: 'The services we offer',
-}
+};
 
 export default function Services() {
   return (
     <section>
-      <div className=''>
-        <ServiceList
-          heading='Our Service Offerings'
-          subheading='Services Simplified'
-          itemStyle=''
-          services={[
+      <Section title='Our service Offerings' subtitle='Services Simplified'>
+        <CardList
+        className='grid grid-cols-3 gap-3'
+          items={[
             {
+              id: 1,
               title: 'Website Development',
+              subtitle: '',
               description:
                 'From basic to advanced websites custom built with added Content Management Systems that Users can update themselves.',
-              imgUrl: '/services/Web_Development_800.webp',
+              imgSrc: '/services/Web_Development_800.webp',
               imgSize: 200,
-              link: '/',
+              href: '/',
             },
             {
+              id: 2,
               title: 'Service Management',
               description: 'We manage your services to retain clients.',
-              imgUrl: '/services/Service_Management_800.webp',
+              imgSrc: '/services/Service_Management_800.webp',
               imgSize: 200,
-              link: '/',
+              href: '/',
             },
             {
+              id: 3,
               title: 'Training & Tutoring',
               description: 'We teach and train anyone who needs to excel',
-              imgUrl: '/services/Training_Learning_800.webp',
+              imgSrc: '/services/Training_Learning_800.webp',
               imgSize: 200,
-              link: '/',
+              href: '/',
             },
           ]}
-          layout='grid'
-          columns={3}
         />
-      </div>
+      </Section>
     </section>
   );
 }
