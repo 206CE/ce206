@@ -2,6 +2,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+interface NavItem {
+  label: string;
+  href: string;
+}
+
 export function MobileMenu({ items = [] }: { items: NavItem[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
