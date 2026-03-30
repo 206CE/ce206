@@ -32,7 +32,7 @@ export const siteMetadata: Metadata = {
     siteName: '206_CE',
     images: [
       {
-        url: '/og_1200_630.webp', // Removed /public/ as Next.js handles this automatically
+        url: '/hero-356_197.webp', // Removed /public/ as Next.js handles this automatically
         width: 1200,
         height: 630,
       },
