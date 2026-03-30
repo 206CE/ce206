@@ -1,5 +1,5 @@
-import {Hero} from '@/components';
-
+import {Hero } from '@/components';
+import ServicesP from '@/app/services/page';
 
 export default function Home() {
   return (
@@ -9,12 +9,10 @@ export default function Home() {
           title='CE_206'
           subtitle='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
-          imgSrc='/Logo_256.webp'
-          imgAlt='Company Logo'
-          imgSize={256}
+
         />
       </main>
-
+      <ServicesP />
     </div>
   );
 }

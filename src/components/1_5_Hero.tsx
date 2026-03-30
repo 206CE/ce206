@@ -28,7 +28,7 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className={`${className}`}>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center text-center gap-4">
         {/* Optional image display */}
         <div className="flex justify-center">
           {imgSrc && (
@@ -52,7 +52,7 @@ export function Hero({
           {ctas.map((cta, idx) => (
             <li
               key={idx}
-              className="btn-primary"
+              className="btn-primary mb-4"
             >
               <Link href={cta.href || "/"}>{cta.label}</Link>
             </li>

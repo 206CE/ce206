@@ -4,17 +4,17 @@ export const metadata = {
   title: 'The services we offer',
 };
 
-export default function Services() {
+export default function ServicesP() {
   return (
     <section>
       <Section title='Our service Offerings' subtitle='Services Simplified'>
         <CardList
-        className='grid grid-cols-3 gap-3'
+        className='grid md:grid-cols-3 gap-3 grid-cols-1'
           items={[
             {
               id: 1,
-              title: 'Website Development',
-              subtitle: '',
+              title: 'Software Development',
+              subtitle: 'Websites, Apps.',
               description:
                 'From basic to advanced websites custom built with added Content Management Systems that Users can update themselves.',
               imgSrc: '/services/Web_Development_800.webp',
