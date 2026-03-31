@@ -23,16 +23,7 @@ interface CardListProps {
 }
 
 export function CardList({
-  className = '',
-  items = [
-    {
-      id: 1,
-      title: 'text-card-primary',
-      subtitle: 'text-card-secondary',
-      description: ['text-body'],
-      imgSrc: '',
-    },
-  ],
+  className = '', items=[],
 }: CardListProps) {
   return (
     <div className={className}>
@@ -46,7 +37,7 @@ export function CardList({
               <div className='mb-4 overflow-hidden'>
                 <Image
                   src={item.imgSrc}
-                  alt={item.title || ''}
+                  alt={`Picture of ${item.title || 'Unknown Person'}`}
                   width={item.imgSize || 80}
                   height={item.imgSize || 80}
                   className='object-cover'

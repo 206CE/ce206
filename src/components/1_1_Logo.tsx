@@ -30,7 +30,7 @@ export function Logo({
             style={{ width: imgSize, height: imgSize }}
             priority
           />
-          <span className="sm:hidden lg:block">{text}</span>
+          <span className="sm:hidden lg:block ">{text}</span>
         </div>
       </Link>
     </div>

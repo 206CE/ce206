@@ -1,13 +1,7 @@
-/**
- *
- */
-
 /* CSS */
 import '@/app/globals.css';
 import { ThemeProvider } from 'next-themes';
 /* auth0 
-import { Profile } from '@/components';
-*/
 
 /* SEO */
 import { siteMetadata, siteViewport } from '@/lib/metadata';
@@ -29,7 +23,6 @@ import {
   DesktopMenu,
   MobileMenu,
   ThemeToggle,
-  Profile,
 } from '@/components';
 
 /* FOOTER*/
@@ -90,12 +83,11 @@ export default async function RootLayout({
           enableSystem={false}
         >
           <div className='mb-20' />
-          <div className='fixed left-0 top-0  bg-(--bg-primary) border-(--border) border-b-2 w-full '>
+          <div className='fixed left-0 top-0  bg-(--bg-primary) border-(--border) border-b-2 w-full pb-1'>
             <div className=' flex w-full justify-between items-center gap-3 pt-2 pl-2 '>
-              <Logo text='CE_206' imgPath='/new_logo.svg' imgSize={45} />
+              <Logo text='CE_206' imgPath='/ArchesLogo.svg' imgSize={45} />
               <DesktopMenu items={navItems} />
               <MobileMenu items={navItems} />
-              <Profile />
 
               <ThemeToggle />
             </div>

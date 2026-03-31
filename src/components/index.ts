@@ -1,6 +1,6 @@
 export { Logo } from './1_1_Logo';
-export {DesktopMenu} from './1_2_DesktopMenu';
-export {MobileMenu} from './1_3_MobileMenu';
+export { DesktopMenu } from './1_2_DesktopMenu';
+export { MobileMenu } from './1_3_MobileMenu';
 export { Social } from './2_2_Social';
 export { CopyRight } from './1_4_CopyRight';
 export { Hero } from './1_5_Hero';

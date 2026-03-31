@@ -9,9 +9,9 @@ export default function Home() {
           title='CE_206'
           subtitle='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
-          imgSrc='/Logo_256.webp'
-          imgAlt='Company Logo'
-          imgSize={256}
+          imgSrc='/hero-1920-1080.webp'
+          imgAlt='A burning Star'
+          imgSize={500}
         />
       </main>
 

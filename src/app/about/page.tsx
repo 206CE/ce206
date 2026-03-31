@@ -1,4 +1,4 @@
-import { About, Section, CardList, Navigation } from '@/components';
+import { About, Section, CardList} from '@/components';
 
 export const metadata = {
   title: 'About Us',
@@ -17,14 +17,6 @@ const people = [
 export default function AboutP() {
   return (
     <section className=''>
-      <Navigation
-        items={[
-          { label: 'CAREER', href: '/about/career' },
-          { label: 'CULTURE', href: '/about/culture' },
-          { label: 'PHILOSOPHY', href: '/about/philosophy' },
-          { label: 'BIOGRAPHY', href: '/about/biography' },
-        ]}
-      />
       <Section
         className='flex flex-col items-center'
         title='CE_206'

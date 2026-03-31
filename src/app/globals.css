@@ -15,12 +15,7 @@
   --text-accent: #4f83ca;
 
   --border: #aaaaaa;
-  --border-soft: rgba(170, 170, 170, 0.3);
 
-  --selection-bg: rgba(255, 107, 53, 0.25);
-
-  /* Relaxed glow */
-  --glow-color: var(--text-secondary);
 }
 
 [data-theme='dark'] {
@@ -34,11 +29,6 @@
   --text-accent: #4f83ca;
 
   --border: rgba(255, 209, 102, 0.08);
-  --border-soft: rgba(255, 209, 102, 0.04);
-
-  --selection-bg: rgba(255, 107, 53, 0.3);
-
-  --glow-color: var(--text-secondary);
 }
 
 /* ==========================================================================
@@ -70,10 +60,10 @@
   }
 
   body {
-    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] 
-           min-h-screen overflow-x-hidden relative;
+    @apply  text-(--text-primary) min-h-screen overflow-x-hidden relative bg-[url('/background.svg')] bg-fixed bg-no-repeat ;
     font-feature-settings: "kern" 1, "liga" 1;
   }
+
 
   /* Subtle grid texture - more relaxed */
   body::before {
@@ -157,7 +147,7 @@
 
   /* Secondary Button */
   .btn-secondary {
-    @apply border border-[var(--text-secondary)] text-[var(--text-secondary)]
+    @apply border border-(--text-secondary) text-(--text-secondary)
            px-7 py-3 font-medium transition-all duration-300 cursor-pointer;
   }
 
@@ -170,7 +160,7 @@
   /* Relaxed Cards */
   .cards {
     @apply relative flex flex-col p-8
-           bg-white/5 dark:bg-white/[0.015] backdrop-blur-md
+           bg-white/5 dark:bg-white/1.5 backdrop-blur-md
            border border-(--border)
            transition-all duration-700 ease-out
            hover:-translate-y-1 hover:shadow-2xl
@@ -221,12 +211,12 @@
   }
 
   .text-text-card-primary {
-    @apply text-2xl font-semibold text-[var(--text-primary)] 
-           group-hover:text-[var(--text-secondary)] transition-colors;
+    @apply text-2xl font-semibold text-(--text-primary) 
+           group-hover:text-(--text-secondary) transition-colors;
   }
 
   .text-card-secondary {
-    @apply text-[var(--text-primary)]/80 leading-relaxed;
+    @apply text-(--text-primary)/80 leading-relaxed;
   }
 }
 
@@ -235,34 +225,76 @@
    ========================================================================== */
 
 @layer components {
+  /* Existing Labels */
   .form-label {
     @apply block text-xs font-bold uppercase tracking-[0.125em] 
-           text-[var(--text-primary)]/70 mb-2;
+           text-(--text-primary)/70 mb-2;
   }
 
-  .form-input {
-    @apply w-full bg-[var(--bg-tertiary)] border border-[var(--border)]
-           rounded-2xl px-5 py-3.5 text-[var(--text-primary)]
-           placeholder:text-[var(--text-primary)]/40
+  /* Base Input Style (Shared by Text, Password, Email, etc.) */
+  .form-input,
+  .form-textarea,
+  .form-select {
+    @apply w-full bg-(--bg-tertiary) border border-(--border)
+           rounded-2xl px-5 py-3.5 text-(--text-primary)
+           placeholder:text-(--text-primary)/40
            transition-all duration-300 focus:outline-none;
   }
 
-  .form-input:focus {
-    @apply border-[var(--text-secondary)] 
+  .form-input:focus,
+  .form-textarea:focus,
+  .form-select:focus {
+    @apply border-(--text-secondary) 
            shadow-[0_0_0_4px_rgba(255,107,53,0.15)];
   }
 
-  .form-input-error {
-    @apply border-red-500 focus:border-red-500 focus:ring-red-500/30;
+  /* Textarea Specifics */
+  .form-textarea {
+    @apply min-h-30 resize-y leading-relaxed;
   }
 
+  /* Select Specifics (Custom Chevron) */
+  .form-select {
+    @apply appearance-none pr-12 cursor-pointer;
+    /* This adds a simple SVG chevron via background */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.25rem center;
+    background-size: 1rem;
+  }
+
+  /* Checkbox & Radio (Customized native elements) */
+  .form-checkbox,
+  .form-radio {
+    @apply h-5 w-5 bg-(--bg-tertiary) border-(--border)
+           text-(--text-secondary) rounded-lg transition-all duration-300
+           focus:ring-2 focus:ring-(--text-secondary)/20 focus:ring-offset-0;
+  }
+
+  .form-radio {
+    @apply rounded-full;
+  }
+
+  /* Error States */
+  .form-input-error,
+  .form-textarea-error,
+  .form-select-error {
+    @apply border-red-500/50 focus:border-red-500 focus:shadow-[0_0_0_4px_rgba(239,68,68,0.15)];
+  }
+
+  /* Messaging */
   .form-helper,
   .form-error-msg {
     @apply mt-1.5 text-xs;
   }
 
   .form-error-msg {
-    @apply text-red-400;
+    @apply text-red-400 font-medium;
+  }
+
+  /* Field Container for Spacing */
+  .form-group {
+    @apply mb-6;
   }
 }
 
