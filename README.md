@@ -1,46 +1,90 @@
-Planning Phase
+Checklist:
+    Alpha                       
 
-Situation Analisis: Vission, Goal, Mission, Service Portfolio, Org. Personality
-
-Branding:   Core, Definitions, Personality, Voice
-
-Proposal:   Change Enablement, Audiance Alignment, Hosting, Costs, Competetor Analisis
-
-Building:
-
-<Font>  
-<Logo> 
-<Navigation>  
-<Copyright>
-<Contacts>
-
-/
-<Hero>                                              
-/services
-<ServiceList>                                       //Responsiveness failed
-/about
-<Team>
-<About>
-/contact
-<Contacts>
-/globals Navi-Inter.css                             
-
-/app icon.ico (32png) 
-/app apple-icon.ico (180png)  
-/app icon512.ico (512png)  
-/public hero-1920-1080.webp < 300KiB
-
-<Responsive 320, 360> 
-    <Contacts> Send successful toast? 
-    <ServiceList>
-
-<Responsive 370, 380> 
-<Responsive 390, 414, 480>
+/1 Colors
+    --bg-primary                                                        --bg-primary
+    --bg-secondary                                                      --bg-secondary
+    --bg-tertiary                                                       --bg-tertiary
+    --text-primary                                                      --text-primary
+    --text-secondary                                                    --text-secondary
+    --text-tertiary                                                     --text-tertiary
+    --border                                                            --border
 
 
+/2 Base
+    body bg-(--bg-primary)          bg-[url('background-dark.svg)]      Animated Background
+                                    bg-[url('background-light.svg)]
 
-WARNINGS:
-    metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase.
 
-<BUILD: Alpha> <BUGS: 0|3>
+3/ Interaction
+    .nav-link                       btn-secondary
+    .nav-item
+    .btn-primary
+    .cards
+
+4/ Typography
+    .text-title                     .text-lead
+    .text-subtitle                  .text-quote
+    .text-body
+    .text-error
+    .text-success
+
+5/ Inputs
+    .form-label                     .form-*
+    .form-input
+    .form-textarea
+
+6/Utilities
+    .animation_1                    .animation_3        .animation_4
+    .animation_2
+
+Font
+    linked google font              Local Font          2x Fonts        Custom Icons
+
+SEO
+    /lib/metadata.ts                Alignment
+                                    /og-1200-630.png
+    sitemap.ts
+    manifest.ts
+    
+
+Header
+    /favicon.ico (32svg)            <Profile>           <Search>
+    /icon.ico (32png)               /proxy.ts 
+    <Logo>                          /lib/auth0.ts
+    <Navigation>                                        <ThemeToggle>
+
+Footer
+    <CopyRight>                     <Social>            <TCs>           <AIChat>
+
+Main
+    <Hero>                          /hero-1920-1080.webp < 300 KiB  
+
+Services
+    <Section> 
+    <CardList>
+    /service/service-800.webp
+
+About
+    <About>                         <CardList> Team
+
+
+
+Contact
+    WPI Key
+    <Contacts>
+
+Testing
+    320
+    414
+    480
+    sm(640)
+    800
+    900
+    lg(1024)
+    xl(1280)
+    Accessibility
+
+
+Beta Checklist
 

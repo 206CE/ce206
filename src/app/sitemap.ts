@@ -12,14 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     /* About/service sections */
     {
-      url: baseUrl,
+      url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     /* Blogs etc. */
     {
-      url: baseUrl,
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
