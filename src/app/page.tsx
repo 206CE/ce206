@@ -8,12 +8,12 @@ export default function Home() {
           title='CE_206'
           subtitle='Simplify Everything'
           ctas={[{ label: 'Contact', href: '/contact' }]}
-          imgSrc='/hero-352_197.webp'
-          imgSize={200}
+          imgSrc='/ArchesLogo.svg'
+          imgSize={300}
           imgAlt='A burning Star'
         />
       </main>
-      <ServicesP />
+
     </div>
   );
 }

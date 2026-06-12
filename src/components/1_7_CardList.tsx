@@ -14,7 +14,7 @@ export interface GridItem {
   icon?: ReactNode;
   imgSrc?: string;
   imgSize?: number;
-  href?: string;
+  href: string;
 }
 
 interface CardListProps {
@@ -31,6 +31,7 @@ export function CardList({
       subtitle: 'text-card-secondary',
       description: ['text-body'],
       imgSrc: '',
+      href:'/',
     },
   ],
 }: CardListProps) {
@@ -83,21 +84,25 @@ export function CardList({
                 )}
               </div>
             )}
-          </div>
+          </div>    
         );
 
         return (
-          <article key={item.id || idx} className='cards group w-full'>
-            {item.href ? (
-              <Link href={item.href} className='w-full'>
-                {content}
+          item.href ? (
+              <Link key={item.id} href={item.href} className=' w-full'>
+                <article key={item.id || idx} className='cards group w-full'>
+                  {content}
+                </article>
               </Link>
             ) : (
-              content
-            )}
-          </article>
+              <article key={item.id || idx} className='cards group w-full'>
+            
+                {content}
+              </article>
+                      )
+          
         );
       })}
-    </div>
+</div>
   );
 }

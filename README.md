@@ -25,9 +25,11 @@ Checklist:
 4/ Typography
     .text-title                     .text-lead
     .text-subtitle                  .text-quote
+    .text-lead                      .text-error
+    .text-card-primary              .text-success
+    .text-card-secondary
     .text-body
-    .text-error
-    .text-success
+    
 
 5/ Inputs
     .form-label                     .form-*

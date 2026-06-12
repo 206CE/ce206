@@ -13,7 +13,7 @@ interface SectionProps {
 export function Section({className = '', title = 'text-title', subtitle = 'text-subtitle', children}:SectionProps) {
     return (
       <section
-        className={`flex-col text-center p-4 m-3 border-border border-2 ${className}`}
+        className={`flex-col text-center p-4 m-3 ${className}`}
       >
         <h1 className='text-title mb-5'>{title}</h1>
         <h2 className='text-subtitle mb-5'>{subtitle}</h2>
