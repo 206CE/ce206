@@ -3,7 +3,7 @@
 interface ListItem {
   title?: string;
   description?: string;
-  list?: string | string[];
+  list?: string[];
 }
 
 // 2. Define the Props that the List component expects

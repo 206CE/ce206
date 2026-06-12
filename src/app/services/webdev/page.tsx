@@ -1,5 +1,5 @@
 import { Section } from '@/components';
-import { List } from '@/app/services/webdev/Listcomp.tsx';
+import { List } from '@/components/Listcomp';
 
 const listItems = [
   {
