@@ -18,7 +18,7 @@ export default function ServicesP() {
               description: 'We teach and train anyone who needs to excel',
               imgSrc: '/services/Training_Learning_800.webp',
               imgSize: 200,
-              href: '/services/training',
+              href: '/',
             },
             {
               id: 1,
@@ -28,7 +28,7 @@ export default function ServicesP() {
                 'From basic to advanced websites custom built with added Content Management Systems that Users can update themselves.',
               imgSrc: '/services/Web_Development_800.webp',
               imgSize: 200,
-              href: '/services/webdev',
+              href: '/',
             },
             {
               id: 2,
@@ -36,7 +36,7 @@ export default function ServicesP() {
               description: 'We manage your services to retain clients.',
               imgSrc: '/services/Service_Management_800.webp',
               imgSize: 200,
-              href: '/services/serman',
+              href: '/',
             },
           ]}
         />
