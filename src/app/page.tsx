@@ -10,7 +10,7 @@ export default function Home() {
           ctas={[{ label: 'Contact', href: '/contact' }]}
           imgSrc='/ArchesLogo.svg'
           imgSize={300}
-          imgAlt='A burning Star'
+          imgAlt='Ce206 Logo'
         />
       </main>
 

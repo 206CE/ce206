@@ -77,7 +77,7 @@ export function About({
       {/* Core Values */}
       <section className="max-w-4xl mx-auto px-6 py-10">
         <h3 className="text-subtitle">Our Core Values</h3>
-        <ul className="lg:list-disc space-y-3 mt-10">
+        <ul className="list-inside lg:list-disc space-y-3 mt-10">
           {values.map((value, index) => (
             <li
               className="text-lead"

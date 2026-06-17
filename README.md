@@ -23,7 +23,7 @@ Checklist:
     .cards
 
 4/ Typography
-    .text-title                     .text-lead
+    .text-title                     
     .text-subtitle                  .text-quote
     .text-lead                      .text-error
     .text-card-primary              .text-success
@@ -54,7 +54,8 @@ Header
     /favicon.ico (32svg)            <Profile>           <Search>
     /icon.ico (32png)               /proxy.ts 
     <Logo>                          /lib/auth0.ts
-    <Navigation>                                        <ThemeToggle>
+    <DesktopMenu>                                        <ThemeToggle>
+    <MobileMenu>
 
 Footer
     <CopyRight>                     <Social>            <TCs>           <AIChat>

@@ -1,5 +1,5 @@
 import { Section } from '@/components';
-import { List } from '@/components/Listcomp';
+import { List } from '@/components/2_1 Listcomp';
 
 const listItems = [
   {
