@@ -5,21 +5,14 @@
    ============================================*/
 
 :root {
-  //alpha
-  --bg-primary: #0a0a10;    //background
-  --bg-secondary: #12121d;  //surfaces
+  /* alpha */
+  --bg-primary: #0a0a10;                                /*  background  */
+  --bg-secondary: #12121d;                              /*  surfaces  */
   
-  --text-primary: oklch(0.9521 0.0586 95.98);   //titles
-  --text-secondary: oklch(0.7453 0.1504 38.76); //subtitles
-  --text-tertiary: #4f83ca;   //copy
-  --border: rgba(255, 255, 255, 0.171);
-
-  //beta
-  --bg-tertiary: #141523;   //highlighted surface
-
-  --primary: ;
-  --secondary: ;
-  --tertiary: ;
+  --text-primary: oklch(0.9521 0.0586 95.98);           /*  titles  */
+  --text-secondary: oklch(0.7453 0.1504 38.76);         /*  subtitles */
+  --text-tertiary: #4f83ca;                             /*  copy  */
+  --border: rgba(255, 255, 255, 0.171);                 /*  border  */
 
 
 }
@@ -30,22 +23,22 @@
 
 @layer base {
   body {
-    //alpha
+    /* alpha */
     @apply text-(--text-primary) min-h-screen;
     background-color: var(--bg-primary);
   
-    //beta -svg
+    /* beta -svg */
 
-    //charlie -animated
+    /* charlie -animated */
   }
 }
 
 /*================================================
-   4. Typography
+   3. Typography
    ============================================= */
 
 @layer components {
-  //alpha
+  /* alpha */
   .text-title {
     @apply text-(--text-primary) text-4xl md:text-6xl tracking-[-0.04em];
   }
@@ -62,7 +55,8 @@
     @apply text-lg leading-relaxed text-(--text-primary)/80;
   }
 
-  //beta
+  /* beta */
+  
   /* 1 text-hook  Extra bold, tight line spacing 1.1 tracking-tighter*/
 
 /* 2 text- headlines <h1> <h2> <h3> Bold/semibold space above */
@@ -74,10 +68,12 @@
 
 }
 
-//Cards
+/*======================================================================================================
+4. Cards
+=========================================================================================================*/
 
 @layer components {
-  //beta
+  /* beta */
   .text-card-primary {
     @apply text-2xl font-semibold text-(--text-tertiary) 
            group-hover:text-(--text-secondary) transition-colors;
@@ -108,12 +104,12 @@
   }
 
 }
-/*==================================================
-   3. Navigation
-   ============================================= */
+/*=========================================================================================================
+   5. Navigation
+   ===================================================================================================== */
 
 @layer components {
-  //alpha
+  /* alpha */
   .nav-link {
     @apply inline-block px-4 py-2.5 text-lg font-medium 
            text-(--text-primary) transition-all duration-300 ease-out;
@@ -131,11 +127,11 @@
 
 }
 
-/*=========================================================================================================      4. Interaction 
-===============================================================================================================*/
+/*=========================================================================================================      6. Interaction 
+=========================================================================================================*/
 
 @layer components {
-
+  /* alpha */
   .btn-primary {
     @apply  border-(--border) font-bold px-6 py-3  shadow-lg shadow-(--text-primary)/30 hover:shadow-(--text-primary)/50  active:scale-95 transition-all duration-300;
   }
@@ -144,14 +140,18 @@
     @apply scale-105;
   }
 
-  //btn-secondary
-  //btn-ghost
+  /* beta */
+  /*btn-secondary */
+  /*btn-ghost */
 
   
 }
 
 
-/* Animations */
+/*========================================================================================================
+7. Animations 
+========================================================================================================*/
+
 @layer utilities {
   /* Skeleton Loading Pattern */
   .animate-skeleton {
