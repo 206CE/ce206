@@ -38,7 +38,7 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={` ${audiowide.className} antialiased`}>
         <div className='flex items-center gap-3 text-2xl p-2'>
-          <Logo text='CE_206' imgPath='/archlogo.png' imgSize={70} />
+          <Logo text='CE_206' imgPath='/Logo-800.png' imgSize={70} />
           <div className=''>
             <DesktopMenu items={navItems} />
             <MobileMenu items={navItems} />
